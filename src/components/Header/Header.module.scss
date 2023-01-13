@@ -1,0 +1,96 @@
+.header {
+    margin: 1px;
+    position: absolute;
+    width: calc(100vw - 2px);
+    height: 60px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 1px;
+    background: linear-gradient(#111a41, #111a41) 50% 50% / calc(100% - 2px)
+            calc(100% - 2px) no-repeat,
+        linear-gradient(95deg, #00eaf2 0%, #ea00d5 100%);
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+
+    &__logo {
+        cursor: pointer;
+    }
+
+    // .navigation {
+    //     width: 5vw;
+    //     height: 100%;
+    //     img {
+    //         background-color: #1515;
+    //     }
+    //     img:nth-child(2) {
+    //         transform: rotateY(180deg);
+    //     }
+    // }
+
+    &__search {
+        input {
+            width: 30vw;
+            height: 35px;
+            padding: 10px;
+
+            background: linear-gradient(#0a0e20, #0a0e20) 50% 50% /
+                    calc(100% - 2px) calc(100% - 2px) no-repeat,
+                linear-gradient(95deg, #00eaf2 0%, #ea00d5 100%);
+            border: none;
+            color: #fff;
+
+            &::placeholder {
+                color: #fff;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto 0;
+                width: 25px;
+                height: 25px;
+                background: url('../../assets/navbar/search_1.svg') no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+
+        &_dropdowns {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            color: #fff;
+
+            &_item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                &:hover {
+                    cursor: pointer;
+                }
+
+                img {
+                    margin-top: 3px;
+                    width: 15px;
+                }
+            }
+        }
+
+        &_icons {
+            display: flex;
+            gap: 15px;
+        }
+    }
+}

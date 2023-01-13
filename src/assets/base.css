@@ -1,0 +1,203 @@
+:root {
+  --h-header-footer: 168px;
+}
+@media (max-width: 2000px) {
+  :root {
+    --h-header-footer: 115px;
+  }
+}
+@media (max-width: 1600px) {
+  :root {
+    --h-header-footer: 110px;
+  }
+}
+/* color palette from <https://github.com/vuejs/theme> */
+/* :root {
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+
+  --vt-c-black: #181818;
+  --vt-c-black-soft: #222222;
+  --vt-c-black-mute: #282828;
+
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Octosquares-Regular';
+  src: url('@/fonts/TTOctosquares-Regular.eot');
+  src: url('@/fonts/TTOctosquares-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('@/fonts/TTOctosquares-Regular.woff2') format('woff2'),
+    url('@/fonts/TTOctosquares-Regular.woff') format('woff'),
+    url('@/fonts/TTOctosquares-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Octosquares-Medium';
+  src: url('@/fonts/TTOctosquares-Medium.eot');
+  src: url('@/fonts/TTOctosquares-Medium.eot?#iefix')
+      format('embedded-opentype'),
+    url('@/fonts/TTOctosquares-Medium.woff2') format('woff2'),
+    url('@/fonts/TTOctosquares-Medium.woff') format('woff'),
+    url('@/fonts/TTOctosquares-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Octosquares-Light';
+  src: url('@/fonts/TTOctosquares-Light.eot');
+  src: url('@/fonts/TTOctosquares-Light.eot?#iefix') format('embedded-opentype'),
+    url('@/fonts/TTOctosquares-Light.woff2') format('woff2'),
+    url('@/fonts/TTOctosquares-Light.woff') format('woff'),
+    url('@/fonts/TTOctosquares-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Octosquares-Bold';
+  src: url('@/fonts/TTOctosquares-Bold.eot');
+  src: url('@/fonts/TTOctosquares-Bold.eot?#iefix') format('embedded-opentype'),
+    url('@/fonts/TTOctosquares-Bold.woff2') format('woff2'),
+    url('@/fonts/TTOctosquares-Bold.woff') format('woff'),
+    url('@/fonts/TTOctosquares-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Octosquares-DBold';
+  src: url('@/fonts/TTOctosquares-DBold.eot');
+  src: url('@/fonts/TTOctosquares-DBold.eot?#iefix') format('embedded-opentype'),
+    url('@/fonts/TTOctosquares-DBold.woff2') format('woff2'),
+    url('@/fonts/TTOctosquares-DBold.woff') format('woff'),
+    url('@/fonts/TTOctosquares-DBold.ttf') format('truetype');
+}
+
+body {
+  background: url('./background.jpg') no-repeat center center / cover;
+  min-height: 100vh;
+  /* width: 2540px; */
+  width: 100%;
+  font-family: 'Octosquares-Regular';
+  color: #fff;
+  position: relative;
+}
+body.fullscreen {
+  background-image: url('./background.jpg');
+  min-height: 100vh;
+  /* width: 2540px; */
+  width: 100%;
+  font-family: 'Octosquares-Regular';
+  color: #fff;
+  position: relative;
+}
+@media all and (display-mode: fullscreen) {
+  html {
+    background: url('./background.jpg') no-repeat center center / cover;
+    min-height: 100vh;
+    /* width: 2540px; */
+    width: 100%;
+    font-family: 'Octosquares-Regular';
+    color: #fff;
+    position: relative;
+  }
+}
+#app {
+  position: relative;
+  height: 100%;
+  outline: none;
+  max-width: 3000px;
+  margin: 0 auto;
+}
+
+.navbar {
+  position: relative;
+  z-index: 99;
+}
+
+.app {
+  position: relative;
+  z-index: 10;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+input,
+a,
+select,
+button {
+  background: transparent;
+  font-family: 'Octosquares-Medium';
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+}
+
+.gradient-number {
+  font-family: 'Octosquares-Bold';
+  background: linear-gradient(90.24deg, #03e9f2, #d90cda);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+}
+
+.container {
+  margin: 0 auto;
+  width: 2000px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(33, 141, 159, 1) 0%,
+    rgba(92, 99, 163, 1) 50%,
+    rgba(131, 40, 150, 0.8) 100%
+  );
+}

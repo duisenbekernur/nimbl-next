@@ -1,0 +1,34 @@
+<svg width="151" height="67" viewBox="0 0 151 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_ddd_2105_12492)">
+<path d="M18 23.9997C24.8049 25.9149 33.5 39 41.5 39C49.5 39 49 38.4997 65.6309 36.5341C72 35.4997 75.0438 34.3715 79.5 30.4997C83.2891 27.5959 100.5 -3.00113 132.5 12.4997" stroke="url(#paint0_linear_2105_12492)" stroke-opacity="0.8" stroke-width="3.24862" stroke-linecap="round" shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_ddd_2105_12492" x="0.131891" y="0.0183821" width="150.236" height="66.5956" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="9.74587"/>
+<feGaussianBlur stdDeviation="8.12155"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.843137 0 0 0 0 0.0431373 0 0 0 0 0.854902 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2105_12492"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4.87293"/>
+<feGaussianBlur stdDeviation="4.06078"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.843137 0 0 0 0 0.0431373 0 0 0 0 0.854902 0 0 0 0.19 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_2105_12492" result="effect2_dropShadow_2105_12492"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1.62431"/>
+<feGaussianBlur stdDeviation="1.62431"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.843137 0 0 0 0 0.0431373 0 0 0 0 0.854902 0 0 0 0.13 0"/>
+<feBlend mode="normal" in2="effect2_dropShadow_2105_12492" result="effect3_dropShadow_2105_12492"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow_2105_12492" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_2105_12492" x1="28.5" y1="27.0023" x2="90.5" y2="27.0023" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D70BDA"/>
+<stop offset="0.492422" stop-color="#3B65FF"/>
+<stop offset="1" stop-color="#01EAF2"/>
+</linearGradient>
+</defs>
+</svg>
