@@ -12,7 +12,7 @@ const VideoCard = () => {
             <div className={styles.card__preview}>
                 <Image
                     width={290}
-                    height={200}
+                    height={170}
                     src={previewImg}
                     alt="preview"
                 />

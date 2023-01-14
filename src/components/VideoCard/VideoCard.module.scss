@@ -4,14 +4,15 @@
     font-size: 15px;
 
     width: 290px;
+    // height: 320px;
 
     color: #fff;
-    transition: .3s all;
+    transition: 0.5s all;
 
     &:hover {
-        -webkit-box-shadow: 0px 0px 8px 6px var(--main-color-blue);
-        -moz-box-shadow: 0px 0px 8px 6px var(--main-color-blue);
-        box-shadow: 0px 0px 8px 6px var(--main-color-blue);
+        -webkit-box-shadow: 0px 0px 10px 8px rgba(68, 120, 233, 0.5);
+        -moz-box-shadow: 0px 0px 10px 8px rgba(68, 120, 233, 0.5);
+        box-shadow: 0px 0px 10px 8px rgba(68, 120, 233, 0.5);
     }
 
     &__preview {
@@ -36,7 +37,7 @@
                 align-items: center;
                 gap: 8px;
                 font-weight: 400;
-                font-size: 15px;
+                font-size: 13px;
             }
 
             &_info {
@@ -61,6 +62,7 @@
                         var(--main-color-purple) 43%,
                         var(--main-color-pink) 77%
                     );
+                    background-clip: text;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }

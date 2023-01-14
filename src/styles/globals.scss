@@ -11,7 +11,6 @@
     );
 
     --scrollbar-gradient: linear-gradient(
-        90deg,
         var(--main-color-blue),
         var(--main-color-pink)
     );
@@ -82,7 +81,7 @@
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 5px;
 }
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-gradient);

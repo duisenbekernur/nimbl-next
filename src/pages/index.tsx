@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 
 import styles from '@/styles/Home.module.scss'
 
@@ -35,7 +34,6 @@ export default function Home() {
                     </div>
 
                     <div className={styles.content__videos}>
-                        <VideoCard />
                         <VideoCard />
                         <VideoCard />
                         <VideoCard />
