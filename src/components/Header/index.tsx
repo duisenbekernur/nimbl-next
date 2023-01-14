@@ -3,13 +3,13 @@ import styles from './Header.module.scss'
 
 import logoImg from '@/assets/icons/logo.svg'
 import chatImg from '@/assets/icons/chat.svg'
-import arrowImg from '@/assets/icons/arrow_down.svg'
+import arrowImg from '@/assets/icons/arrow-down.svg'
 import avatarImg from '@/assets/icons/profile.svg'
-import arrowLeftImg from '@/assets/icons/back.svg'
-
-const dropdownItems = ['WALLET', 'WLS', 'AIRDROP']
+// import arrowLeftImg from '@/assets/icons/back.svg'
 
 const Header = () => {
+    const dropdownItems = ['WALLET', 'WLS', 'AIRDROP']
+
     return (
         <div className={styles.header}>
             <div className={styles.header__logo}>
@@ -28,7 +28,10 @@ const Header = () => {
             <div className={styles.header__right}>
                 <ul className={styles.header__right_dropdowns}>
                     {dropdownItems.map((item, idx) => (
-                        <li className={styles.header__right_dropdowns_item}>
+                        <li
+                            key={idx}
+                            className={styles.header__right_dropdowns_item}
+                        >
                             {item}
                             <Image
                                 width={20}
@@ -40,7 +43,7 @@ const Header = () => {
                     ))}
                 </ul>
                 <div className={styles.header__right_icons}>
-                    <Image width={40} height={40} src={chatImg} alt="chat" />
+                    <Image width={30} height={30} src={chatImg} alt="chat" />
                     <Image
                         width={45}
                         height={45}

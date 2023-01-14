@@ -1,0 +1,29 @@
+.main {
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: 1.1fr 2fr;
+    column-gap: 1vw;
+
+    .content {
+        display: grid;
+
+        height: 90vh;
+
+        grid-template-rows: 0.8fr 3fr;
+        row-gap: 2vw;
+
+        .dropdowns {
+            max-width: 68vw;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            width: 65vw;
+        }
+    }
+}

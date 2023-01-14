@@ -1,8 +1,4 @@
 :root {
-    --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-        'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-        'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
     --main-color-gray: #0d1429;
     --main-color-pink: #ea00d5;
     --main-color-purple: #3d5eff;
@@ -14,8 +10,11 @@
         var(--main-color-pink)
     );
 
-    --navbar-btn-border: 2px solid var(--main-color-pink) var(--main-color-pink)
-        var(var(--main-color-blue) var(--main-color-pink));
+    --scrollbar-gradient: linear-gradient(
+        90deg,
+        var(--main-color-blue),
+        var(--main-color-pink)
+    );
 }
 
 @font-face {
@@ -80,4 +79,12 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-gradient);
+    border-radius: 6px;
 }

@@ -1,5 +1,13 @@
-const Sidebar = () => {
-  return <div>Sidebar</div>;
-};
+import VideoPlayer from '../VideoPlayer'
+import styles from './MainSidebar.module.scss'
 
-export default Sidebar;
+const Sidebar = () => {
+    return (
+        <div className={styles.sidebar}>
+            <VideoPlayer />
+            <div className={styles.recommends}>dwad</div>
+        </div>
+    )
+}
+
+export default Sidebar

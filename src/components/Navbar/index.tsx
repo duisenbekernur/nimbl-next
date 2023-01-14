@@ -1,14 +1,17 @@
-import styles from "./Navbar.module.scss";
+import { useState } from 'react'
+import styles from './Navbar.module.scss'
 
 const Navbar = () => {
-  return (
-    <ul className={styles.navbar}>
-      <li className={styles.active}>Content</li>
-      <li>Community</li>
-      <li>Marketplace</li>
-      <li>Settings</li>
-    </ul>
-  );
-};
+  const [activeNav, setActiveNav] = useState(0)
+    const navbarItems = ['Content', 'Community', 'Marketplace', 'Settings']
 
-export default Navbar;
+    return (
+        <ul className={styles.navbar}>
+            {navbarItems.map((item, idx) => (
+              <li key={idx} className={idx === activeNav ? styles.active : ''} onClick={() => setActiveNav(idx)}>{item}</li>
+            ))}
+        </ul>
+    )
+}
+
+export default Navbar
