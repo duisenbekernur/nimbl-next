@@ -1,0 +1,57 @@
+.page {
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+    color: rgb(255, 255, 255);
+}
+
+.header {
+    height: 260px;
+    background-image: url('../assets/channel-content/header-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.body {
+    position: relative;
+    z-index: 1;
+    background: url('../assets/background.jpg') no-repeat center center / cover;
+    height: 100%;
+    .container {
+        margin: 0 3.5vw;
+        position: relative;
+        
+      
+        .avatar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 160px;
+            height: 160px;
+            border-style: solid;
+            border-image-slice: 1;
+            border-width: 1px;
+            border-image-source: linear-gradient(
+                90deg,
+                #d375ff 0%,
+                #ffc240 16.43%,
+                #649bff 34.14%,
+                #ffc240 48.72%,
+                #abdd42 62.78%,
+                #07ffff 77.37%,
+                #0f50c7 91.43%,
+                #d375ff 100%
+            );
+            object-fit: cover;
+            display: block;
+            box-sizing: content-box;
+            z-index: 555;
+        }
+    }
+}
