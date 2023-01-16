@@ -10,12 +10,7 @@ const VideoCard = () => {
     return (
         <div className={styles.card}>
             <div className={styles.card__preview}>
-                <Image
-                    width={290}
-                    height={170}
-                    src={previewImg}
-                    alt="preview"
-                />
+                <Image src={previewImg} alt="preview" />
                 <div className={styles.card__preview__bottom}>
                     <div className={styles.card__preview__bottom_title}>
                         <Image src={channelImg} alt="logo" />
