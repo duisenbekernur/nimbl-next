@@ -5,6 +5,7 @@ import logoImg from '@/assets/icons/logo.svg'
 import chatImg from '@/assets/icons/chat.svg'
 import arrowImg from '@/assets/icons/arrow-down.svg'
 import avatarImg from '@/assets/icons/profile.svg'
+import Link from 'next/link'
 // import arrowLeftImg from '@/assets/icons/back.svg'
 
 const Header = () => {
@@ -13,7 +14,9 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.header__logo}>
-                <Image width={150} height={46} src={logoImg} alt="logo" />
+                <Link href='/'>
+                    <Image width={150} height={46} src={logoImg} alt="logo" />
+                </Link>
             </div>
             {/* <div className={styles.navigation}>
                 <Image width={25} height={50} src={arrowLeftImg} alt="back" />

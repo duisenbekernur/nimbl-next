@@ -14,16 +14,18 @@
         row-gap: 2vw;
 
         .dropdowns {
-            max-width: 68vw;
+            width: 68vw;
             display: flex;
             justify-content: space-between;
         }
 
         &__videos {
+            overflow: scroll;
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
-            width: 65vw;
+            gap: 23px;
+            width: 67vw;
+            padding: 5px;
         }
     }
 }
