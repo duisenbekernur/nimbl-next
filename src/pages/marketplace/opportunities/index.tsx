@@ -1,7 +1,9 @@
+import Opportunity from '@/components/Opportunity'
+
 const Opportunities = () => {
     return (
         <>
-            <div>Opportunities</div>
+            <Opportunity />
         </>
     )
 }
