@@ -76,8 +76,14 @@
 .layout {
     background: url('../assets/background.jpg') no-repeat center center / cover;
     width: 100vw;
-    height: 100vh;
+    height: 100vh;   
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
 }
 
 ::-webkit-scrollbar {

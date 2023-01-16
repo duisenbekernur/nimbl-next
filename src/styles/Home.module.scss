@@ -1,5 +1,7 @@
 .main {
     width: 100vw;
+    height: 100%;
+    overflow-y: scroll;
 
     display: grid;
     grid-template-columns: 1.1fr 2fr;
@@ -8,7 +10,6 @@
     .content {
         display: grid;
 
-        height: 90vh;
         padding: 15px;
 
         grid-template-rows: 0.8fr 3fr;
@@ -22,7 +23,7 @@
         }
 
         &__videos {
-            overflow: scroll;
+            overflow-y: scroll;
             display: flex;
             flex-wrap: wrap;
             gap: 23px;
