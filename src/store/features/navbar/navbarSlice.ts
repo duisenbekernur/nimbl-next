@@ -6,16 +6,41 @@ export interface NavbarState {
 }
 const initialState: NavbarState = {
     navbarItems: [
-        { id: 1, name: 'Content', link: '/' },
-        { id: 2, name: 'Community', link: '' },
-        { id: 3, name: 'Marketplace', link: '/marketplace' },
-        { id: 4, name: 'Settings', link: '' },
+        { id: 1, name: 'Content', link: '/', isActive: true },
+        { id: 2, name: 'Community', link: '/community', isActive: false },
+        {
+            id: 3,
+            name: 'Marketplace',
+            link: '/marketplace/rankings',
+            isActive: false,
+        },
+        { id: 4, name: 'Settings', link: '/settings', isActive: false },
     ],
     marketPlaceNavbar: [
-        { id: 1, name: 'Rankings', link: '' },
-        { id: 2, name: 'Launchpad', link: '' },
-        { id: 3, name: 'Opportunities', link: '/marketplace/opportunities' },
-        { id: 4, name: 'Gainers & Loosers', link: '' },
+        {
+            id: 1,
+            name: 'Rankings',
+            link: '/marketplace/rankings',
+            isActive: true,
+        },
+        {
+            id: 2,
+            name: 'Launchpad',
+            link: '/marketplace/launchpad',
+            isActive: false,
+        },
+        {
+            id: 3,
+            name: 'Opportunities',
+            link: '/marketplace/opportunities',
+            isActive: false,
+        },
+        {
+            id: 4,
+            name: 'Gainers & Loosers',
+            link: '/marketplace/gainers',
+            isActive: false,
+        },
     ],
 }
 
