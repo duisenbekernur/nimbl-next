@@ -1,0 +1,31 @@
+.community_main {
+    width: 100vw;
+    height: 100vh;
+    .community_feed {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        .community_feed_title {
+            width: 100%;
+            height: fit-content;
+            background: #000;
+            background: linear-gradient(273.52deg, rgba(0, 234, 242, 0.2) -54.44%, rgba(234, 0, 213, 0.2) 110.67%);
+            backdrop-filter: blur(8.96875px);
+            display: flex;
+            justify-content: center;
+            border: 2px solid rgba(128, 0, 128, 0.607);
+            h1 {
+                color: white;
+                font-size: 28px;
+                font-weight: 350;
+                padding: 8px 0;
+            }
+        }
+        .community_item {
+            border-bottom: 1px solid rgba(45, 53, 74, 1);
+        }
+    }
+    .community_chat {
+
+    }
+}
