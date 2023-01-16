@@ -1,11 +1,119 @@
 .container {
-    width: 25%;
-    height: auto;
-    background-color: linear-gradient(
-        to right,
-        black 20%,
-        rgba(215, 11, 218, 0.5)
-    );
+    width: 24%;
+    background-image: url('../../assets/background.jpg');
+    background-size: cover;
     color: white;
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 14px;
+    .img {
+        width: 100%;
+        height: 180px;
+        background-color: white;
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 15px 0;
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 25px;
+        }
+        .name {
+            font-size: 16px;
+        }
+        .size {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            p::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 0.5px;
+                background: linear-gradient(
+                    to right,
+                    #d70bda,
+                    #ffc240,
+                    #649bff,
+                    #ffc240,
+                    #abdd42,
+                    #07ffff,
+                    #0f50c7,
+                    #d70bda
+                );
+                left: 0;
+                top: 50%;
+            }
+        }
+        .date {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            p::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 0.5px;
+                background: linear-gradient(
+                    to right,
+                    #d70bda,
+                    #ffc240,
+                    #649bff,
+                    #ffc240,
+                    #abdd42,
+                    #07ffff,
+                    #0f50c7,
+                    #d70bda
+                );
+                left: 0;
+                top: 50%;
+            }
+        }
+    }
+    .spots {
+        .progress {
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ea00d5 30%, #2c2c35 0%);
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            div {
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+    .btn {
+        width: 50%;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+            to right,
+            rgba(1, 167, 255, 0.1),
+            rgba(255, 0, 245, 0.1)
+        );
+        padding: 5px;
+
+        button {
+            width: 100%;
+            font-size: 20px;
+            background-color: black;
+            color: white;
+            padding: 8px 20px;
+            background: linear-gradient(to right, #01a7ff, #ff00f5);
+            padding: 5px;
+            border: none;
+        }
+    }
 }
