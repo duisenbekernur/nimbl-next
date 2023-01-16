@@ -1,9 +1,14 @@
+import RecomendationDropdown from '@/components/RecomendationDropdown'
 import React from 'react'
 
 const GainersPage = () => {
-  return (
-    <div>GainersPage</div>
-  )
+    return (
+        <div>
+            <RecomendationDropdown />
+            <RecomendationDropdown />
+            <RecomendationDropdown />
+        </div>
+    )
 }
 
 export default GainersPage
