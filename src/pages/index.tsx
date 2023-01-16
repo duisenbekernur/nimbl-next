@@ -1,7 +1,5 @@
 import Head from 'next/head'
-
 import styles from '@/styles/Home.module.scss'
-
 import Sidebar from '@/components/MainSidebar'
 import RecomendationDropdown from '@/components/RecomendationDropdown'
 import VideoCard from '@/components/VideoCard'
