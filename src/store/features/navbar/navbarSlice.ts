@@ -47,9 +47,24 @@ const initialState: NavbarState = {
 const navbarSlice = createSlice({
     name: 'navbar',
     initialState,
-    reducers: {},
+    reducers: {
+        setNavbarActive: (state, { payload }) => {
+            const newArr = state.navbarItems.map((item) => {
+                if (item.id !== payload) return { ...item, isActive: false }
+                else return { ...item, isActive: true }
+            })
+            state.navbarItems = newArr
+        },
+        setMarketActive: (state, { payload }) => {
+            const newArr = state.marketPlaceNavbar.map((item) => {
+                if (item.id !== payload) return { ...item, isActive: false }
+                else return { ...item, isActive: true }
+            })
+            state.marketPlaceNavbar = newArr
+        },
+    },
 })
 
-export const {} = navbarSlice.actions
+export const { setNavbarActive, setMarketActive } = navbarSlice.actions
 
 export default navbarSlice.reducer
