@@ -1,13 +1,18 @@
-import style from '@/styles/Content.module.scss'
+import style from '@/styles/ChannelContent.module.scss'
 import Image from 'next/image'
-import avatar from '@/public/images/channel-content/user-avatar.gif'
-import iconShare from '@/public/images/channel-content/icon-share.svg'
-import iconDots from '@/public/images/channel-content/icon-dots.svg'
+import avatar from '@/assets/channel-content/user-avatar.gif'
+import iconShare from '@/assets/channel-content/icon-share.svg'
+import iconDots from '@/assets/channel-content/icon-dots.svg'
+import iconItems from '@/assets/channel-content/icon-items.svg'
+import iconStats from '@/assets/channel-content/icon-stats.svg'
+import iconReload from '@/assets/channel-content/icon-reload.svg'
+import SidebarFilter from '@/components/ChannelContent/SidebarFilter'
+import SidebarCart from '@/components/ChannelContent/SidebarCart'
 
 const ChannelContent = () => {
     return (
         <div className={style.page}>
-            <div className={style.headerBg}>Era</div>
+            <div className={style.headerBg}></div>
             <div className={style.body}>
                 <div className={style.container}>
                     <div className={style.avatar}>
@@ -87,11 +92,51 @@ const ChannelContent = () => {
                     </div>
                 </div>
                 <div className={style.trade_bar}>
-                    <div className={style.trade_bar__search}><input type="text" placeholder='Search items' /></div>
-                    <div className={style.trade_bar__tabs}></div>
-                    <div className={style.trade_bar__refresh}></div>
-                    <div className={style.trade_bar__widget}></div>
+                    <div className={style.trade_bar__search}>
+                        <input type="text" placeholder="Search items" />
+                    </div>
+                    <div className={style.trade_bar__tabs}>
+                        <div
+                            className={`${style.trade_bar__tabs__item} ${style.active}`}
+                        >
+                            <Image
+                                width={19}
+                                height={19}
+                                src={iconItems}
+                                alt="items"
+                            />
+                            <span>Items</span>
+                        </div>
+                        <div className={style.trade_bar__tabs__item}>
+                            <Image
+                                width={19}
+                                height={19}
+                                src={iconStats}
+                                alt="items"
+                            />
+                            <span>Stats</span>
+                        </div>
+                    </div>
+                    <div className={style.trade_bar__refresh}>
+                        <Image
+                            width={21}
+                            height={21}
+                            src={iconReload}
+                            alt="reload"
+                        />
+                        <span>Refreshed a while ago</span>
+                    </div>
                 </div>
+                <div className={style.showcase}>
+                    <div className={style.showcase__sidebar_left}>
+                            <SidebarFilter />
+                    </div>
+                    <div className={style.showcase__cards_list}></div>
+                    <div className={style.showcase__sidebar_right}>
+                            <SidebarCart />
+                    </div>
+                </div>
+
             </div>
         </div>
     )

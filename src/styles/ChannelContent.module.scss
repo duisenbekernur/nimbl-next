@@ -1,15 +1,13 @@
 .page {
     position: relative;
     height: 100%;
-    display: flex;
-    flex-direction: column;
     color: rgb(255, 255, 255);
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .headerBg {
     height: 260px;
-    background-image: url('/images/channel-content/header-bg.jpg');
+    background-image: url('../assets/channel-content/header-bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
@@ -24,7 +22,7 @@
     position: relative;
     z-index: 1;
     background: url('../assets/background.jpg') no-repeat center center / cover;
-    flex-grow: 1;
+   
 
     .container {
         margin: 0 3.5vw;
@@ -73,7 +71,8 @@
             }
             &_stats {
                 display: grid;
-                grid-template-columns: repeat(4, 165px);
+                flex: 0 1 780px;
+                grid-template-columns: repeat(4, 1fr);
                 grid-template-rows: 65px 65px;
                 row-gap: 30px;
                 column-gap: 37px;
@@ -92,10 +91,12 @@
 
                     .value {
                         font-size: 17px;
+                        white-space: nowrap;
                     }
                     .key {
                         font-size: 13px;
                         color: rgba(255, 255, 255, 0.86);
+                        white-space: nowrap;
                     }
                 }
             }
@@ -106,13 +107,13 @@
 
                 &__item {
                     padding: 15px;
-                    display: flex; 
+                    display: flex;
                     justify-content: center;
                     align-items: center;
                     cursor: pointer;
-                    
+
                     &:hover {
-                        background: #1A1B1C;
+                        background: #1a1b1c;
                     }
                 }
             }
@@ -121,5 +122,98 @@
 
     .trade_bar {
         margin-top: 60px;
+        margin-bottom: 25px;
+        display: flex;
+
+        &__search {
+            width: max(280px, 16vw);
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background: url('../assets/channel-content/icon-search.svg')
+                    no-repeat center center / cover;
+                left: 25px;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+            }
+
+            input {
+                width: 100%;
+                padding: 15px 15px 15px 50px;
+                outline: none;
+                background: #1a1b1c;
+                border: none;
+                color: white;
+            }
+        }
+
+        &__tabs {
+            display: flex;
+            margin-left: 70px;
+            margin-right: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: inset 2.07405px 2.07405px 13.9998px
+                rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(26.8916px);
+
+            &__item {
+                padding: 7px 30px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+
+                &.active {
+                    background: linear-gradient(
+                        273.52deg,
+                        rgba(0, 234, 242, 0.2) -54.44%,
+                        rgba(234, 0, 213, 0.2) 110.67%
+                    );
+                    backdrop-filter: blur(5.18512px);
+                    border: 0.52px solid;
+                    border-image-slice: 1;
+                    border-image-source: linear-gradient(
+                        90deg,
+                        #ea00d5 -16.67%,
+                        #7077e5 118.2%
+                    );
+                }
+            }
+        }
+
+        &__refresh {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #acacac;
+            cursor: pointer;
+        }
+    }
+
+    .showcase {
+        display: flex;
+     
+        height: 3000px;
+
+        &__sidebar_left {
+            align-self: flex-start;
+            width: max(280px, 16vw);
+            position: sticky;
+            top: 25px;
+            flex-grow: 0;
+            flex-shrink: 0;
+           
+        }
+
+        &__sidebar_right {
+            margin-left: auto;
+            flex: 0 0 475px;
+        }
     }
 }
