@@ -8,6 +8,7 @@ import iconStats from '@/assets/channel-content/icon-stats.svg'
 import iconReload from '@/assets/channel-content/icon-reload.svg'
 import SidebarFilter from '@/components/ChannelContent/SidebarFilter'
 import SidebarCart from '@/components/ChannelContent/SidebarCart'
+import NFTCard from '@/components/NFTCard'
 
 const ChannelContent = () => {
     return (
@@ -131,7 +132,10 @@ const ChannelContent = () => {
                     <div className={style.showcase__sidebar_left}>
                             <SidebarFilter />
                     </div>
-                    <div className={style.showcase__cards_list}></div>
+                    <div className={style.showcase__cards_list}>
+                        {[...Array(10)].map(card => <div key={card} className={style.showcase__card_item}><NFTCard /></div>)}
+                        <div className={style.showcase__card_item}><NFTCard /></div>
+                    </div>
                     <div className={style.showcase__sidebar_right}>
                             <SidebarCart />
                     </div>

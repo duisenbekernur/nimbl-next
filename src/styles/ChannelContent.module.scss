@@ -198,8 +198,6 @@
 
     .showcase {
         display: flex;
-     
-        height: 3000px;
 
         &__sidebar_left {
             align-self: flex-start;
@@ -212,8 +210,24 @@
         }
 
         &__sidebar_right {
+            align-self: flex-start;
+            position: sticky;
+            top: 25px;
             margin-left: auto;
             flex: 0 0 475px;
+        }
+
+        &__cards_list {
+            flex-grow: 1;
+            margin: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:  baseline;
+            gap: 20px;
+
+        }
+        &__card_item {
+            width: max(250px, calc(100% /3 - 15px))
         }
     }
 }
