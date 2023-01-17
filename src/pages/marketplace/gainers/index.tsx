@@ -270,6 +270,6 @@ const GainersPage = () => {
             </div>
         </>
     )
-
+}
 
 export default GainersPage
