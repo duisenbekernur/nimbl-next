@@ -39,7 +39,7 @@
   src: url("../fonts/TTOctosquares-DBold.eot");
   src: url("../fonts/TTOctosquares-DBold.eot?#iefix") format("embedded-opentype"), url("../fonts/TTOctosquares-DBold.woff2") format("woff2"), url("../fonts/TTOctosquares-DBold.woff") format("woff"), url("../fonts/TTOctosquares-DBold.ttf") format("truetype");
 }
-*, *::before, *::after {
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;

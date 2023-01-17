@@ -213,7 +213,6 @@ const Community = () => {
           </div>
           <div className={`${styles.community_chat_user}`}>
             <Image className={`${styles.img}`} src={user9} alt=""/>
-            <div className={`${styles.line}`}></div>
           </div>
         </div>
         <div className={`${styles.community_chat_stat}`}>
