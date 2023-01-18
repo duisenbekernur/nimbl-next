@@ -1,4 +1,4 @@
-import styles from './Community.module.css';
+import styles from './Community.module.scss';
 import avatar from '../../assets/avatar.png';
 import avatar2 from '../../assets/avatar2.png';
 import avatar3 from '../../assets/avatar3.png';
