@@ -8,7 +8,7 @@ interface ChartData {
     }[]
     options: {
         chart: {
-            id: string
+            type: 'area'
         }
         xaxis: {
             categories: number[]
@@ -20,7 +20,7 @@ const AreaChart: FC = () => {
     const [chartData, setChartData] = useState<ChartData>({
         options: {
             chart: {
-                id: 'basic-bar',
+                type: 'area',
             },
             xaxis: {
                 categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
@@ -29,7 +29,7 @@ const AreaChart: FC = () => {
         series: [
             {
                 name: 'series-1',
-                data: [30, 40, 45, 50, 49, 60, 70, 91],
+                data: [30, 40, 45, 60, 49, 110, 70, 40],
             },
         ],
     })
@@ -38,8 +38,9 @@ const AreaChart: FC = () => {
             <Chart
                 options={chartData.options}
                 series={chartData.series}
-                type="bar"
-                width="500"
+                type="area"
+                width="100%"
+                height="auto"
             />
         </div>
     )
