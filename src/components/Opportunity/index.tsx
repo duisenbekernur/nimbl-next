@@ -18,13 +18,7 @@ const Opportunity: FC = () => {
                 </div>
             </div>
             <div className={styles.spots}>
-                <div
-                    className={styles.progress}
-                    // style={{
-                    //     background:
-                    //         '',
-                    // }}
-                ></div>
+                <div className={styles.progress}></div>
                 <div className={styles.info}>
                     <p>Number of spots</p>
                     <div>
