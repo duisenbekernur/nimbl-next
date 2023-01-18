@@ -1,0 +1,96 @@
+.card {
+    width: 100%;
+   
+    background: black;
+    box-shadow: 0px 0px 27.6433px rgba(105, 0, 255, 0.06), inset 0px 0px 19.2776px rgba(255, 255, 255, 0.21);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+
+    svg {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        filter: blur(90.8169px);
+    }
+
+    &__content {
+        position: relative;
+        padding: 7px 7px 15px;
+        background: rgba(13, 20, 41, 0.548);
+
+    }
+
+    &__img_wrap {
+        width: 100%;
+        position: relative;
+        background-image: linear-gradient(
+            90deg,
+            #d70bda -0.01%,
+            #ffc240 16.42%,
+            #649bff 34.14%,
+            #ffc240 48.72%,
+            #abdd42 62.79%,
+            #07ffff 77.37%,
+            #0f50c7 91.44%,
+            #d70bda 100.01%
+        );
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 2px;
+        margin-bottom: 20px;
+
+        .card__img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+        }
+    }
+}
+.card__body {
+    display: flex;
+
+    .avatar_author {
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .name_author {
+        font-size: 16px;
+    }
+    .price {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        .key {
+            font-size: 12px;
+        }
+        .value {
+            font-size: 13.2159px;
+            line-height: 16px;
+               background: linear-gradient(
+                270deg,
+                #ea00d5 -6.27%,
+                #3d5eff 60.51%,
+                #00eaf2 109.84%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+    }
+}
+.card_btn {
+    background: transparent;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 22px;
+    border: none;
+}
