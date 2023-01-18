@@ -9,8 +9,12 @@ import iconReload from '@/assets/channel-content/icon-reload.svg'
 import SidebarFilter from '@/components/ChannelContent/SidebarFilter'
 import SidebarCart from '@/components/ChannelContent/SidebarCart'
 import NFTCard from '@/components/NFTCard'
+import { useState } from 'react'
+import ChartTrending from '@/components/Chart/ChartTrending'
 
 const ChannelContent = () => {
+    const [showChart, setShowChart] = useState<boolean>(false)
+
     return (
         <div className={style.page}>
             <div className={style.headerBg}></div>
@@ -98,7 +102,10 @@ const ChannelContent = () => {
                     </div>
                     <div className={style.trade_bar__tabs}>
                         <div
-                            className={`${style.trade_bar__tabs__item} ${style.active}`}
+                            onClick={() => setShowChart(false)}
+                            className={`${style.trade_bar__tabs__item} ${
+                                !showChart && style.active
+                            }`}
                         >
                             <Image
                                 width={19}
@@ -108,7 +115,12 @@ const ChannelContent = () => {
                             />
                             <span>Items</span>
                         </div>
-                        <div className={style.trade_bar__tabs__item}>
+                        <div
+                            onClick={() => setShowChart(true)}
+                            className={`${style.trade_bar__tabs__item} ${
+                                showChart && style.active
+                            }`}
+                        >
                             <Image
                                 width={19}
                                 height={19}
@@ -128,19 +140,33 @@ const ChannelContent = () => {
                         <span>Refreshed a while ago</span>
                     </div>
                 </div>
-                <div className={style.showcase}>
-                    <div className={style.showcase__sidebar_left}>
+                {showChart ? (
+                    <div className={style.chart_list}>
+                        <ChartTrending />
+                    </div>
+                ) : (
+                    <div className={style.showcase}>
+                        <div className={style.showcase__sidebar_left}>
                             <SidebarFilter />
-                    </div>
-                    <div className={style.showcase__cards_list}>
-                        {[...Array(10)].map(card => <div key={card} className={style.showcase__card_item}><NFTCard /></div>)}
-                        <div className={style.showcase__card_item}><NFTCard /></div>
-                    </div>
-                    <div className={style.showcase__sidebar_right}>
+                        </div>
+                        <div className={style.showcase__cards_list}>
+                            {[...Array(10)].map((card) => (
+                                <div
+                                    key={card}
+                                    className={style.showcase__card_item}
+                                >
+                                    <NFTCard />
+                                </div>
+                            ))}
+                            <div className={style.showcase__card_item}>
+                                <NFTCard />
+                            </div>
+                        </div>
+                        <div className={style.showcase__sidebar_right}>
                             <SidebarCart />
+                        </div>
                     </div>
-                </div>
-
+                )}
             </div>
         </div>
     )
