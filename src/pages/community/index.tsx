@@ -350,8 +350,8 @@ const Community = () => {
             </div>
             <div className={`${styles.messages_block}`}>
               <div className={`${styles.message_details}`}>
-                <div className={`${styles.user_info}`}>
                 <Image className={`${styles.user_image}`} src={user5} alt=""/>
+                <div className={`${styles.user_info}`}>
                   <div className={`${styles.user_data}`}>
                     <div className={`${styles.username}`}>Akie</div>
                     <div className={`${styles.submission_date}`}>Today at 09:26</div>
