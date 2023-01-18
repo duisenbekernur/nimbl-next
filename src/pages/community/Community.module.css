@@ -234,14 +234,14 @@
   display: flex;
   align-items: center;
 }
+.community_main .community_chat .community_chat_messages .messages_block .user_image {
+  width: 50px;
+  height: 50px;
+}
 .community_main .community_chat .community_chat_messages .messages_block .message_details {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.community_main .community_chat .community_chat_messages .messages_block .message_details .user_image {
-  width: 50px;
-  height: 50px;
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .user_info {
   display: flex;
@@ -268,5 +268,5 @@
   font-weight: 400;
   font-size: 26.364px;
   color: #FFFFFF;
-  margin-left: 90px;
+  margin-left: 40px;
 }/*# sourceMappingURL=Community.module.css.map */
