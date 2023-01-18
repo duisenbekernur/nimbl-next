@@ -3,14 +3,13 @@
     height: 100%;
     display: grid;
     overflow: hidden;
-    grid-template-columns: 1.1fr 2fr;
+    grid-template-columns: 1fr 2fr;
     column-gap: 1vw;
 
     .content {
         display: grid;
         padding: 15px;
-        grid-template-rows: 0.8fr 3fr;
-        row-gap: 2vw;
+        row-gap: 9px;
         overflow: hidden;
 
         .dropdowns {

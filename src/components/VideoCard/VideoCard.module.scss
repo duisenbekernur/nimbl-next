@@ -4,6 +4,7 @@
     font-size: 15px;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 
     width: 23%;
     height: auto;
@@ -83,7 +84,7 @@
             font-weight: 400;
             font-size: 15px;
         }
-        padding: 10px 15px;
+        padding: 5px 10px;
 
         &_bottom {
             display: flex;
@@ -128,4 +129,3 @@
         width: 29%;
     }
 }
-
