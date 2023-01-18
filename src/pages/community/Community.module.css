@@ -200,6 +200,7 @@
   align-self: stretch;
   height: 150px !important;
   padding-left: 25px;
+  cursor: pointer;
 }
 .community_main .community_chat .community_chat_stat .community_chat_stat_dropdown .stat_text {
   margin-right: 50px;
@@ -222,21 +223,30 @@
   height: 60vh;
   overflow-y: scroll;
 }
+.community_main .community_chat .community_chat_messages .messages_block:hover {
+  background: linear-gradient(90.26deg, rgba(3, 230, 243, 0.17) 2.73%, rgba(48, 127, 253, 0.23) 53.67%, rgba(194, 24, 223, 0.44) 96.23%);
+}
 .community_main .community_chat .community_chat_messages .messages_block {
-  margin-left: 40px;
+  cursor: pointer;
+  width: 100% !important;
+  transition: all 0.3s ease-in-out;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+.community_main .community_chat .community_chat_messages .messages_block .message_details .user_image {
+  width: 50px;
+  height: 50px;
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .user_info {
   display: flex;
   align-items: center;
   padding-top: 15px;
-}
-.community_main .community_chat .community_chat_messages .messages_block .message_details .user_info .user_image {
-  width: 50px;
-  height: 50px;
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .user_info .user_data {
   display: flex;
