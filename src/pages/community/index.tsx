@@ -29,10 +29,12 @@ import thinking from '../../assets/reactions_thinking.svg';
 import clap from '../../assets/reactions_clap.svg';
 import angry from '../../assets/reactions_angry.svg';
 import Image from 'next/image';
+import React from 'react';
 
 const useComponentVisible = (initialIsVisible: any) => {
   const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
-  const ref = useRef(null);
+  const initialRef: any = null;
+  const ref = React.useRef(initialRef);
   const handleClickOutside = (event: { target: any; }) => {
     if(ref.current && !ref.current.contains(event.target)) {
       setIsComponentVisible(false);
@@ -52,6 +54,7 @@ const Community = () => {
   const handleClick = () => {
     setIsShown(current => !current);
   }
+  const {ref, isComponentVisible} = useComponentVisible(true);
   return (
     <div className={styles.community_main}>
       <div className={styles.community_feed}>
