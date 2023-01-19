@@ -1,10 +1,14 @@
+import {useState, useEffect, useRef} from 'react';
+// Styles
 import styles from './Community.module.css';
+// Avatars
 import avatar from '../../assets/avatar.png';
 import avatar2 from '../../assets/avatar2.png';
 import avatar3 from '../../assets/avatar3.png';
 import like from '../../assets/like.svg';
 import dislike from '../../assets/dislike.svg';
 import bored from '../../assets/bored.png';
+// User icons
 import user1 from '../../assets/user1.png';
 import user2 from '../../assets/user2.png';
 import user3 from '../../assets/user3.png';
@@ -16,9 +20,38 @@ import user8 from '../../assets/user8.png';
 import user9 from '../../assets/user9.png';
 import logo from '../../assets/logo.png';
 import arrowDown from '../../assets/arrowDown.svg';
+// Reactions
+import reaction from '../../assets/reactions.svg';
+import share from '../../assets/share.svg';
+import fire from '../../assets/reactions_fire.svg';
+import smile from '../../assets/reactions_smile.svg';
+import thinking from '../../assets/reactions_thinking.svg';
+import clap from '../../assets/reactions_clap.svg';
+import angry from '../../assets/reactions_angry.svg';
 import Image from 'next/image';
 
+const useComponentVisible = (initialIsVisible: any) => {
+  const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
+  const ref = useRef(null);
+  const handleClickOutside = (event: { target: any; }) => {
+    if(ref.current && !ref.current.contains(event.target)) {
+      setIsComponentVisible(false);
+    }
+  }
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    }
+  }, []);
+  return {ref, isComponentVisible, setIsComponentVisible};
+}
+
 const Community = () => {
+  let [isShown, setIsShown] = useState(false);
+  const handleClick = () => {
+    setIsShown(current => !current);
+  }
   return (
     <div className={styles.community_main}>
       <div className={styles.community_feed}>
@@ -237,7 +270,7 @@ const Community = () => {
         </div>
         <div className={`${styles.community_chat_messages}`}>
             <div className={`${styles.messages_block}`}>
-            <Image className={`${styles.user_image}`} src={user5} alt=""/>
+              <Image className={`${styles.user_image}`} src={user5} alt=""/>
               <div className={`${styles.message_details}`}>
                 <div className={`${styles.user_info}`}>
                   <div className={`${styles.user_data}`}>
@@ -247,6 +280,21 @@ const Community = () => {
                 </div>
                 <div className={`${styles.message}`}>
                   Hahaha. Dont worry mate he is figuringit out. He is getting confused too
+                  <div className={`${styles.reactions}`}>
+                    <Image onClick={handleClick} src={reaction} alt="" className={`${styles.reactions_img}`}/>
+                    <Image src={share} alt="" className={`${styles.share_img}`}/>
+                    {
+                      isShown ? (
+                        <div className={`${styles.options}`}>
+                          <Image src={fire} alt="" className={`${styles.options_img}`}/>
+                          <Image src={smile} alt="" className={`${styles.options_img}`}/>
+                          <Image src={thinking} alt="" className={`${styles.options_img}`}/>
+                          <Image src={angry} alt="" className={`${styles.options_img}`}/>
+                          <Image src={clap} alt="" className={`${styles.options_img}`}/>
+                        </div>
+                      ) : (<></>)
+                    }
+                  </div>
                 </div>
               </div>
             </div>

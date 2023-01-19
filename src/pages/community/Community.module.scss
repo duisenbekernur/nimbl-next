@@ -269,6 +269,7 @@
                 padding-left: 10px;
                 display: flex;
                 align-items: center;
+
                 .user_image {
                     width: 50px;
                     height: 50px;
@@ -278,6 +279,11 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+
+                    .reactions {
+                        display: flex;
+                        align-items: center;
+                    }
 
                     .user_info {
                         display: flex;
@@ -310,6 +316,43 @@
                         font-size: 26.364px;
                         color: #FFFFFF;
                         margin-left: 40px;
+                        display: flex;
+                        flex-direction: column-reverse;
+                        align-items: space-between;
+                        position: relative;
+
+                        .reactions {
+                            align-self: flex-end;
+                            position: relative;
+                            cursor: auto;
+                            .reactions_img {
+                                margin-right: 10px;
+                                cursor: pointer;
+                                width: 25px;
+                            }
+
+                            .share_img {
+                                cursor: pointer;
+                                width: 25px;
+                            }
+
+                            .options {
+                                position: absolute;
+                                margin-top: 10px;
+                                top: 100%;
+                                transform: translateX(-25%);
+                                display: flex;
+                                flex-direction: column;
+                                background: linear-gradient(158.47deg, rgba(3, 231, 243, 0.495) 16.84%, rgba(48, 127, 253, 0.495) 37.44%, rgba(193, 24, 223, 0.697) 53.41%, rgba(193, 24, 223, 0.599) 55.04%);
+                                padding: 16px;
+                                cursor:auto;
+                                z-index: 1;
+                                .options_img {
+                                    margin-top: 5px;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
                     }
                 }
             }
