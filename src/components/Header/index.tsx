@@ -6,15 +6,18 @@ import chatImg from '@/assets/icons/chat.svg'
 import arrowImg from '@/assets/icons/arrow-down.svg'
 import avatarImg from '@/assets/icons/profile.svg'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux'
+import { setNavbarActive } from '@/store/features/navbar/navbarSlice'
 // import arrowLeftImg from '@/assets/icons/back.svg'
 
 const Header = () => {
     const dropdownItems = ['WALLET', 'WLS', 'AIRDROP']
-
+    const dispatch = useDispatch()
     return (
         <div className={styles.header}>
             <div className={styles.header__logo}>
-                <Link href='/'>
+
+                <Link href="/" onClick={() => dispatch(setNavbarActive(1))}>
                     <Image width={150} height={46} src={logoImg} alt="logo" />
                 </Link>
             </div>

@@ -1,3 +1,33 @@
 .main {
-    min-height: 170px;
+    width: 25%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    img:nth-child(1) {
+        width: 98%;
+        height: 100%;
+        opacity: 0.8;
+    }
+
+    h3 {
+        position: absolute;
+        left: 20%;
+        top: 35%;
+        font-weight: 400;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .plus {
+        position: absolute;
+        size: 250px;
+        right: 18px;
+        bottom: 18px;
+        border-radius: 50%;
+        background-color: #767676;
+        opacity: 0.4;
+        box-sizing: content-box;
+        padding: 8px;
+    }
 }

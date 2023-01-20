@@ -1,20 +1,6 @@
-<svg width="47" height="48" viewBox="0 0 47 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_bi_2409_16868)">
-<circle cx="23.5" cy="23.5" r="23.5" fill="white" fill-opacity="0.14"/>
-</g>
-<path d="M22.4156 30.2915V24.6037H16.7278V22.4369H22.4156V16.7491H24.5823V22.4369H30.2701V24.6037H24.5823V30.2915H22.4156Z" fill="#767676"/>
-<defs>
-<filter id="filter0_bi_2409_16868" x="-31.8644" y="-31.8644" width="110.729" height="110.729" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImageFix" stdDeviation="15.9322"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2409_16868"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2409_16868" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="3.18644" dy="3.18644"/>
-<feGaussianBlur stdDeviation="10.7542"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0"/>
-<feBlend mode="normal" in2="shape" result="effect2_innerShadow_2409_16868"/>
-</filter>
-</defs>
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M6.68118 14.2915V8.60373H0.993379V6.43695H6.68118V0.749146H8.84796V6.43695H14.5358V8.60373H8.84796V14.2915H6.68118Z"
+        fill="#fff" />
 </svg>
+    

@@ -1,0 +1,14 @@
+.main {
+    display: flex;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0;
+    gap: 15px;
+    justify-content: center;
+    align-items: baseline;
+    overflow: scroll;
+    height: 90vh;
+}

@@ -1,9 +1,7 @@
 .header {
     margin: 1px;
     width: calc(100vw - 2px);
-    height: 10vh;
-    min-height: 50px;
-    max-height: 60px;
+    height: 55px;
     font-size: 14px;
     font-weight: 600;
     background: linear-gradient(#111a41, #111a41) 50% 50% / calc(100% - 2px)
@@ -59,11 +57,10 @@
                 left: 0;
                 width: 25px;
                 height: 25px;
-            
+
                 background-size: cover;
             }
         }
-
     }
 
     &__right {
