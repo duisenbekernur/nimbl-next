@@ -3,8 +3,56 @@ import ProgressChart from '@/components/Chart/ProgressChart'
 import NFTCard from '@/components/NFTCard'
 import VideoCard from '@/components/VideoCard'
 import Image from 'next/image'
+import logo from '@/assets/user3.png'
 import React, { FC, useState } from 'react'
 import styles from '../../../styles/ChannelPage.module.scss'
+const announcements = [
+    {
+        id: 1,
+        img: logo,
+        name: '@BlueWard2',
+        description:
+            'Users who connect their crypto wallet are able to purchase NFTs and set them as their profile picture which will be displayed in a special hexagonal shape.',
+        likes: 5,
+        comments: 2345,
+    },
+    {
+        id: 2,
+        img: logo,
+        name: '@BlueWard2',
+        description:
+            'Users who connect their crypto wallet are able to purchase NFTs and set them as their profile picture which will be displayed in a special hexagonal shape.',
+        likes: 5,
+        comments: 2345,
+    },
+    {
+        id: 3,
+        img: logo,
+        name: '@BlueWard2',
+        description:
+            'Users who connect their crypto wallet are able to purchase NFTs and set them as their profile picture which will be displayed in a special hexagonal shape.',
+        likes: 5,
+        comments: 2345,
+    },
+    {
+        id: 4,
+        img: logo,
+        name: '@BlueWard2',
+        description:
+            'Users who connect their crypto wallet are able to purchase NFTs and set them as their profile picture which will be displayed in a special hexagonal shape.',
+        likes: 5,
+        comments: 2345,
+    },
+    {
+        id: 5,
+        img: logo,
+        name: '@BlueWard2',
+        description:
+            'Users who connect their crypto wallet are able to purchase NFTs and set them as their profile picture which will be displayed in a special hexagonal shape.',
+        likes: 5,
+        comments: 2345,
+    },
+]
 const ChannelPage: FC = () => {
     const [buttons, setButtons] = useState([
         { id: 1, name: 'Most Watched', isActive: true },
@@ -56,7 +104,9 @@ const ChannelPage: FC = () => {
                 {leftButtons[0].isActive && (
                     <div className={styles.content}>
                         <div className={styles.profile}>
-                            <div className={styles.profileImage}></div>
+                            <div className={styles.profileImage}>
+                                <Image src={logo} alt={'logo'} />
+                            </div>
                             <div className={styles.profileTitle}>
                                 <span className={styles.name}>@BlueWard2</span>
                                 <span className={styles.followers}>
@@ -85,75 +135,57 @@ const ChannelPage: FC = () => {
                         <button className={styles.levelButton}>
                             Level 14 creator
                         </button>
-                        <div className={styles.announcements}>
+                        <article className={styles.announcements}>
                             <p className={styles.title}>Announcements</p>
-                            <div className={styles.singleAnnouncement}>
-                                <div className={styles.announcementLeft}>
-                                    <div className={styles.logo}></div>
-                                </div>
-                                <div className={styles.announcementInfo}>
-                                    <div className={styles.title}>
-                                        @BlueWard2
-                                    </div>
-                                    <div className={styles.announcementBody}>
-                                        Users who connect their crypto wallet
-                                        are able to purchase NFTs and set them
-                                        as their profile picture which will be
-                                        displayed in a special hexagonal shape.
-                                    </div>
-                                    <div className={styles.additional}>
-                                        <div className={styles.likes}>5k</div>
-                                        <div className={styles.comments}>
-                                            2 345
+                            {announcements.map((item) => {
+                                const {
+                                    id,
+                                    name,
+                                    description,
+                                    img,
+                                    likes,
+                                    comments,
+                                } = item
+                                return (
+                                    <div
+                                        className={styles.singleAnnouncement}
+                                        key={id}
+                                    >
+                                        <div
+                                            className={styles.announcementLeft}
+                                        >
+                                            <div className={styles.logo}>
+                                                <Image src={img} alt={'name'} />
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={styles.announcementInfo}
+                                        >
+                                            <div className={styles.name}>
+                                                {name}
+                                            </div>
+                                            <div
+                                                className={
+                                                    styles.announcementBody
+                                                }
+                                            >
+                                                {description}
+                                            </div>
+                                            <div className={styles.additional}>
+                                                <div className={styles.likes}>
+                                                    {likes}k
+                                                </div>
+                                                <div
+                                                    className={styles.comments}
+                                                >
+                                                    {comments}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className={styles.singleAnnouncement}>
-                                <div className={styles.announcementLeft}>
-                                    <div className={styles.logo}></div>
-                                </div>
-                                <div className={styles.announcementInfo}>
-                                    <div className={styles.title}>
-                                        @BlueWard2
-                                    </div>
-                                    <div className={styles.announcementBody}>
-                                        Users who connect their crypto wallet
-                                        are able to purchase NFTs and set them
-                                        as their profile picture which will be
-                                        displayed in a special hexagonal shape.
-                                    </div>
-                                    <div className={styles.additional}>
-                                        <div className={styles.likes}>5k</div>
-                                        <div className={styles.comments}>
-                                            2 345
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.singleAnnouncement}>
-                                <div className={styles.announcementLeft}>
-                                    <div className={styles.logo}></div>
-                                </div>
-                                <div className={styles.announcementInfo}>
-                                    <div className={styles.title}>
-                                        @BlueWard2
-                                    </div>
-                                    <div className={styles.announcementBody}>
-                                        Users who connect their crypto wallet
-                                        are able to purchase NFTs and set them
-                                        as their profile picture which will be
-                                        displayed in a special hexagonal shape.
-                                    </div>
-                                    <div className={styles.additional}>
-                                        <div className={styles.likes}>5k</div>
-                                        <div className={styles.comments}>
-                                            2 345
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                )
+                            })}
+                        </article>
                     </div>
                 )}
                 {leftButtons[1].isActive && (

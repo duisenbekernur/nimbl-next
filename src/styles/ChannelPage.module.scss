@@ -32,7 +32,7 @@
         padding: 15px;
         mix-blend-mode: hard-light;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 18px;
     }
     .active {
         border: 1px solid;
@@ -62,13 +62,17 @@
         margin-right: 20px;
         overflow: hidden;
         background-color: white;
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
     .profileTitle {
         display: flex;
         flex-direction: column;
         color: white;
         .name {
-            font-size: 16px;
+            font-size: 18px;
         }
         .followers {
             font-size: 16px;
@@ -115,6 +119,7 @@
     }
 }
 .description {
+    margin-top: 15px;
     font-size: 16px;
     line-height: 28px;
     color: white;
@@ -125,11 +130,11 @@
     gap: 50px;
     color: #b1b1b1;
     font-weight: 200;
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 25px;
 }
 .levelButton {
-    font-size: 16px;
+    font-size: 18px;
     width: 100%;
     padding: 15px;
     cursor: pointer;
@@ -155,6 +160,7 @@
     width: 100%;
     .title {
         color: white;
+        font-size: 20px;
     }
 }
 .singleAnnouncement {
@@ -164,17 +170,24 @@
     display: flex;
     gap: 30px;
     color: white;
-    padding: 20px;
+    padding: 25px 30px;
     margin: 20px 0;
     .announcementLeft {
         .logo {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background-color: white;
             border-radius: 50%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
     .announcementInfo {
+        .name {
+            font-size: 18px;
+        }
         .announcementBody {
             margin-top: 10px;
             font-size: 16px;
