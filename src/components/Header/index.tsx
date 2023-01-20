@@ -16,6 +16,7 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.header__logo}>
+
                 <Link href="/" onClick={() => dispatch(setNavbarActive(1))}>
                     <Image width={150} height={46} src={logoImg} alt="logo" />
                 </Link>

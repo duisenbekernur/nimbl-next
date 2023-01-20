@@ -1,3 +1,4 @@
+
 import { FC } from 'react'
 import styles from './Opportunity.module.scss'
 import Image from 'next/image'
