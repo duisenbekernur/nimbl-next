@@ -13,12 +13,14 @@
         overflow: hidden;
 
         .dropdowns {
+
             display: flex;
             justify-content: space-between;
             overflow-x: scroll;
         }
 
         &__videos {
+
             overflow-y: scroll;
             display: flex;
             flex-wrap: wrap;
