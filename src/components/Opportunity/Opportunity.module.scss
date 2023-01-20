@@ -10,6 +10,7 @@
     background: black;
     box-shadow: 0px 0px 27.6433px rgba(105, 0, 255, 0.06),
         inset 0px 0px 19.2776px rgba(255, 255, 255, 0.21);
+    z-index: 0;
     svg {
         position: absolute;
         inset: 0;
@@ -17,6 +18,7 @@
         width: 100%;
         filter: blur(100px);
         opacity: 0.7;
+        z-index: -1;
     }
     .imgBlock {
         display: flex;
@@ -31,24 +33,30 @@
     }
     .info {
         display: flex;
-        align-items: center;
-        justify-content: space-around;
-        margin: 15px 0;
-        font-size: 11px;
+        align-items: flex-start;
+        margin: 15px 5px;
         .logo {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background-color: white;
             border-radius: 25px;
+            margin-right: 10px;
+            img {
+                height: 100%;
+                width: 100%;
+            }
         }
         .name {
-            font-size: 14px;
+            font-size: 18px;
         }
         .size {
+            font-size: 13px;
+            margin-left: auto;
+            margin-right: 20px;
             position: relative;
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 6px;
             p::after {
                 content: '';
                 position: absolute;
@@ -68,12 +76,28 @@
                 left: 0;
                 top: 53%;
             }
+            .number {
+                background: rgb(234, 0, 213);
+                background: linear-gradient(
+                    270deg,
+                    rgba(234, 0, 213, 1) 58%,
+                    rgba(61, 94, 255, 1) 88%,
+                    rgba(0, 234, 242, 1) 100%
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: bold;
+                font-size: 16px;
+            }
         }
         .date {
+            font-size: 13px;
             position: relative;
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 6px;
+            justify-self: flex-start;
             p::after {
                 content: '';
                 position: absolute;
@@ -96,6 +120,7 @@
         }
     }
     .spots {
+        margin-bottom: 10px;
         .progress {
             width: 100%;
             height: 5px;
@@ -105,6 +130,8 @@
             line-height: 0;
             display: flex;
             justify-content: space-between;
+            font-size: 14px;
+
             div {
                 display: flex;
                 gap: 20px;
@@ -114,29 +141,6 @@
     .btn {
         width: 50%;
         align-self: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(
-            to right,
-            rgba(1, 167, 255, 0.1),
-            rgba(255, 0, 245, 0.1)
-        );
-        padding: 5px;
-
-        button {
-            width: 100%;
-            font-size: 18px;
-            background-color: black;
-            color: white;
-            padding: 7px 25px;
-            background: linear-gradient(
-                106.95deg,
-                rgba(1, 167, 255, 0.8) 0.4%,
-                rgba(255, 0, 245, 0.8) 103.58%
-            );
-            padding: 5px;
-            border: none;
-        }
+        margin-bottom: 10px;
     }
 }
