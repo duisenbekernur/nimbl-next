@@ -5,10 +5,12 @@ interface ChartData {
     series: {
         name: string
         data: number[]
+        color: string
     }[]
     options: {
         chart: {
             type: 'area'
+            color: string
         }
         xaxis: {
             categories: number[]
@@ -21,6 +23,7 @@ const AreaChart: FC = () => {
         options: {
             chart: {
                 type: 'area',
+                color: 'white',
             },
             xaxis: {
                 categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
@@ -30,6 +33,7 @@ const AreaChart: FC = () => {
             {
                 name: 'series-1',
                 data: [30, 40, 45, 60, 49, 110, 70, 40],
+                color: 'red',
             },
         ],
     })
