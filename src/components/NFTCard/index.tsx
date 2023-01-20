@@ -38,7 +38,7 @@ const NFTCard: FC = () => {
                 </defs>
             </svg>
 
-           <div className={style.card__content}>
+            <div className={style.card__content}>
                 <div className={style.card__img_wrap}>
                     <Image
                         className={style.card__img}
@@ -64,7 +64,7 @@ const NFTCard: FC = () => {
                 <button className={style.card_btn}>
                     <CardButton>Buy now</CardButton>
                 </button>
-           </div>
+            </div>
         </div>
     )
 }
