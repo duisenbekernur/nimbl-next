@@ -5,6 +5,7 @@ import trendingImg from '../../assets/dropdown/trending.png'
 import plus from '../../assets/icons/plus.svg'
 
 const RecomendationDropdown = () => {
+
     return (
         <div className={styles.main}>
             <Image src={trendingImg} alt="trending" />
