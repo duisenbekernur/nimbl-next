@@ -1,9 +1,11 @@
-import Opportunity from '@/components/Opportunity'
+
+import OpportunityList from '@/components/OpportunityList'
 
 const Opportunities = () => {
     return (
         <>
-            <Opportunity />
+
+            <OpportunityList />
         </>
     )
 }

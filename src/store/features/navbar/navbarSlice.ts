@@ -47,6 +47,7 @@ const initialState: NavbarState = {
 const navbarSlice = createSlice({
     name: 'navbar',
     initialState,
+
     reducers: {
         setNavbarActive: (state, { payload }) => {
             const newArr = state.navbarItems.map((item) => {
