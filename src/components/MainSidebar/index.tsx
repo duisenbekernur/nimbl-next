@@ -296,7 +296,7 @@ const Sidebar = () => {
                                     </tr>
                                 </thead>
                                 {channels.map((item, idx) => (
-                                    <tbody>
+                                    <tbody key={idx}>
                                         <tr
                                             className={styles.table_value}
                                             onClick={() =>
