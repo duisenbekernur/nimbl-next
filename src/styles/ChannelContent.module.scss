@@ -22,7 +22,6 @@
     position: relative;
     z-index: 1;
     background: url('../assets/background.jpg') no-repeat center center / cover;
-   
 
     .container {
         margin: 0 3.5vw;
@@ -206,7 +205,6 @@
             top: 25px;
             flex-grow: 0;
             flex-shrink: 0;
-           
         }
 
         &__sidebar_right {
@@ -222,12 +220,32 @@
             margin: 0 15px;
             display: flex;
             flex-wrap: wrap;
-            justify-content:  baseline;
             gap: 20px;
-
         }
         &__card_item {
-            width: max(250px, calc(100% /3 - 15px))
+            perspective: 1000px;
+            width: calc((100% - 60px) / 4);
+            @media (max-width: 1850px) {
+                width: calc((100% - 40px) / 3);
+            }
+            @media (max-width: 1590px) {
+                width: calc((100% - 20px) / 2);
+            }
+        }
+    }
+
+    .chart_list {
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        .chart_item__candlestick {
+            flex: 0 0 45%;
+        }
+        .chart_item__area {
+            flex: 0 0 45%;
+           
         }
     }
 }

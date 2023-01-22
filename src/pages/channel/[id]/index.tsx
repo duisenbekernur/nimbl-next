@@ -148,7 +148,7 @@ const ChannelPage: FC = () => {
                         <article className={styles.announcements}>
                             <p className={styles.title}>Announcements</p>
                             {announcements.map((item) => {
-                                return <Announcement {...item} />
+                                return <Announcement {...item} key={item.id} />
                             })}
                         </article>
                     </div>

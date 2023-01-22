@@ -11,6 +11,8 @@ import SidebarCart from '@/components/ChannelContent/SidebarCart'
 import NFTCard from '@/components/NFTCard'
 import { useState } from 'react'
 import ChartTrending from '@/components/Chart/ChartTrending'
+import AreaChart from '@/components/Chart/AreaChart'
+import ChartAreaContent from '@/components/ChannelContent/ChartAreaContent'
 
 const ChannelContent = () => {
     const [showChart, setShowChart] = useState<boolean>(false)
@@ -142,7 +144,8 @@ const ChannelContent = () => {
                 </div>
                 {showChart ? (
                     <div className={style.chart_list}>
-                        <ChartTrending />
+                        <div className={style.chart_item__candlestick}><ChartTrending height='200' width='100%' /></div>
+                        <div className={style.chart_item__area}><ChartAreaContent /></div>
                     </div>
                 ) : (
                     <div className={style.showcase}>
@@ -150,9 +153,9 @@ const ChannelContent = () => {
                             <SidebarFilter />
                         </div>
                         <div className={style.showcase__cards_list}>
-                            {[...Array(10)].map((card) => (
+                            {[...Array(10)].map((card, idx) => (
                                 <div
-                                    key={card}
+                                    key={idx}
                                     className={style.showcase__card_item}
                                 >
                                     <NFTCard />
