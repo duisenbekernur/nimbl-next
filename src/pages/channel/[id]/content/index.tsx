@@ -34,7 +34,7 @@ const ChannelContent = () => {
                         <p className={style.hero_desc}>
                             A collection of 10,000 zombies evolving through the
                             sweet juicy brains their owners decide to feed them.
-                            Zombies are cute yet they'd crack your skull open
+                            Zombies are cute yet they d crack your skull open
                             and jam a straw through your cortex to sip on that
                             sweet white matter.
                         </p>
