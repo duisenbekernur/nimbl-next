@@ -7,6 +7,7 @@ import logo from '@/assets/user3.png'
 import React, { FC, useState } from 'react'
 import styles from '../../../styles/ChannelPage.module.scss'
 import Announcement from '@/components/Announcement'
+import { it } from 'node:test'
 
 const announcements = [
     {
@@ -86,6 +87,7 @@ const ChannelPage: FC = () => {
                         const { id, name, isActive } = item
                         return (
                             <button
+                                key={id}
                                 className={isActive ? styles.active : ''}
                                 onClick={() => {
                                     const newButtons = leftButtons.map(
@@ -147,6 +149,7 @@ const ChannelPage: FC = () => {
                         </button>
                         <article className={styles.announcements}>
                             <p className={styles.title}>Announcements</p>
+
                             {announcements.map((item) => {
                                 return <Announcement {...item} key={item.id} />
                             })}

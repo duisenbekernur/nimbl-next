@@ -13,550 +13,520 @@ import pauseImg from '../../../assets/icons/pause_2.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { setActive } from '@/store/features/rankings-filter/filter'
+import RecomendationDropdown from '@/components/RecomendationDropdown'
+import Head from 'next/head'
 
 const RankingsPage = () => {
     const dispatch = useDispatch()
     const { time } = useSelector((store: RootState) => store.filter)
     console.log(time)
     return (
-        <div className={styles.table_content}>
-            <div className={styles.mainContainer}>
-                <div className={styles.main}>
-                    <Image src={trendingImg} alt="trending" />
-                    <div>
-                        <h3>Trending Videos</h3>
-                    </div>
-
-                    <Image className={styles.plus} src={plus} alt="plus" />
+        <>
+            <Head>
+                <title>Rankings</title>
+            </Head>
+            <div className={styles.table_content}>
+                <div className={styles.mainContainer}>
+                    <RecomendationDropdown />
+                    <RecomendationDropdown />
+                    <RecomendationDropdown />
+                    <RecomendationDropdown />
                 </div>
-                <div className={styles.main}>
-                    <Image src={cryptonewsImg} alt="cryptonews" />
-                    <div>
-                        <h3
-                            style={{
-                                marginLeft: '10px',
-                            }}
-                        >
-                            Crypto News
-                        </h3>
-                    </div>
-
-                    <Image className={styles.plus} src={plus} alt="plus" />
-                </div>
-                <div className={styles.main}>
-                    <Image src={ethnftImg} alt="ethnft" />
-                    <div>
-                        <h3
-                            style={{
-                                marginLeft: '30px',
-                            }}
-                        >
-                            ETH NFTs
-                        </h3>
-                    </div>
-
-                    <Image className={styles.plus} src={plus} alt="plus" />
-                </div>
-                <div className={styles.main}>
-                    <Image src={play2earn} alt="play2earn" />
-                    <div>
-                        <h3
-                            style={{
-                                marginLeft: '30px',
-                            }}
-                        >
-                            Play2Earn
-                        </h3>
-                    </div>
-
-                    <Image className={styles.plus} src={plus} alt="plus" />
-                </div>
-                <div className={styles.main}>
-                    <Image src={play2earn} alt="play2earn" />
-                    <div>
-                        <h3
-                            style={{
-                                marginLeft: '30px',
-                            }}
-                        >
-                            Play2Earn
-                        </h3>
-                    </div>
-                    <Image className={styles.plus} src={plus} alt="plus" />
-                </div>
-            </div>
-            <div className={styles.table_inner}>
-                <div className={styles.table_content_inner}>
-                    <div className={styles.sidebar_sort}>
-                        <div className={styles.sort_byCategory}>
-                            <Image
-                                className={styles.byCategory_svg}
-                                src={categorySvg}
-                                alt=""
-                            />
-                            <div className={styles.byCategory_text}>
-                                Top Creators
+                <div className={styles.table_inner}>
+                    <div className={styles.table_content_inner}>
+                        <div className={styles.sidebar_sort}>
+                            <div className={styles.sort_byCategory}>
+                                <Image
+                                    className={styles.byCategory_svg}
+                                    src={categorySvg}
+                                    alt=""
+                                />
+                                <div className={styles.byCategory_text}>
+                                    Top Creators
+                                </div>
+                                <Image
+                                    className={styles.byCategory_icon}
+                                    src={arrowDownSvg}
+                                    alt=""
+                                    style={{
+                                        width: '20px',
+                                        height: '15px',
+                                    }}
+                                />
                             </div>
-                            <Image
-                                className={styles.byCategory_icon}
-                                src={arrowDownSvg}
-                                alt=""
-                                style={{
-                                    width: '20px',
-                                    height: '15px',
-                                }}
-                            />
-                        </div>
-                        <div className={styles.sortByDate}>
-                            {time.map((item) => {
-                                const { id, name, isActive } = item
-                                return (
-                                    <div
-                                        key={id}
-                                        className={
-                                            isActive
-                                                ? `${styles.dateItem} ${styles.active}`
-                                                : `${styles.dateItem}`
-                                        }
-                                        onClick={() => dispatch(setActive(id))}
-                                    >
-                                        {name}
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <div className={styles.sort_byCategory}>
-                            <div
-                                className={styles.byCategoty_text}
-                                style={{
-                                    maxWidth: '88%',
-                                    fontWeight: '400',
-                                    fontSize: '16px',
-                                    textAlign: 'center',
-                                    marginRight: '20px',
-                                    color: '#fff',
-                                    paddingLeft: '17px',
-                                }}
-                            >
-                                All Categories
+                            <div className={styles.sortByDate}>
+                                {time.map((item) => {
+                                    const { id, name, isActive } = item
+                                    return (
+                                        <div
+                                            key={id}
+                                            className={
+                                                isActive
+                                                    ? `${styles.dateItem} ${styles.active}`
+                                                    : `${styles.dateItem}`
+                                            }
+                                            onClick={() =>
+                                                dispatch(setActive(id))
+                                            }
+                                        >
+                                            {name}
+                                        </div>
+                                    )
+                                })}
                             </div>
-                            <Image
-                                className={styles.byCategory_icon}
-                                src={arrowDownSvg}
-                                alt=""
-                                style={{
-                                    marginLeft: '3px',
-                                    width: '12%',
-                                    height: '12%',
-                                }}
-                            />
-                        </div>
-                        <div className={styles.header_tabs}>
-                            <div className={styles.header_tab}>
-                                View as Grid
+                            <div className={styles.sort_byCategory}>
+                                <div
+                                    className={styles.byCategoty_text}
+                                    style={{
+                                        maxWidth: '88%',
+                                        fontWeight: '400',
+                                        fontSize: '16px',
+                                        textAlign: 'center',
+                                        marginRight: '20px',
+                                        color: '#fff',
+                                        paddingLeft: '17px',
+                                    }}
+                                >
+                                    All Categories
+                                </div>
+                                <Image
+                                    className={styles.byCategory_icon}
+                                    src={arrowDownSvg}
+                                    alt=""
+                                    style={{
+                                        marginLeft: '3px',
+                                        width: '12%',
+                                        height: '12%',
+                                    }}
+                                />
                             </div>
-                            <div className={styles.header_tab}>
-                                View as List
+                            <div className={styles.header_tabs}>
+                                <div className={styles.header_tab}>
+                                    View as Grid
+                                </div>
+                                <div className={styles.header_tab}>
+                                    View as List
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className={styles.card_grid}>
-                <div className={styles.card_main}>
-                    <div className={styles.ranking_boxs}>
-                        <div className={styles.card_loop}>
-                            <div className={styles.card_box}>
-                                <div className={styles.video_header}>
-                                    <Image
-                                        className={styles.video_header_logo}
-                                        src={channelImg}
-                                        alt=""
-                                    />
-                                    <div className={styles.video_pause}>
+                <div className={styles.card_grid}>
+                    <div className={styles.card_main}>
+                        <div className={styles.ranking_boxs}>
+                            <div className={styles.card_loop}>
+                                <div className={styles.card_box}>
+                                    <div className={styles.video_header}>
                                         <Image
-                                            className={styles.video_box_pause}
-                                            src={pauseImg}
+                                            className={styles.video_header_logo}
+                                            src={channelImg}
                                             alt=""
                                         />
+                                        <div className={styles.video_pause}>
+                                            <Image
+                                                className={
+                                                    styles.video_box_pause
+                                                }
+                                                src={pauseImg}
+                                                alt=""
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={styles.video_body}>
-                                    <div
-                                        className={styles.box_title}
-                                        style={{ color: '#fff' }}
-                                    >
-                                        @Yellow Stone
-                                    </div>
-                                    <div className={styles.box_buttons}>
+                                    <div className={styles.video_body}>
                                         <div
-                                            className={styles.box_button}
+                                            className={styles.box_title}
                                             style={{ color: '#fff' }}
                                         >
+                                            @Yellow Stone
+                                        </div>
+                                        <div className={styles.box_buttons}>
                                             <div
-                                                className={
-                                                    styles.box_button_header
-                                                }
+                                                className={styles.box_button}
                                                 style={{ color: '#fff' }}
                                             >
-                                                <div className={styles.count}>
-                                                    500K
+                                                <div
+                                                    className={
+                                                        styles.box_button_header
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    <div
+                                                        className={styles.count}
+                                                    >
+                                                        500K
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                >
+                                                    members
                                                 </div>
                                             </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                            >
-                                                members
+                                            <div className={styles.box_button}>
+                                                <div
+                                                    className={
+                                                        styles.box_button_title
+                                                    }
+                                                >
+                                                    134 NMBL
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    floor price
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className={styles.box_button}>
-                                            <div
-                                                className={
-                                                    styles.box_button_title
-                                                }
-                                            >
-                                                134 NMBL
-                                            </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                                style={{ color: '#fff' }}
-                                            >
-                                                floor price
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div className={styles.box_footer}>
-                                        <div className={styles.tag_content}>
-                                            <div className={styles.tag}>
-                                                #ETH-NFTs
-                                            </div>
-                                            <div className={styles.tag}>
-                                                #NFT-Trading
+                                        <div className={styles.box_footer}>
+                                            <div className={styles.tag_content}>
+                                                <div className={styles.tag}>
+                                                    #ETH-NFTs
+                                                </div>
+                                                <div className={styles.tag}>
+                                                    #NFT-Trading
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.ranking_boxs}>
-                        <div className={styles.card_loop}>
-                            <div className={styles.card_box}>
-                                <div className={styles.video_header}>
-                                    <Image
-                                        className={styles.video_header_logo}
-                                        src={channelImg}
-                                        alt=""
-                                    />
-                                    <div className={styles.video_pause}>
+                        <div className={styles.ranking_boxs}>
+                            <div className={styles.card_loop}>
+                                <div className={styles.card_box}>
+                                    <div className={styles.video_header}>
                                         <Image
-                                            className={styles.video_box_pause}
-                                            src={pauseImg}
+                                            className={styles.video_header_logo}
+                                            src={channelImg}
                                             alt=""
                                         />
+                                        <div className={styles.video_pause}>
+                                            <Image
+                                                className={
+                                                    styles.video_box_pause
+                                                }
+                                                src={pauseImg}
+                                                alt=""
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={styles.video_body}>
-                                    <div
-                                        className={styles.box_title}
-                                        style={{ color: '#fff' }}
-                                    >
-                                        @Yellow Stone
-                                    </div>
-                                    <div className={styles.box_buttons}>
+                                    <div className={styles.video_body}>
                                         <div
-                                            className={styles.box_button}
+                                            className={styles.box_title}
                                             style={{ color: '#fff' }}
                                         >
+                                            @Yellow Stone
+                                        </div>
+                                        <div className={styles.box_buttons}>
                                             <div
-                                                className={
-                                                    styles.box_button_header
-                                                }
+                                                className={styles.box_button}
                                                 style={{ color: '#fff' }}
                                             >
-                                                <div className={styles.count}>
-                                                    500K
+                                                <div
+                                                    className={
+                                                        styles.box_button_header
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    <div
+                                                        className={styles.count}
+                                                    >
+                                                        500K
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                >
+                                                    members
                                                 </div>
                                             </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                            >
-                                                members
+                                            <div className={styles.box_button}>
+                                                <div
+                                                    className={
+                                                        styles.box_button_title
+                                                    }
+                                                >
+                                                    134 NMBL
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    floor price
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className={styles.box_button}>
-                                            <div
-                                                className={
-                                                    styles.box_button_title
-                                                }
-                                            >
-                                                134 NMBL
-                                            </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                                style={{ color: '#fff' }}
-                                            >
-                                                floor price
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div className={styles.box_footer}>
-                                        <div className={styles.tag_content}>
-                                            <div className={styles.tag}>
-                                                #ETH-NFTs
-                                            </div>
-                                            <div className={styles.tag}>
-                                                #NFT-Trading
+                                        <div className={styles.box_footer}>
+                                            <div className={styles.tag_content}>
+                                                <div className={styles.tag}>
+                                                    #ETH-NFTs
+                                                </div>
+                                                <div className={styles.tag}>
+                                                    #NFT-Trading
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.ranking_boxs}>
-                        <div className={styles.card_loop}>
-                            <div className={styles.card_box}>
-                                <div className={styles.video_header}>
-                                    <Image
-                                        className={styles.video_header_logo}
-                                        src={channelImg}
-                                        alt=""
-                                    />
-                                    <div className={styles.video_pause}>
+                        <div className={styles.ranking_boxs}>
+                            <div className={styles.card_loop}>
+                                <div className={styles.card_box}>
+                                    <div className={styles.video_header}>
                                         <Image
-                                            className={styles.video_box_pause}
-                                            src={pauseImg}
+                                            className={styles.video_header_logo}
+                                            src={channelImg}
                                             alt=""
                                         />
+                                        <div className={styles.video_pause}>
+                                            <Image
+                                                className={
+                                                    styles.video_box_pause
+                                                }
+                                                src={pauseImg}
+                                                alt=""
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={styles.video_body}>
-                                    <div
-                                        className={styles.box_title}
-                                        style={{ color: '#fff' }}
-                                    >
-                                        @Yellow Stone
-                                    </div>
-                                    <div className={styles.box_buttons}>
+                                    <div className={styles.video_body}>
                                         <div
-                                            className={styles.box_button}
+                                            className={styles.box_title}
                                             style={{ color: '#fff' }}
                                         >
+                                            @Yellow Stone
+                                        </div>
+                                        <div className={styles.box_buttons}>
                                             <div
-                                                className={
-                                                    styles.box_button_header
-                                                }
+                                                className={styles.box_button}
                                                 style={{ color: '#fff' }}
                                             >
-                                                <div className={styles.count}>
-                                                    500K
+                                                <div
+                                                    className={
+                                                        styles.box_button_header
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    <div
+                                                        className={styles.count}
+                                                    >
+                                                        500K
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                >
+                                                    members
                                                 </div>
                                             </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                            >
-                                                members
+                                            <div className={styles.box_button}>
+                                                <div
+                                                    className={
+                                                        styles.box_button_title
+                                                    }
+                                                >
+                                                    134 NMBL
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    floor price
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className={styles.box_button}>
-                                            <div
-                                                className={
-                                                    styles.box_button_title
-                                                }
-                                            >
-                                                134 NMBL
-                                            </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                                style={{ color: '#fff' }}
-                                            >
-                                                floor price
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div className={styles.box_footer}>
-                                        <div className={styles.tag_content}>
-                                            <div className={styles.tag}>
-                                                #ETH-NFTs
-                                            </div>
-                                            <div className={styles.tag}>
-                                                #NFT-Trading
+                                        <div className={styles.box_footer}>
+                                            <div className={styles.tag_content}>
+                                                <div className={styles.tag}>
+                                                    #ETH-NFTs
+                                                </div>
+                                                <div className={styles.tag}>
+                                                    #NFT-Trading
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.ranking_boxs}>
-                        <div className={styles.card_loop}>
-                            <div className={styles.card_box}>
-                                <div className={styles.video_header}>
-                                    <Image
-                                        className={styles.video_header_logo}
-                                        src={channelImg}
-                                        alt=""
-                                    />
-                                    <div className={styles.video_pause}>
+                        <div className={styles.ranking_boxs}>
+                            <div className={styles.card_loop}>
+                                <div className={styles.card_box}>
+                                    <div className={styles.video_header}>
                                         <Image
-                                            className={styles.video_box_pause}
-                                            src={pauseImg}
+                                            className={styles.video_header_logo}
+                                            src={channelImg}
                                             alt=""
                                         />
+                                        <div className={styles.video_pause}>
+                                            <Image
+                                                className={
+                                                    styles.video_box_pause
+                                                }
+                                                src={pauseImg}
+                                                alt=""
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={styles.video_body}>
-                                    <div
-                                        className={styles.box_title}
-                                        style={{ color: '#fff' }}
-                                    >
-                                        @Yellow Stone
-                                    </div>
-                                    <div className={styles.box_buttons}>
+                                    <div className={styles.video_body}>
                                         <div
-                                            className={styles.box_button}
+                                            className={styles.box_title}
                                             style={{ color: '#fff' }}
                                         >
+                                            @Yellow Stone
+                                        </div>
+                                        <div className={styles.box_buttons}>
                                             <div
-                                                className={
-                                                    styles.box_button_header
-                                                }
+                                                className={styles.box_button}
                                                 style={{ color: '#fff' }}
                                             >
-                                                <div className={styles.count}>
-                                                    500K
+                                                <div
+                                                    className={
+                                                        styles.box_button_header
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    <div
+                                                        className={styles.count}
+                                                    >
+                                                        500K
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                >
+                                                    members
                                                 </div>
                                             </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                            >
-                                                members
+                                            <div className={styles.box_button}>
+                                                <div
+                                                    className={
+                                                        styles.box_button_title
+                                                    }
+                                                >
+                                                    134 NMBL
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    floor price
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className={styles.box_button}>
-                                            <div
-                                                className={
-                                                    styles.box_button_title
-                                                }
-                                            >
-                                                134 NMBL
-                                            </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                                style={{ color: '#fff' }}
-                                            >
-                                                floor price
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div className={styles.box_footer}>
-                                        <div className={styles.tag_content}>
-                                            <div className={styles.tag}>
-                                                #ETH-NFTs
-                                            </div>
-                                            <div className={styles.tag}>
-                                                #NFT-Trading
+                                        <div className={styles.box_footer}>
+                                            <div className={styles.tag_content}>
+                                                <div className={styles.tag}>
+                                                    #ETH-NFTs
+                                                </div>
+                                                <div className={styles.tag}>
+                                                    #NFT-Trading
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.ranking_boxs}>
-                        <div className={styles.card_loop}>
-                            <div className={styles.card_box}>
-                                <div className={styles.video_header}>
-                                    <Image
-                                        className={styles.video_header_logo}
-                                        src={channelImg}
-                                        alt=""
-                                    />
-                                    <div className={styles.video_pause}>
+                        <div className={styles.ranking_boxs}>
+                            <div className={styles.card_loop}>
+                                <div className={styles.card_box}>
+                                    <div className={styles.video_header}>
                                         <Image
-                                            className={styles.video_box_pause}
-                                            src={pauseImg}
+                                            className={styles.video_header_logo}
+                                            src={channelImg}
                                             alt=""
                                         />
+                                        <div className={styles.video_pause}>
+                                            <Image
+                                                className={
+                                                    styles.video_box_pause
+                                                }
+                                                src={pauseImg}
+                                                alt=""
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={styles.video_body}>
-                                    <div
-                                        className={styles.box_title}
-                                        style={{ color: '#fff' }}
-                                    >
-                                        @Yellow Stone
-                                    </div>
-                                    <div className={styles.box_buttons}>
+                                    <div className={styles.video_body}>
                                         <div
-                                            className={styles.box_button}
+                                            className={styles.box_title}
                                             style={{ color: '#fff' }}
                                         >
+                                            @Yellow Stone
+                                        </div>
+                                        <div className={styles.box_buttons}>
                                             <div
-                                                className={
-                                                    styles.box_button_header
-                                                }
+                                                className={styles.box_button}
                                                 style={{ color: '#fff' }}
                                             >
-                                                <div className={styles.count}>
-                                                    500K
+                                                <div
+                                                    className={
+                                                        styles.box_button_header
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    <div
+                                                        className={styles.count}
+                                                    >
+                                                        500K
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                >
+                                                    members
                                                 </div>
                                             </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                            >
-                                                members
+                                            <div className={styles.box_button}>
+                                                <div
+                                                    className={
+                                                        styles.box_button_title
+                                                    }
+                                                >
+                                                    134 NMBL
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button_footer
+                                                    }
+                                                    style={{ color: '#fff' }}
+                                                >
+                                                    floor price
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className={styles.box_button}>
-                                            <div
-                                                className={
-                                                    styles.box_button_title
-                                                }
-                                            >
-                                                134 NMBL
-                                            </div>
-                                            <div
-                                                className={
-                                                    styles.box_button_footer
-                                                }
-                                                style={{ color: '#fff' }}
-                                            >
-                                                floor price
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div className={styles.box_footer}>
-                                        <div className={styles.tag_content}>
-                                            <div className={styles.tag}>
-                                                #ETH-NFTs
-                                            </div>
-                                            <div className={styles.tag}>
-                                                #NFT-Trading
+                                        <div className={styles.box_footer}>
+                                            <div className={styles.tag_content}>
+                                                <div className={styles.tag}>
+                                                    #ETH-NFTs
+                                                </div>
+                                                <div className={styles.tag}>
+                                                    #NFT-Trading
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -566,7 +536,7 @@ const RankingsPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

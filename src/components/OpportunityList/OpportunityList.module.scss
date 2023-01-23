@@ -6,9 +6,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 50px 20px;
+    padding: 30px;
     justify-content: center;
     align-items: baseline;
     overflow: scroll;
-    height: 90vh;
+    height: calc(90vh - 230px);
 }
