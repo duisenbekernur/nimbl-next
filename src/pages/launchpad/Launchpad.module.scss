@@ -4,6 +4,9 @@
     padding: 0 20px;
 
     .launchpad_navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         .navigation_buttons {
             .button:hover {
                 background: linear-gradient(273.52deg, rgba(0, 234, 242, 0.327) -54.44%, rgba(234, 0, 215, 0.393) 110.67%);
