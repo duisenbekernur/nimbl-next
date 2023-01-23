@@ -49,7 +49,7 @@ const SidebarCart: FC = () => {
                     </div>
                 </div>
                 <div className={style.quick_buy__list}>
-                    <div className={style.quick_buy__item}>
+                   {[...Array(3)].map((card, idx) => <div className={style.quick_buy__item} key={idx}>
                         <Image
                             width={60}
                             height={60}
@@ -66,7 +66,7 @@ const SidebarCart: FC = () => {
                             <h4 className={style.price_value}>12 NMBL</h4>
                             <button className={style.buy_btn}>Quick Buy</button>
                         </div>
-                    </div>
+                    </div> ) }
                 </div>
             </div>
         </div>
