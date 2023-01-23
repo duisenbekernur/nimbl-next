@@ -11,7 +11,11 @@ type Props = {
     range: ChartZoomSelectionType
 }
 
-const AreaChart: FC<Props> = ({ height = "200", width = "100%", range = "ALL" }) => {
+const AreaChart: FC<Props> = ({
+    height = '200',
+    width = '100%',
+    range = 'ALL',
+}) => {
     const [series, setSeries] = useState<ApexOptions['series']>([
         {
             name: '',
@@ -251,6 +255,8 @@ const AreaChart: FC<Props> = ({ height = "200", width = "100%", range = "ALL" })
             id: 'area-datetime',
             type: 'area',
             zoom: {
+                type: 'x',
+                enabled: true,
                 autoScaleYaxis: true,
             },
             toolbar: {

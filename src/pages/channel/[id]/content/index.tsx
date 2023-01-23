@@ -1,18 +1,18 @@
 import style from '@/styles/ChannelContent.module.scss'
 import Image from 'next/image'
+import SidebarFilter from '@/components/ChannelContent/SidebarFilter'
+import SidebarCart from '@/components/ChannelContent/SidebarCart'
+import NFTCard from '@/components/NFTCard'
+import { useState } from 'react'
+import ChartAreaContent from '@/components/ChannelContent/ChartAreaContent'
+import ChartTradingContent from '@/components/ChannelContent/ChartTradingContent'
+
 import avatar from '@/assets/channel-content/user-avatar.gif'
 import iconShare from '@/assets/channel-content/icon-share.svg'
 import iconDots from '@/assets/channel-content/icon-dots.svg'
 import iconItems from '@/assets/channel-content/icon-items.svg'
 import iconStats from '@/assets/channel-content/icon-stats.svg'
 import iconReload from '@/assets/channel-content/icon-reload.svg'
-import SidebarFilter from '@/components/ChannelContent/SidebarFilter'
-import SidebarCart from '@/components/ChannelContent/SidebarCart'
-import NFTCard from '@/components/NFTCard'
-import { useState } from 'react'
-import ChartTrending from '@/components/Chart/ChartTrending'
-import AreaChart from '@/components/Chart/AreaChart'
-import ChartAreaContent from '@/components/ChannelContent/ChartAreaContent'
 
 const ChannelContent = () => {
     const [showChart, setShowChart] = useState<boolean>(false)
@@ -144,7 +144,7 @@ const ChannelContent = () => {
                 </div>
                 {showChart ? (
                     <div className={style.chart_list}>
-                        <div className={style.chart_item__candlestick}><ChartTrending height='200' width='100%' /></div>
+                        <div className={style.chart_item__candlestick}><ChartTradingContent /></div>
                         <div className={style.chart_item__area}><ChartAreaContent /></div>
                     </div>
                 ) : (
