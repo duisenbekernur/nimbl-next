@@ -1,5 +1,55 @@
-const login = () => {
-  return <div>login</div>;
-};
+import React, { useState, useEffect } from 'react'
+import web3 from 'web3'
+import { MetaMaskInpageProvider } from '@metamask/providers'
+import styles from '../styles/Login.module.scss'
+import Script from 'next/script'
+import MetaLogo from '@/components/AnimatedLogo'
+declare global {
+    interface Window {
+        ethereum?: MetaMaskInpageProvider
+    }
+}
 
-export default login;
+const LoginPage = () => {
+    const [account, setAccount] = useState<string | null>(null)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const handleLogin = async () => {
+        setIsLoading(true)
+        try {
+            if (typeof window.ethereum !== 'undefined') {
+                const accounts = await window.ethereum.enable()
+                setAccount(accounts[0])
+            }
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+    const handleLogout = async () => {
+        return await setAccount(null)
+    }
+    return (
+        <>
+            <Script src="../components/AnimatedLogo/index.js" />
+            <div className={styles.loginContainer}>
+                <div className={styles.metaLogo}>
+                    <MetaLogo />
+                </div>
+                {account === null ? (
+                    <button onClick={handleLogin} disabled={isLoading}>
+                        {isLoading ? 'Loading...' : 'Log in with MetaMask'}
+                    </button>
+                ) : (
+                    <button onClick={handleLogout} disabled={isLoading}>
+                        {isLoading ? 'Loading...' : 'Log out'}
+                    </button>
+                )}
+                {account !== null && <p>Your Ethereum address: {account}</p>}
+            </div>
+        </>
+    )
+}
+
+export default LoginPage

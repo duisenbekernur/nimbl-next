@@ -235,7 +235,11 @@ const ChannelPage: FC = () => {
                                     })}
                                 </div>
                                 <div className={styles.statisticsRight}>
-                                    <AreaChart />
+                                    <AreaChart
+                                        height={''}
+                                        width={''}
+                                        range={'ALL'}
+                                    />
                                 </div>
                             </article>
                         </main>

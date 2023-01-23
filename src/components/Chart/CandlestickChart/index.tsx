@@ -36,7 +36,7 @@ function generateChartData() {
     return chartData
 }
 
-const CandlestickChart: FC<Props> = ({ height, width , range}) => {
+const CandlestickChart: FC<Props> = ({ height, width, range }) => {
     const [series, setSeries] = useState<ApexOptions['series']>()
     const [options, setOptions] = useState<ApexOptions>({
         chart: {
@@ -117,15 +117,17 @@ const CandlestickChart: FC<Props> = ({ height, width , range}) => {
         },
     })
 
-    const data = useRef<{
-        x: number;
-        y: number[];
-    }[]>(generateChartData())
+    const data = useRef<
+        {
+            x: number
+            y: number[]
+        }[]
+    >(generateChartData())
 
     const updateData = (timeline: ChartZoomSelectionType) => {
         const toDay = new Date()
         if (timeline === 'ONE_MONTH') {
-            setOptions((prev) => {
+            setOptions((prev: any) => {
                 return {
                     ...prev,
                     xaxis: {
@@ -138,7 +140,7 @@ const CandlestickChart: FC<Props> = ({ height, width , range}) => {
         }
 
         if (timeline === 'ONE_YEAR') {
-            setOptions((prev) => {
+            setOptions((prev: any) => {
                 return {
                     ...prev,
                     xaxis: {
@@ -151,7 +153,7 @@ const CandlestickChart: FC<Props> = ({ height, width , range}) => {
         }
 
         if (timeline === 'ONE_WEEK') {
-            setOptions((prev) => {
+            setOptions((prev: any) => {
                 return {
                     ...prev,
                     xaxis: {
@@ -164,7 +166,7 @@ const CandlestickChart: FC<Props> = ({ height, width , range}) => {
         }
 
         if (timeline === 'ONE_DAY') {
-            setOptions((prev) => {
+            setOptions((prev: any) => {
                 return {
                     ...prev,
                     xaxis: {
@@ -177,7 +179,7 @@ const CandlestickChart: FC<Props> = ({ height, width , range}) => {
         }
 
         if (timeline === 'ALL') {
-            setOptions((prev) => {
+            setOptions((prev: any) => {
                 return {
                     ...prev,
                     xaxis: {
@@ -191,22 +193,25 @@ const CandlestickChart: FC<Props> = ({ height, width , range}) => {
     }
 
     useEffect(() => {
-        setSeries([{data: data.current}])
-        const max = data.current.reduce((acc, curr) => acc.y[1] > curr.y[1] ? acc : curr);
-        const min = data.current.reduce((acc, curr) => acc.y[2] < curr.y[2] ? acc : curr);
-        setOptions(prev => {
+        setSeries([{ data: data.current }])
+        const max = data.current.reduce((acc, curr) =>
+            acc.y[1] > curr.y[1] ? acc : curr
+        )
+        const min = data.current.reduce((acc, curr) =>
+            acc.y[2] < curr.y[2] ? acc : curr
+        )
+        setOptions((prev) => {
             return {
                 ...prev,
                 yaxis: {
                     ...prev.yaxis,
                     max: max.y[1],
-                    min: min.y[2]
-                }
+                    min: min.y[2],
+                },
             }
         })
     }, [])
 
-    
     useEffect(() => {
         if (range) updateData(range)
     }, [range])
