@@ -1,9 +1,10 @@
 .container {
-    height: calc(90vh);
+    height: 100%;
+    padding: 20px 30px 30px;
 }
 .mainContainer {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 50px 100px;
+    margin: 0 100px;
 }
