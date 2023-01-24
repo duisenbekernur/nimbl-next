@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import categorySvg from '../../../assets/icons/top-creator-icon.svg'
 import arrowDownSvg from '../../../assets/icons/arrow_down.svg'
 import Image from 'next/image'
@@ -16,8 +16,12 @@ import { setActive } from '@/store/features/rankings-filter/filter'
 import RecomendationDropdown from '@/components/RecomendationDropdown'
 import Head from 'next/head'
 import RankingsCard from '@/components/RankingsCard'
+import MarketplaceButton from '@/components/UI/MarketplaceButton'
 
 const RankingsPage = () => {
+    const [isGridActive, setIsGridActive] = useState(true)
+    const [activeButtonId, setActiveButtonId] = useState(0)
+
     const dispatch = useDispatch()
     const { time } = useSelector((store: RootState) => store.filter)
     console.log(time)
@@ -102,24 +106,46 @@ const RankingsPage = () => {
                                 />
                             </div>
                             <div className={styles.header_tabs}>
-                                <div className={styles.header_tab}>
-                                    View as Grid
+                                <div
+                                    className={styles.header_tab}
+                                    onClick={() => {
+                                        setIsGridActive(true)
+                                        setActiveButtonId(0)
+                                    }}
+                                >
+                                    <MarketplaceButton
+                                        imgPath=""
+                                        text="View as Grid"
+                                        isActive={activeButtonId === 0}
+                                    />
                                 </div>
-                                <div className={styles.header_tab}>
-                                    View as List
+                                <div
+                                    className={styles.header_tab}
+                                    onClick={() => {
+                                        setIsGridActive(false)
+                                        setActiveButtonId(1)
+                                    }}
+                                >
+                                    <MarketplaceButton
+                                        imgPath=""
+                                        text="View as List"
+                                        isActive={activeButtonId === 1}
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={styles.card_main}>
-                    {[...new Array(24)].map((_, index) => (
-                        <div key={index} className={styles.ranking_boxs}>
-                            <div className={styles.card_loop}>
-                                <RankingsCard />
-                            </div>
-                        </div>
-                    ))}
+                    {isGridActive
+                        ? [...new Array(24)].map((_, index) => (
+                              <div key={index} className={styles.ranking_boxs}>
+                                  <div className={styles.card_loop}>
+                                      <RankingsCard />
+                                  </div>
+                              </div>
+                          ))
+                        : null}
                 </div>
             </div>
         </>

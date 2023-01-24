@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import web3 from 'web3'
 import { MetaMaskInpageProvider } from '@metamask/providers'
 import styles from '../styles/Login.module.scss'
 import Script from 'next/script'

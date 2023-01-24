@@ -8,6 +8,7 @@ import arrowTopImg from '../../../assets/icons/arrow-right-top.svg'
 import profile from '../../../assets/icons/profile.svg'
 import { useState } from 'react'
 import Head from 'next/head'
+import MarketplaceButton from '@/components/UI/MarketplaceButton'
 
 const gainerTop = [
     {
@@ -129,7 +130,7 @@ const gainerBottom = [
 
 const GainersPage = () => {
     const [gainer, setGainer] = useState(true)
-    const [activeButton, setActiveButton] = useState(0)
+    const [activeButtonId, setActiveButtonId] = useState(0)
 
     return (
         <>
@@ -149,22 +150,26 @@ const GainersPage = () => {
                         <div
                             onClick={() => {
                                 setGainer(true)
-                                setActiveButton(0)
+                                setActiveButtonId(0)
                             }}
-                            className={activeButton === 0 ? styles.active : ''}
                         >
-                            <Image src={arrowTopImg} alt="arrow" />
-                            <button>Top gainers</button>
+                            <MarketplaceButton
+                                imgPath={arrowTopImg}
+                                text={'Top gainers'}
+                                isActive={activeButtonId === 0}
+                            />
                         </div>
                         <div
                             onClick={() => {
                                 setGainer(false)
-                                setActiveButton(1)
+                                setActiveButtonId(1)
                             }}
-                            className={activeButton === 1 ? styles.active : ''}
                         >
-                            <Image src={arrowBottomImg} alt="arrow" />
-                            <button>Top loosers</button>
+                            <MarketplaceButton
+                                imgPath={arrowBottomImg}
+                                text={'Top loosers'}
+                                isActive={activeButtonId === 1}
+                            />
                         </div>
                     </div>
                 </div>

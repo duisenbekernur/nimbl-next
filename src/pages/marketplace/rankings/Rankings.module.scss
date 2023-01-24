@@ -271,30 +271,9 @@
             .header_tabs {
                 cursor: pointer;
                 display: flex;
+                gap: 15px;
                 align-items: center;
                 margin-right: 20px;
-                .header_tab {
-                    color: #fff;
-                    padding: 9px 20px;
-                    background: linear-gradient(
-                        0deg,
-                        rgba(85, 85, 85, 0.14),
-                        rgba(85, 85, 85, 0.14)
-                    );
-                    backdrop-filter: blur(14.511px);
-                    border-radius: 3.35px;
-                    font-size: 16px;
-                    border: 0.76px solid rgba(234, 0, 213, 0.5);
-                    &:first-child {
-                        margin-right: 25px;
-                        background: linear-gradient(
-                            273.52deg,
-                            rgba(0, 234, 242, 0.2) -54.44%,
-                            rgba(234, 0, 213, 0.2) 110.67%
-                        );
-                        border: 0.97px solid rgba(234, 0, 213, 0.5);
-                    }
-                }
             }
         }
     }
