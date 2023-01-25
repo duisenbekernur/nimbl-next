@@ -24,7 +24,7 @@
 }
 .community_main .community_feed .community_feed_title h1 {
   color: white;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 350;
   padding: 8px 0;
 }
@@ -54,11 +54,11 @@
 }
 .community_main .community_feed .community_item .community_item_userdata .community_item_details .community_item_details_info .community_item_details_name .name {
   color: #FFFFFF;
-  font-size: 23px;
+  font-size: 20px;
 }
 .community_main .community_feed .community_item .community_item_userdata .community_item_details .community_item_details_info .community_item_details_date .submission_time {
   color: #8E8E8E;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 20px;
 }
 .community_main .community_feed .community_item .community_item_userdata .community_item_details .community_item_details_comment {
@@ -66,7 +66,7 @@
 }
 .community_main .community_feed .community_item .community_item_userdata .community_item_details .community_item_details_comment .comment {
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 350;
 }
 .community_main .community_feed .community_item .community_item_userdata .community_item_details .community_item_details_likes {
@@ -108,8 +108,8 @@
   display: flex;
 }
 .community_main .community_chat .community_chat_users .community_chat_user .img {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin: 14px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -258,18 +258,18 @@
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .user_info .user_data .username {
   font-weight: 400;
-  font-size: 26.364px;
+  font-size: 24px;
   color: #01EAF2;
   margin: 0 10px;
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .user_info .user_data .submission_date {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   color: #82868D;
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .message {
   font-weight: 400;
-  font-size: 26.364px;
+  font-size: 20px;
   color: #FFFFFF;
   margin-left: 40px;
   display: flex;
