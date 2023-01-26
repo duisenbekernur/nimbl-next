@@ -3,8 +3,9 @@ import styles from '@/styles/Home.module.scss'
 import Sidebar from '@/components/MainSidebar'
 import RecomendationDropdown from '@/components/RecomendationDropdown'
 import VideoCard from '@/components/VideoCard'
+import withAuthorization from '@/HOC/Authorization/Authorization'
 
-export default function Home() {
+function Home() {
     return (
         <>
             <Head>
@@ -47,3 +48,5 @@ export default function Home() {
         </>
     )
 }
+
+export default withAuthorization(Home)

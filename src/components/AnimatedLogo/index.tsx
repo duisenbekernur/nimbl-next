@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
-const ModelViewer = require('@metamask/logo')
+import ModelViewer  from '@metamask/logo'
+import { MetaMaskLogo } from '@metamask/logo';
 
 const MetaLogo = ({ meshJson }: any) => {
     const metaRef = useRef<HTMLDivElement>(null)
@@ -24,6 +25,7 @@ const MetaLogo = ({ meshJson }: any) => {
             metaRef.current.children.length == 0
         ) {
             metaRef.current.appendChild(viewer.container)
+            metaRef.current.style.fill = "red"
         }
 
         return () => {
@@ -36,7 +38,9 @@ const MetaLogo = ({ meshJson }: any) => {
         }
     }, [])
 
-    return <div style={{ lineHeight: '0' }} ref={metaRef} />
+    return (<>
+        <div style={{ lineHeight: '0' }} className={"logo"} ref={metaRef} />
+    </>)
 }
 
 export default MetaLogo

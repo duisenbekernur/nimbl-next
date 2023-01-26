@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { MetaMaskInpageProvider } from '@metamask/providers'
+import { UseShoppingCart } from "../context/AuthContext";
 import styles from '../styles/Login.module.scss'
 import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
+import Router from 'next/router'
 declare global {
     interface Window {
         ethereum?: MetaMaskInpageProvider
@@ -11,7 +13,15 @@ declare global {
 
 const LoginPage = () => {
     const [account, setAccount] = useState<string | null>(null)
+    const {Auth} = UseShoppingCart()
     const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() =>{
+        if (account){
+            Auth(account)
+            Router.push('/');
+        }
+    }, [account])
 
     const handleLogin = async () => {
         setIsLoading(true)
@@ -29,6 +39,8 @@ const LoginPage = () => {
     const handleLogout = async () => {
         return await setAccount(null)
     }
+
+
     return (
         <>
             <Script src="../components/AnimatedLogo/index.js" />
