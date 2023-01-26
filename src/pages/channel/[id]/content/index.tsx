@@ -13,6 +13,7 @@ import iconDots from '@/assets/channel-content/icon-dots.svg'
 import iconItems from '@/assets/channel-content/icon-items.svg'
 import iconStats from '@/assets/channel-content/icon-stats.svg'
 import iconReload from '@/assets/channel-content/icon-reload.svg'
+import withAuthorization from '@/HOC/Authorization/Authorization'
 
 const ChannelContent = () => {
     const [showChart, setShowChart] = useState<boolean>(false)
@@ -175,4 +176,4 @@ const ChannelContent = () => {
     )
 }
 
-export default ChannelContent
+export default withAuthorization(ChannelContent) 
