@@ -4,6 +4,7 @@ import { UseShoppingCart } from "../context/AuthContext";
 import styles from '../styles/Login.module.scss'
 import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
+import {MetaMaskLogoFucntion} from '../MetaMaskLogo/MetaMaskLogo'
 import Router from 'next/router'
 declare global {
     interface Window {
@@ -40,16 +41,31 @@ const LoginPage = () => {
         return await setAccount(null)
     }
 
+    useEffect(() =>{
+        MetaMaskLogoFucntion();
+    }, [])
+
 
     return (
         <>
             <Script src="../components/AnimatedLogo/index.js" />
             <div className={styles.loginContainer}>
                 <div className={styles.metaLogo}>
-                    <MetaLogo />
+                    <div id="logo-container" />
                 </div>
+                <form className="login_form">
+                    <div className="input_wrapper">
+                        <label>Login</label>
+                        <input type="text" placeholder="Login"/>
+                    </div>
+                    <div className="input_wrapper">
+                        <label>Password</label>
+                        <input type="password" placeholder="Password"/>
+                    </div>
+                    <button>Submit</button>
+                </form>
                 {account === null ? (
-                    <button onClick={handleLogin} disabled={isLoading}>
+                    <button onClick={handleLogin} disabled={isLoading} className="btn_meta">
                         {isLoading ? 'Loading...' : 'Log in with MetaMask'}
                     </button>
                 ) : (
