@@ -7,16 +7,16 @@
     column-gap: 15px;
 
     .content {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         padding: 15px;
-        row-gap: 9px;
+        row-gap: 15px;
         overflow: hidden;
 
         .dropdowns {
-
             display: flex;
             justify-content: space-between;
-            overflow-x: scroll;
+            z-index: 1;
         }
 
         &__videos {

@@ -1,4 +1,4 @@
-
+import Image from 'next/image'
 import {
     setMarketActive,
     setNavbarActive,
@@ -9,6 +9,29 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './Navbar.module.scss'
+
+import contentIcon from '../../assets/icons/nav-content.png'
+import communityIcon from '../../assets/icons/nav-community.png'
+import marketplaceIcon from '../../assets/icons/nav-marketplace.png'
+import settingsIcon from '../../assets/icons/nav-settings.png'
+
+import rankingsIcon from '../../assets/icons/nav-rankings.png'
+import launchpadIcon from '../../assets/icons/nav-launchpad.png'
+import opportunitiesIcon from '../../assets/icons/nav-opportunities.png'
+import gainersIcon from '../../assets/icons/nav-gainers.png'
+
+const navMainIconsPaths = [
+    contentIcon,
+    communityIcon,
+    marketplaceIcon,
+    settingsIcon,
+]
+const navMarketplaceIconsPaths = [
+    rankingsIcon,
+    launchpadIcon,
+    opportunitiesIcon,
+    gainersIcon,
+]
 
 const Navbar: FC = () => {
     const dispatch = useDispatch()
@@ -23,7 +46,7 @@ const Navbar: FC = () => {
     }
     return (
         <ul className={styles.navbar}>
-            {navItems.map((item) => {
+            {navItems.map((item, index) => {
                 const { id, name, link, isActive } = item
                 return (
                     <Link
@@ -40,6 +63,14 @@ const Navbar: FC = () => {
                         }}
                     >
                         <li className={isActive ? styles.active : ''}>
+                            <Image
+                                src={
+                                    !currentPath.startsWith('/marketplace')
+                                        ? navMainIconsPaths[index]
+                                        : navMarketplaceIconsPaths[index]
+                                }
+                                alt="icon"
+                            />
                             {name}
                         </li>
                     </Link>

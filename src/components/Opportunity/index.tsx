@@ -1,13 +1,25 @@
-
 import { FC } from 'react'
 import styles from './Opportunity.module.scss'
+import Image from 'next/image'
+import imageCard1 from '@/assets/channel-content/card3.jpg'
+import logo from '@/assets/user9.png'
+import CardButton from '../NFTCard/CardButton'
 
 const Opportunity: FC = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.img}></div>
+            <div className={styles.back}></div>
+            <div className={styles.imgBlock}>
+                <Image
+                    className={styles.img}
+                    src={imageCard1}
+                    alt="imageCard"
+                />
+            </div>
             <div className={styles.info}>
-                <div className={styles.logo}></div>
+                <div className={styles.logo}>
+                    <Image src={logo} alt={'logo'} />
+                </div>
                 <div className={styles.name}>@JamesB</div>
                 <div className={styles.size}>
                     <p>Community Size:</p>
@@ -29,7 +41,7 @@ const Opportunity: FC = () => {
                 </div>
             </div>
             <div className={styles.btn}>
-                <button>Register</button>
+                <CardButton>Register</CardButton>
             </div>
         </div>
     )

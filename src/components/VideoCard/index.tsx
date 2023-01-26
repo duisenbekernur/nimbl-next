@@ -5,15 +5,20 @@ import previewImg from '../../assets/video/preview.svg'
 import eyeImg from '../../assets/icons/eye.svg'
 import clockImg from '../../assets/icons/clock.svg'
 import channelImg from '../../assets/icons/channel-logo.svg'
+import { useRef, useState } from 'react'
 
 const VideoCard = () => {
+    const [isShow, setIsShow] = useState(false)
+    const videoRef = useRef(null)
+    
+    
     return (
-        <div className={styles.card}>
+        <div className={styles.card} ref={videoRef} onMouseEnter={() => setIsShow(true)} onMouseOut={() => setIsShow(false)}>
             <div className={styles.card__preview}>
-                <Image src={previewImg} alt="preview" />
+                {!isShow ? <Image src={previewImg} alt='preview' />:  <video autoPlay={true} src='./alb_numbers001_1080p_24fps.mp4' ></video>}
                 <div className={styles.card__preview__bottom}>
                     <div className={styles.card__preview__bottom_title}>
-                        <Image src={channelImg} alt="logo" />
+                        <Image src={channelImg} alt='logo' />
                         <p>@BlueWard2</p>
                     </div>
 

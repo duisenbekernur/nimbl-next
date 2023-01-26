@@ -33,10 +33,22 @@
     &__search {
         position: relative;
 
+        &::before {
+            content: '';
+            position: absolute;
+            background: url('../../assets/icons/search.svg') no-repeat center
+                center/cover;
+            left: 20px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+        }
+
         input {
             width: 30vw;
             height: 35px;
-            padding: 10px;
+            padding: 10px 10px 10px 35px;
 
             background: linear-gradient(#0a0e20, #0a0e20) 50% 50% /
                     calc(100% - 2px) calc(100% - 2px) no-repeat,
@@ -47,7 +59,6 @@
             &::placeholder {
                 color: #fff;
                 font-size: 16px;
-                padding-left: 25px;
             }
 
             &::before {

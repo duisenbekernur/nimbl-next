@@ -12,10 +12,6 @@ const OpportunityList = () => {
                 <Opportunity />
                 <Opportunity />
                 <Opportunity />
-                <Opportunity />
-                <Opportunity />
-                <Opportunity />
-                <Opportunity />
             </div>
         </main>
     )

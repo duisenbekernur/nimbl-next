@@ -1,3 +1,5 @@
+@import url('../fonts/stylesheet.css');
+
 :root {
     --main-color-gray: #0d1429;
     --main-color-pink: #ea00d5;
@@ -16,61 +18,12 @@
     );
 }
 
-@font-face {
-    font-family: 'Octosquares-Regular';
-    src: url('../fonts/TTOctosquares-Regular.eot');
-    src: url('../fonts/TTOctosquares-Regular.eot?#iefix')
-            format('embedded-opentype'),
-        url('../fonts/TTOctosquares-Regular.woff2') format('woff2'),
-        url('../fonts/TTOctosquares-Regular.woff') format('woff'),
-        url('../fonts/TTOctosquares-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Octosquares-Medium';
-    src: url('../fonts/TTOctosquares-Medium.eot');
-    src: url('../fonts/TTOctosquares-Medium.eot?#iefix')
-            format('embedded-opentype'),
-        url('../fonts/TTOctosquares-Medium.woff2') format('woff2'),
-        url('../fonts/TTOctosquares-Medium.woff') format('woff'),
-        url('../fonts/TTOctosquares-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Octosquares-Light';
-    src: url('../fonts/TTOctosquares-Light.eot');
-    src: url('../fonts/TTOctosquares-Light.eot?#iefix')
-            format('embedded-opentype'),
-        url('../fonts/TTOctosquares-Light.woff2') format('woff2'),
-        url('../fonts/TTOctosquares-Light.woff') format('woff'),
-        url('../fonts/TTOctosquares-Light.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Octosquares-Bold';
-    src: url('../fonts/TTOctosquares-Bold.eot');
-    src: url('../fonts/TTOctosquares-Bold.eot?#iefix')
-            format('embedded-opentype'),
-        url('../fonts/TTOctosquares-Bold.woff2') format('woff2'),
-        url('../fonts/TTOctosquares-Bold.woff') format('woff'),
-        url('../fonts/TTOctosquares-Bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Octosquares-DBold';
-    src: url('../fonts/TTOctosquares-DBold.eot');
-    src: url('../fonts/TTOctosquares-DBold.eot?#iefix')
-            format('embedded-opentype'),
-        url('../fonts/TTOctosquares-DBold.woff2') format('woff2'),
-        url('../fonts/TTOctosquares-DBold.woff') format('woff'),
-        url('../fonts/TTOctosquares-DBold.ttf') format('truetype');
-}
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Octosquares-Regular';
+    font-family: 'TT Octosquares';
 }
 
 .layout {
@@ -103,3 +56,4 @@
     background: var(--scrollbar-gradient);
     border-radius: 6px;
 }
+
