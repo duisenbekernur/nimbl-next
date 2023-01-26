@@ -133,7 +133,7 @@ const CandlestickChart: FC<Props> = ({ height, width, range }) => {
                     xaxis: {
                         ...prev.xaxis,
                         min: toDay.setDate(toDay.getDate() - 31),
-                        max: toDay,
+                        max: toDay.getTime(),
                     },
                 }
             })
@@ -146,7 +146,7 @@ const CandlestickChart: FC<Props> = ({ height, width, range }) => {
                     xaxis: {
                         ...prev.xaxis,
                         min: toDay.setDate(toDay.getDate() - 365),
-                        max: toDay,
+                        max: toDay.getTime(),
                     },
                 }
             })
@@ -159,7 +159,7 @@ const CandlestickChart: FC<Props> = ({ height, width, range }) => {
                     xaxis: {
                         ...prev.xaxis,
                         min: toDay.setDate(toDay.getDate() - 7),
-                        max: toDay,
+                        max: toDay.getTime(),
                     },
                 }
             })
@@ -172,7 +172,7 @@ const CandlestickChart: FC<Props> = ({ height, width, range }) => {
                     xaxis: {
                         ...prev.xaxis,
                         min: toDay.setDate(toDay.getDate() - 1),
-                        max: toDay,
+                        max: toDay.getTime(),
                     },
                 }
             })
