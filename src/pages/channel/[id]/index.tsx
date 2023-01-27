@@ -7,7 +7,10 @@ import logo from '@/assets/user3.png'
 import React, { FC, useState } from 'react'
 import styles from '../../../styles/ChannelPage.module.scss'
 import Announcement from '@/components/Announcement'
+import ChartAreaContent from '@/components/ChannelContent/ChartAreaContent'
+import ChartTradingContent from '@/components/ChannelContent/ChartTradingContent'
 import { it } from 'node:test'
+import CandlestickChart from '@/components/Chart/CandlestickChart'
 
 const announcements = [
     {
@@ -236,8 +239,8 @@ const ChannelPage: FC = () => {
                                 </div>
                                 <div className={styles.statisticsRight}>
                                     <AreaChart
-                                        height={''}
-                                        width={''}
+                                        height={'100%'}
+                                        width={'100%'}
                                         range={'ALL'}
                                     />
                                 </div>
@@ -284,7 +287,7 @@ const ChannelPage: FC = () => {
                                 </section>
                             </div>
                             <div className={styles.tradeGraph}>
-                                <ProgressChart />
+                                <ChartTradingContent />
                             </div>
                         </div>
 
