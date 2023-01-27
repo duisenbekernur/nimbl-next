@@ -287,7 +287,11 @@ const ChannelPage: FC = () => {
                                 </section>
                             </div>
                             <div className={styles.tradeGraph}>
-                                <ChartTradingContent />
+                                <CandlestickChart
+                                    height={'100%'}
+                                    width={'100%'}
+                                    range={'ALL'}
+                                />
                             </div>
                         </div>
 

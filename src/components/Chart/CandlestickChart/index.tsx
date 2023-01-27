@@ -37,7 +37,7 @@ function generateChartData() {
 }
 
 const CandlestickChart: FC<Props> = ({ height, width, range }) => {
-    const [series, setSeries] = useState<ApexOptions['series']>()
+    const [series, setSeries] = useState<ApexOptions['series']>([{ data: [] }])
     const [options, setOptions] = useState<ApexOptions>({
         chart: {
             type: 'candlestick',
