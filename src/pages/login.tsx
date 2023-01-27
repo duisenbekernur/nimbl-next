@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { MetaMaskInpageProvider } from '@metamask/providers'
-import { UseShoppingCart } from "../context/AuthContext";
+import { UseShoppingCart } from '../context/AuthContext'
 import styles from '../styles/Login.module.scss'
 import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
-import {MetaMaskLogoFucntion} from '../MetaMaskLogo/MetaMaskLogo'
 import Router from 'next/router'
+import purple from '@/components/AnimatedLogo/beta-fox.json'
 declare global {
     interface Window {
         ethereum?: MetaMaskInpageProvider
@@ -14,13 +14,13 @@ declare global {
 
 const LoginPage = () => {
     const [account, setAccount] = useState<string | null>(null)
-    const {Auth} = UseShoppingCart()
+    const { Auth } = UseShoppingCart()
     const [isLoading, setIsLoading] = useState(false)
 
-    useEffect(() =>{
-        if (account){
+    useEffect(() => {
+        if (account) {
             Auth(account)
-            Router.push('/');
+            Router.push('/')
         }
     }, [account])
 
@@ -41,31 +41,30 @@ const LoginPage = () => {
         return await setAccount(null)
     }
 
-    useEffect(() =>{
-        MetaMaskLogoFucntion();
-    }, [])
-
-
     return (
         <>
             <Script src="../components/AnimatedLogo/index.js" />
             <div className={styles.loginContainer}>
                 <div className={styles.metaLogo}>
-                    <div id="logo-container" />
+                    <MetaLogo meshJson={purple} />
                 </div>
                 <form className="login_form">
                     <div className="input_wrapper">
                         <label>Login</label>
-                        <input type="text" placeholder="Login"/>
+                        <input type="text" placeholder="Login" />
                     </div>
                     <div className="input_wrapper">
                         <label>Password</label>
-                        <input type="password" placeholder="Password"/>
+                        <input type="password" placeholder="Password" />
                     </div>
                     <button>Submit</button>
                 </form>
                 {account === null ? (
-                    <button onClick={handleLogin} disabled={isLoading} className="btn_meta">
+                    <button
+                        onClick={handleLogin}
+                        disabled={isLoading}
+                        className="btn_meta"
+                    >
                         {isLoading ? 'Loading...' : 'Log in with MetaMask'}
                     </button>
                 ) : (
