@@ -17,11 +17,13 @@ import VideoList from '@/components/VideosList'
 import { useState } from 'react'
 
 function VideoPage() {
-    const [activeTab, setActiveTab] = useState< 0 | 1 | 2>(0)
+    const [activeTab, setActiveTab] = useState<0 | 1 | 2>(0)
     return (
         <div className={style.videoPage__main}>
             <div className={style.videoPage__content}>
-                <div className={style.video_player}></div>
+                <div className={style.video_player}>
+                    <Image fill src="/fakeImg/video-1.jpg" alt="twitter" />
+                </div>
                 <div className={style.video_data}>
                     <h1 className={style.title}>
                         IGNORE THE FUD Binance CZ | AAVE Freezes Lending Markets
@@ -128,7 +130,7 @@ function VideoPage() {
                             <button className={style.btn_subscribe}>
                                 subscribe
                             </button>
-                            <Link href='/channel/8'>
+                            <Link href="/channel/8">
                                 <button className={style.btn_link}>
                                     go to channel
                                 </button>
@@ -139,8 +141,12 @@ function VideoPage() {
             </div>
             <div className={style.videoPage__sidebar}>
                 <div className={style.sidebar_tabs__list}>
-                    <div className={`${style.sidebar_tab__item} ${activeTab === 0 && style.active}`} 
-                        onClick={() => setActiveTab(0)}>
+                    <div
+                        className={`${style.sidebar_tab__item} ${
+                            activeTab === 0 && style.active
+                        }`}
+                        onClick={() => setActiveTab(0)}
+                    >
                         <Image
                             width={22}
                             height={22}
@@ -149,7 +155,12 @@ function VideoPage() {
                         />
                         <span>Videos</span>
                     </div>
-                    <div className={`${style.sidebar_tab__item} ${activeTab === 1 && style.active}`} onClick={() => setActiveTab(1)}>
+                    <div
+                        className={`${style.sidebar_tab__item} ${
+                            activeTab === 1 && style.active
+                        }`}
+                        onClick={() => setActiveTab(1)}
+                    >
                         <Image
                             width={22}
                             height={22}
@@ -158,12 +169,20 @@ function VideoPage() {
                         />
                         <span>Comments</span>
                     </div>
-                    <div className={`${style.sidebar_tab__item} ${activeTab === 2 && style.active}`} onClick={() => setActiveTab(2)}>
+                    <div
+                        className={`${style.sidebar_tab__item} ${
+                            activeTab === 2 && style.active
+                        }`}
+                        onClick={() => setActiveTab(2)}
+                    >
                         <Image width={22} height={22} src={trade} alt="trade" />
                         <span>Trade</span>
                     </div>
                 </div>
-                <div className={style.sidebar__content}> <VideoList /></div>
+                <div className={style.sidebar__content}>
+                    {' '}
+                    <VideoList />
+                </div>
             </div>
         </div>
     )

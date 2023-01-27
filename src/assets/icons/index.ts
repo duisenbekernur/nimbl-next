@@ -6,6 +6,8 @@ import share from './share.svg'
 import podcast from './podcast.svg'
 import commentsSolid from './comments-solid.svg'
 import trade from './trade.svg'
+import eyeGray from './eye-gray.svg'
+import clockGray from './clock-gray.svg'
 
 
 export {
@@ -16,5 +18,8 @@ export {
     share,
     podcast,
     commentsSolid,
-    trade
+    trade,
+    eyeGray,
+    clockGray
+
 }

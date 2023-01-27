@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import style from './VideosList.module.scss'
+import {clockGray, eyeGray} from '@/assets/icons'
 
 const VideoList: FC = () => {
     const videos = useSelector((store: RootState) => store.videos.videos)
@@ -24,10 +25,10 @@ const VideoList: FC = () => {
                                 <span className={style.author}>{item.channel}</span>
                                 <div className={style.video_stat__list}>
                                     <span className={style.video_stat__item}>
-                                        100 345
+                                        <Image src={eyeGray} alt="views" width={10} height={9} /><span>100 345</span>
                                     </span>
                                     <span className={style.video_stat__item}>
-                                        2 days ago
+                                    <Image src={clockGray} alt="clock" width={10} height={10} /><span>2 days ago</span>
                                     </span>
                                 </div>
                             </div>
