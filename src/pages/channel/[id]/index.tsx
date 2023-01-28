@@ -11,6 +11,9 @@ import ChartAreaContent from '@/components/ChannelContent/ChartAreaContent'
 import ChartTradingContent from '@/components/ChannelContent/ChartTradingContent'
 import { it } from 'node:test'
 import CandlestickChart from '@/components/Chart/CandlestickChart'
+import { useSelector } from 'react-redux'
+import { videoCardType } from '@/types'
+import { RootState } from '@/store/store'
 
 const announcements = [
     {
@@ -77,6 +80,10 @@ const ChannelPage: FC = () => {
         { id: 5, number: '100 132', name: 'Members' },
         { id: 6, number: '100 132', name: 'Members' },
     ])
+
+    const data = useSelector((state: RootState) => state.videos.videos)
+    const [videos, setVideos] = useState<videoCardType[] | null>(data)
+
     return (
         <div className={styles.container}>
             <div className={styles.left}>
@@ -213,14 +220,9 @@ const ChannelPage: FC = () => {
                         </header>
                         <main className={styles.rightMain}>
                             <article className={styles.videosSection}>
-                                <VideoCard />
-                                <VideoCard />
-                                <VideoCard />
-                                <VideoCard />
-                                <VideoCard />
-                                <VideoCard />
-                                <VideoCard />
-                                <VideoCard />
+                                {videos?.map((item, index) => (
+                                    <VideoCard key={index} {...item} />
+                                ))}
                             </article>
                             <article className={styles.statistics}>
                                 <div className={styles.statisticsLeft}>

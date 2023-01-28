@@ -6,16 +6,23 @@ import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
 import { useRouter } from 'next/router'
 import { UseShoppingCart } from '@/context/AuthContext'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { videoCardType } from '@/types'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
 
 function Home() {
     const router = useRouter()
-    const {isAuth} = UseShoppingCart()
+    const { isAuth } = UseShoppingCart()
+    const data = useSelector((state: RootState) => state.videos.videos)
+    const [videos, setVideos] = useState<videoCardType[] | null>(data)
 
-    useEffect(() =>{
-        if(!isAuth){
+    useEffect(() => {
+        if (!isAuth) {
             router.push('/login')
         }
+        console.log(data)
     }, [])
 
     return isAuth ? (
@@ -45,15 +52,9 @@ function Home() {
                     </div>
 
                     <div className={styles.content__videos}>
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
-                        <VideoCard />
+                        {videos?.map((item, index) => (
+                            <VideoCard key={index} {...item} />
+                        ))}
                     </div>
                 </div>
             </main>
