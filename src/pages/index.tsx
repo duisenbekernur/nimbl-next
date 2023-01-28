@@ -4,9 +4,21 @@ import Sidebar from '@/components/MainSidebar'
 import RecomendationDropdown from '@/components/RecomendationDropdown'
 import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
+import { useRouter } from 'next/router'
+import { UseShoppingCart } from '@/context/AuthContext'
+import { useEffect } from 'react'
 
 function Home() {
-    return (
+    const router = useRouter()
+    const {isAuth} = UseShoppingCart()
+
+    useEffect(() =>{
+        if(!isAuth){
+            router.push('/login')
+        }
+    }, [])
+
+    return isAuth ? (
         <>
             <Head>
                 <title>Create Next App</title>
@@ -46,7 +58,7 @@ function Home() {
                 </div>
             </main>
         </>
-    )
+    ) : null
 }
 
 export default withAuthorization(Home)
