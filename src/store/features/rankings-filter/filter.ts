@@ -6,7 +6,7 @@ const initialState = {
 
 const filter = createSlice({
   name: 'filter',
-  initialState,
+  initialState, 
   reducers: {
     setActive:(state,{payload}) => { 
         const newArr = state.time.map((item) => { 
