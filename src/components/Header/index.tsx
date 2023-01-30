@@ -10,11 +10,11 @@ import { useDispatch } from 'react-redux'
 import { setNavbarActive } from '@/store/features/navbar/navbarSlice'
 // import arrowLeftImg from '@/assets/icons/back.svg'
 
-const Header = () => {
+const Header = ({...rest}) => {
     const dropdownItems = ['WALLET', 'WLS', 'AIRDROP']
     const dispatch = useDispatch()
     return (
-        <div className={styles.header}>
+        <div className={styles.header} {...rest}>
             <div className={styles.header__logo}>
 
                 <Link href="/" onClick={() => dispatch(setNavbarActive(1))}>

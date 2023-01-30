@@ -33,7 +33,7 @@ const navMarketplaceIconsPaths = [
     gainersIcon,
 ]
 
-const Navbar: FC = () => {
+const Navbar= ({...rest}) => {
     const dispatch = useDispatch()
     const { navbarItems, marketPlaceNavbar } = useSelector(
         (store: RootState) => store.navbar
@@ -45,7 +45,7 @@ const Navbar: FC = () => {
         navItems = marketPlaceNavbar
     }
     return (
-        <ul className={styles.navbar}>
+        <ul className={styles.navbar} {...rest}>
             {navItems.map((item, index) => {
                 const { id, name, link, isActive } = item
                 return (

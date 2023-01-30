@@ -44,7 +44,7 @@ const LoginPage = () => {
     return (
         <>
             <Script src="../components/AnimatedLogo/index.js" />
-            <div className={styles.loginContainer}>
+            <div className={`${styles.loginContainer} login_wrapper`}>
                 <div className={styles.metaLogo}>
                     <MetaLogo meshJson={purple} />
                 </div>
