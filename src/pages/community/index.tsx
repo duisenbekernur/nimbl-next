@@ -1,26 +1,14 @@
-import styles from './Community.module.css';
-import avatar from '../../assets/avatar.png';
-import avatar2 from '../../assets/avatar2.png';
-import avatar3 from '../../assets/avatar3.png';
-import like from '../../assets/like.svg';
-import dislike from '../../assets/dislike.svg';
-import bored from '../../assets/bored.png';
-import user1 from '../../assets/user1.png';
-import user2 from '../../assets/user2.png';
-import user3 from '../../assets/user3.png';
-import user4 from '../../assets/user4.png';
-import user5 from '../../assets/user5.png';
-import user6 from '../../assets/user6.png';
-import user7 from '../../assets/user7.png';
-import user8 from '../../assets/user8.png';
-import user9 from '../../assets/user9.png';
-import logo from '../../assets/logo.png';
-import arrowDown from '../../assets/arrowDown.svg';
-import Image from 'next/image';
-import ChatUser from '@/components/Community/ChatUser';
-import Feed from '@/components/Community/Feed';
-import avatars from '@/components/Community/Feed/avatars';
-import Message from '@/components/Community/Message';
+import styles from './Community.module.css'
+import logo from '../../assets/logo.png'
+import arrowDown from '../../assets/arrowDown.svg'
+import Image from 'next/image'
+import ChatUser from '@/components/Community/ChatUser'
+import Feed from '@/components/Community/Feed'
+import Message from '@/components/Community/Message'
+import { avatars, messages } from './users'
+import attach from '../../assets/attach_icon.svg'
+import smile from '../../assets/smile_icon.svg'
+import send from '../../assets/send_icon.svg'
 
 const Community = () => {
     return (
@@ -76,17 +64,29 @@ const Community = () => {
                     <Message src={avatars[6]} message={messages[3]} />
                     <Message src={avatars[7]} message={messages[2]} />
                     <Message src={avatars[7]} message={messages[1]} />
-                </div> 
+                </div>
                 <div className={`${styles.message_form}`}>
                     <div className={`${styles.form_icons}`}>
-                      <Image className={`${styles.icon}`} src={smile} alt=""/>
-                      <Image className={`${styles.icon}`} src={attach} alt=""/>
+                        <Image
+                            className={`${styles.icon}`}
+                            src={smile}
+                            alt=""
+                        />
+                        <Image
+                            className={`${styles.icon}`}
+                            src={attach}
+                            alt=""
+                        />
                     </div>
                     <form action="">
-                        <input placeholder="Enter text" type="text" name="message" />
+                        <input
+                            placeholder="Enter text"
+                            type="text"
+                            name="message"
+                        />
                     </form>
                     <div className={`${styles.submit_btn}`}>
-                      <Image src={send} alt=""/>
+                        <Image src={send} alt="" />
                     </div>
                 </div>
             </div>

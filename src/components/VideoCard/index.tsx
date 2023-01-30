@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import styles from './VideoCard.module.scss'
-
 import previewImg from '../../assets/video/preview.svg'
 import eyeImg from '../../assets/icons/eye.svg'
 import clockImg from '../../assets/icons/clock.svg'
 import channelImg from '../../assets/icons/channel-logo.svg'
-import { FC, useRef, useState } from 'react'
+import { FC, HtmlHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { videoCardType } from '@/types'
+import { clear, time } from 'console'
 
 const VideoCard: FC<videoCardType> = ({
     // id,
@@ -17,12 +17,23 @@ const VideoCard: FC<videoCardType> = ({
     poster,
 }) => {
     const [isShow, setIsShow] = useState(false)
-    const videoRef = useRef(null)
-
+    const videoRef = useRef<HTMLVideoElement>(null)
+    const attemptPlay = () => {
+        setTimeout(()=> {
+            try {
+                videoRef &&
+                videoRef.current!.play()
+            } catch (error) {
+                console.log(error);
+            }
+        }, 1500)
+    }
+    useEffect(() => {
+        attemptPlay();
+    })
     return (
         <div
             className={styles.card}
-            ref={videoRef}
             onMouseEnter={() => setIsShow(true)}
             onMouseOut={() => setIsShow(false)}
         >
@@ -36,7 +47,7 @@ const VideoCard: FC<videoCardType> = ({
                     />
                 ) : (
                     <video
-                        autoPlay={true}
+                        ref = {videoRef}
                         src="./alb_numbers001_1080p_24fps.mp4"
                     ></video>
                 )}

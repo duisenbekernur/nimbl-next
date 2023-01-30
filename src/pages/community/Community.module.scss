@@ -3,7 +3,11 @@
     height: 100vh;
     display: grid;
     grid-template-columns: minmax(400px, 1fr) minmax(1000px, 2fr);
-
+    background: url('../../assets/background.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
     .community_feed {
         display: flex;
         flex-direction: column;
@@ -150,7 +154,7 @@
 
         .community_chat_messages {
             width: 100%;
-            height: calc(60vh - 40px);
+            height: calc(79vh);
             overflow-y: scroll;
             position: relative;
         }

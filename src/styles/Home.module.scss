@@ -5,7 +5,6 @@
     overflow: hidden;
     grid-template-columns: minmax(400px, 1fr) minmax(1000px, 2fr);
     column-gap: 15px;
-
     .content {
         display: flex;
         flex-direction: column;
@@ -20,12 +19,11 @@
         }
 
         &__videos {
-
             overflow-y: scroll;
             display: flex;
             flex-wrap: wrap;
             gap: 23px;
-            padding: 5px;
+            padding: 5px 5px 5px 20px;
         }
     }
 }
