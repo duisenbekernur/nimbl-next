@@ -6,6 +6,10 @@ import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
 import Router from 'next/router'
 import purple from '@/components/AnimatedLogo/beta-fox.json'
+import PrevVideo from '@/components/PrevVideo'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
+import { closePlaying } from '@/store/features/prevVideo/prevVideoSlice'
 declare global {
     interface Window {
         ethereum?: MetaMaskInpageProvider
@@ -16,7 +20,6 @@ const LoginPage = () => {
     const [account, setAccount] = useState<string | null>(null)
     const { Auth } = UseShoppingCart()
     const [isLoading, setIsLoading] = useState(false)
-
     useEffect(() => {
         if (account) {
             Auth(account)
