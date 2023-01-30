@@ -27,7 +27,7 @@ const Slidernav = () => {
                     }}
                 >
                     <IoIosArrowBack style = {{cursor: "pointer", marginRight: "5px"}}/>
-                    <IoIosArrowForward style = {{cursor: "pointer"}}/>
+                    <IoIosArrowForward  style = {{cursor: "pointer"}}/>
                 </IconContext.Provider>
             </div>
         </div>
