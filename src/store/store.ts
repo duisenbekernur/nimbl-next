@@ -1,8 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Store } from '@reduxjs/toolkit'
+import { createWrapper } from 'next-redux-wrapper'
+import navbarSlice from './features/navbar/navbarSlice'
+import filter from './features/rankings-filter/filter'
+import videos from './features/videos/videosSlice'
+
 
 const store = configureStore({
-  reducer: {},
-});
-export type RootState = ReturnType<typeof store.getState>;
+    reducer: {
+        navbar: navbarSlice,
+        filter:filter,
+        videos
 
-export default store;
+    },
+})
+
+export type RootState = ReturnType<typeof store.getState>
+export default store
