@@ -11,7 +11,7 @@
         width: 100%;
         &_wrap {
             width: 100%;
-            aspect-ratio: 16/9;
+            height: 300px;
         }
     }
     /* Show Subscribers */
@@ -155,7 +155,7 @@
         &_head {
             display: flex;
             align-items: center;
-            
+
             .back_btn {
                 cursor: pointer;
                 padding: 10px 15px;
