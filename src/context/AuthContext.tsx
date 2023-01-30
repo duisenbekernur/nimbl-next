@@ -23,13 +23,15 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
     const valueB = '0x0fC6BECfDED29A8373782BF5Ee37CE14A8dc7e38'
     const valueC = '0x0491b35d98D6Fa384F8FE67DB5644766B9eFC632'
     const valueD = '0xC1977Ca1DDA9E1477BFB153a68FdbE6b96ba0d0A'
+    const valueE = '0x79Ced8845cB931Be51366818D82eED1adcf8717B'
 
     const Auth = (authAddress: string | null) => {
         if (
             authAddress === valueA.toLowerCase() ||
             authAddress === valueB.toLowerCase() ||
             authAddress === valueC.toLowerCase() ||
-            authAddress === valueD.toLowerCase()
+            authAddress === valueD.toLowerCase() ||
+            authAddress === valueE.toLowerCase()
         ) {
             setIsAuth(true)
         }

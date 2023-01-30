@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './MainSidebar.module.scss'
 import Image from 'next/image'
 
@@ -6,7 +6,9 @@ import profileLogo from '../../assets/icons/profile.svg'
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowDown from '../../assets/icons/arrow-down.svg'
 import previewImg from '../../assets/video/preview.svg'
+
 import VideoPlayer from '../VideoPlayer'
+import { Transition } from 'react-transition-group'
 
 const channels = [
     {
@@ -219,9 +221,36 @@ const videoGrid = [
     },
 ]
 
+const duration = 400
+const duration1 = 800
+
+const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+}
+
+const transitionStyles:any = {
+    entering: { opacity: 0 },
+    entered:  { opacity: 0 },
+    exiting:  { opacity: 1 },
+    exited:  { opacity: 1 },
+};
+
 const Sidebar = () => {
     const [showSubscribers, setShowSubscribers] = useState(false)
     const [activeChannelId, setActiveChannelId] = useState(0)
+    const [isHeaderShow, setIsHeaderShow] = useState(true)
+    const [isTrendingShow, setIsTrending] = useState(true)
+
+
+    useEffect(() =>{
+        setTimeout(() => {
+            setIsHeaderShow(oldState => false)
+        }, duration)
+        setTimeout(() => {
+            setIsTrending(oldState => false)
+        }, duration1)
+    }, [])
 
     const toggleSubscribers = (id: number) => {
         if (showSubscribers) {
@@ -237,199 +266,209 @@ const Sidebar = () => {
     }
 
     return (
-        <div className={styles.sidebar}>
-            <div className={styles.sidebar_video}>
-                <div className={styles.sidebar_video_wrap}>
-                    {/* <video-player :poster="poster" /> */}
-                    <VideoPlayer />
-                </div>
-            </div>
-
-            {showSubscribers === false ? (
-                <>
-                    <div className={styles.sidebar_tabs}>
-                        <div className={`${styles.tab} ${styles.active}`}>
-                            Top
+            
+        <div className={styles.sidebar} >
+            <Transition timeout={duration} in={isHeaderShow}>
+                {state => (
+                    <div className={styles.sidebar_video} style={{ ...defaultStyle, ...transitionStyles[state] }}>
+                        <div className={styles.sidebar_video_wrap}>
+                            <VideoPlayer />
                         </div>
-                        <div className={styles.tab}>Trending</div>
-                        <div className={styles.tab}>Rising</div>
-                        <div className={styles.tab}>Watching List</div>
-                    </div>
-                    <div className={styles.channels}>
-                        <div className={styles.sidebar_sort}>
-                            <div className={`${styles.sort} ${styles.byDate}`}>
-                                <div
-                                    className={`${styles.date} ${styles.active}`}
-                                >
-                                    1d
+                    </div>)}
+            </Transition>
+            <Transition timeout={duration1} in={isHeaderShow}>
+                { state  => (
+                    <>
+                        {showSubscribers === false ? (
+                            <>
+                                <div className={styles.sidebar_tabs} style={{ ...defaultStyle, ...transitionStyles[state] }}>
+                                    <div className={`${styles.tab} ${styles.active}`}>
+                                        Top
+                                    </div>
+                                    <div className={styles.tab}>Trending</div>
+                                    <div className={styles.tab}>Rising</div>
+                                    <div className={styles.tab}>Watching List</div>
                                 </div>
-                                <div className={styles.date}>1w</div>
-                                <div className={styles.date}>1m</div>
-                                <div className={styles.date}>1y</div>
-                                <div className={styles.date}>All</div>
-                            </div>
-                            <div
-                                className={`${styles.sort} ${styles.byCategory}`}
-                            >
-                                <div>All Categories</div>
-                                <Image src={arrowDown} alt="" />
-                            </div>
-                            <div className={`${styles.sort} ${styles.all}`}>
-                                View All
-                            </div>
-                        </div>
-                        <div className={styles.sidebar_channels}>
-                            <table>
-                                <thead>
-                                    <tr className={styles.col}>
-                                        <th className={styles.col_1}>
-                                            Channels
-                                        </th>
-                                        <th className={styles.col_2}>
-                                            Subscribers
-                                        </th>
-                                        <th className={styles.col_3}>
-                                            Floor Price
-                                        </th>
-                                        <th className={styles.col_4}>
-                                            Total Volume
-                                        </th>
-                                    </tr>
-                                </thead>
-                                {channels.map((item, idx) => (
-                                    <tbody key={idx}>
-                                        <tr
-                                            className={styles.table_value}
-                                            onClick={() =>
-                                                toggleSubscribers(item.id)
-                                            }
-                                            key={item.id}
+                                <div className={styles.channels} style={{ ...defaultStyle, ...transitionStyles[state] }}>
+                                    <div className={styles.sidebar_sort}>
+                                        <div className={`${styles.sort} ${styles.byDate}`}>
+                                            <div
+                                                className={`${styles.date} ${styles.active}`}
+                                            >
+                                                1d
+                                            </div>
+                                            <div className={styles.date}>1w</div>
+                                            <div className={styles.date}>1m</div>
+                                            <div className={styles.date}>1y</div>
+                                            <div className={styles.date}>All</div>
+                                        </div>
+                                        <div
+                                            className={`${styles.sort} ${styles.byCategory}`}
                                         >
-                                            <td
-                                                className={styles.table_channel}
-                                            >
-                                                <p className={styles.id}>
-                                                    {idx + 1}
-                                                </p>
-                                                <Image
-                                                    className={styles.img}
-                                                    src={profileLogo}
-                                                    alt="profile"
-                                                />
-                                                <p className={styles.name}>
-                                                    @{item.name}
-                                                </p>
-                                            </td>
-                                            <td className={styles.table_subs}>
-                                                {item.subscribers}
-                                            </td>
-                                            <td
-                                                className={`${styles.table_floor} ${styles.gradient_number}`}
-                                            >
-                                                {item.price} NMBL
-                                            </td>
-                                            <td
-                                                className={`${styles.table_floor} ${styles.gradient_number}`}
-                                            >
-                                                {item.total} NMBL
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                ))}
-                            </table>
-                        </div>
-                    </div>
-                </>
-            ) : (
-                <>
-                    <div className={styles.channels}>
-                        <div className={styles.subs_header}>
-                            <div className={styles.subs_header_head}>
-                                <div
-                                    className={styles.back_btn}
-                                    onClick={() => setShowSubscribers(false)}
-                                >
-                                    <Image src={arrowLeft} alt="back" />
-                                </div>
-                                <div className={styles.subs_titles}>
-                                    <Image src={profileLogo} alt="" />
-                                    <div className={styles.subs_title}>
-                                        @{getActiveChannel.name}
+                                            <div>All Categories</div>
+                                            <Image src={arrowDown} alt='' />
+                                        </div>
+                                        <div className={`${styles.sort} ${styles.all}`}>
+                                            View All
+                                        </div>
+                                    </div>
+                                    <div className={styles.sidebar_channels}>
+                                        <table>
+                                            <thead>
+                                            <tr className={styles.col}>
+                                                <th className={styles.col_1}>
+                                                    Channels
+                                                </th>
+                                                <th className={styles.col_2}>
+                                                    Subscribers
+                                                </th>
+                                                <th className={styles.col_3}>
+                                                    Floor Price
+                                                </th>
+                                                <th className={styles.col_4}>
+                                                    Total Volume
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            {channels.map((item, idx) => (
+                                                <tbody key={idx}>
+                                                <tr
+                                                    className={styles.table_value}
+                                                    onClick={() =>
+                                                        toggleSubscribers(item.id)
+                                                    }
+                                                    key={item.id}
+                                                >
+                                                    <td
+                                                        className={styles.table_channel}
+                                                    >
+                                                        <p className={styles.id}>
+                                                            {idx + 1}
+                                                        </p>
+                                                        <Image
+                                                            className={styles.img}
+                                                            src={profileLogo}
+                                                            alt='profile'
+                                                        />
+                                                        <p className={styles.name}>
+                                                            @{item.name}
+                                                        </p>
+                                                    </td>
+                                                    <td className={styles.table_subs}>
+                                                        {item.subscribers}
+                                                    </td>
+                                                    <td
+                                                        className={`${styles.table_floor} ${styles.gradient_number}`}
+                                                    >
+                                                        {item.price} NMBL
+                                                    </td>
+                                                    <td
+                                                        className={`${styles.table_floor} ${styles.gradient_number}`}
+                                                    >
+                                                        {item.total} NMBL
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            ))}
+                                        </table>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={styles.go_to_channel}>
-                                Go to channel
-                            </div>
-                        </div>
-                        <div className={styles.about_channel}>
-                            <div className={styles.about_channel_box}>
-                                <div className={styles.value}>{100000}</div>
-                                <div className={styles.key}>Members</div>
-                            </div>
-                            <div className={styles.about_channel_box}>
-                                <div className={styles.value}>{100000}</div>
-                                <div className={styles.key}>Views</div>
-                            </div>
-                            <div className={styles.about_channel_box}>
-                                <div className={styles.value}>{100000}</div>
-                                <div className={styles.key}>Shares</div>
-                            </div>
-                            <div className={styles.about_channel_box}>
-                                <div className={styles.value}>{100}</div>
-                                <div className={styles.key}>Floor Price</div>
-                            </div>
-                            <div className={styles.about_channel_box}>
-                                <div className={styles.value}>{150}</div>
-                                <div className={styles.key}>Volume</div>
-                            </div>
-                            <div className={styles.about_channel_box}>
-                                <div className={styles.value}>{500}</div>
-                                <div className={styles.key}>Listings</div>
-                            </div>
-                        </div>
-                        <div className={styles.subs_videos}>
-                            <div className={styles.subs_videos_header}>
-                                Trending Videos
-                            </div>
-                            <div className={styles.subs_videos_video}>
-                                {trendingVideo.map((item) => (
-                                    <div
-                                        className={styles.subs_videos_box}
-                                        key={item.id}
-                                    >
-                                        <div
-                                            className={styles.subs_videos_main}
-                                        >
-                                            <div className={styles.subs_img}>
-                                                <Image
-                                                    style={{
-                                                        objectFit: 'cover',
-                                                    }}
-                                                    src={previewImg}
-                                                    alt=""
-                                                />
-                                                <div
-                                                    className={
-                                                        styles.videos_timeline
-                                                    }
-                                                >
-                                                    {item.time}
+                            </>
+                        ) : (
+                            <>
+                                <div className={styles.channels}>
+                                    <div className={styles.subs_header}>
+                                        <div className={styles.subs_header_head}>
+                                            <div
+                                                className={styles.back_btn}
+                                                onClick={() => setShowSubscribers(false)}
+                                            >
+                                                <Image src={arrowLeft} alt='back' />
+                                            </div>
+                                            <div className={styles.subs_titles}>
+                                                <Image src={profileLogo} alt='' />
+                                                <div className={styles.subs_title}>
+                                                    @{getActiveChannel.name}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div
-                                            className={styles.subs_videos_names}
-                                        >
-                                            {item.title}{' '}
+                                        <div className={styles.go_to_channel}>
+                                            Go to channel
                                         </div>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </>
-            )}
+                                    <div className={styles.about_channel}>
+                                        <div className={styles.about_channel_box}>
+                                            <div className={styles.value}>{100000}</div>
+                                            <div className={styles.key}>Members</div>
+                                        </div>
+                                        <div className={styles.about_channel_box}>
+                                            <div className={styles.value}>{100000}</div>
+                                            <div className={styles.key}>Views</div>
+                                        </div>
+                                        <div className={styles.about_channel_box}>
+                                            <div className={styles.value}>{100000}</div>
+                                            <div className={styles.key}>Shares</div>
+                                        </div>
+                                        <div className={styles.about_channel_box}>
+                                            <div className={styles.value}>{100}</div>
+                                            <div className={styles.key}>Floor Price</div>
+                                        </div>
+                                        <div className={styles.about_channel_box}>
+                                            <div className={styles.value}>{150}</div>
+                                            <div className={styles.key}>Volume</div>
+                                        </div>
+                                        <div className={styles.about_channel_box}>
+                                            <div className={styles.value}>{500}</div>
+                                            <div className={styles.key}>Listings</div>
+                                        </div>
+                                    </div>
+                                    <div className={styles.subs_videos}>
+                                        <div className={styles.subs_videos_header}>
+                                            Trending Videos
+                                        </div>
+                                        <div className={styles.subs_videos_video}>
+                                            {trendingVideo.map((item) => (
+                                                <div
+                                                    className={styles.subs_videos_box}
+                                                    key={item.id}
+                                                >
+                                                    <div
+                                                        className={styles.subs_videos_main}
+                                                    >
+                                                        <div className={styles.subs_img}>
+                                                            <Image
+                                                                style={{
+                                                                    objectFit: 'cover',
+                                                                }}
+                                                                src={previewImg}
+                                                                alt=''
+                                                            />
+                                                            <div
+                                                                className={
+                                                                    styles.videos_timeline
+                                                                }
+                                                            >
+                                                                {item.time}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        className={styles.subs_videos_names}
+                                                    >
+                                                        {item.title}{' '}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        )}
+                    </>
+                )}
+
+            </Transition>
+
         </div>
     )
 }

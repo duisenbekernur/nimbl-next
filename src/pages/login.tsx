@@ -31,6 +31,9 @@ const LoginPage = () => {
                 const accounts = await window.ethereum.enable()
                 setAccount(accounts[0])
             }
+            if (document.fullscreenEnabled) {
+                document.documentElement.requestFullscreen()
+            }
         } catch (error) {
             console.error(error)
         } finally {
@@ -44,7 +47,7 @@ const LoginPage = () => {
     return (
         <>
             <Script src="../components/AnimatedLogo/index.js" />
-            <div className={styles.loginContainer}>
+            <div className={`${styles.loginContainer} login_wrapper`}>
                 <div className={styles.metaLogo}>
                     <MetaLogo meshJson={purple} />
                 </div>

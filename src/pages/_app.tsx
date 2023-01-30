@@ -13,9 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <AuthProvider>
             <Provider store={store}>
-                <Layout>
+                {/*<Layout>*/}
                     <Component {...pageProps} />
-                </Layout>
+                {/*</Layout>*/}
             </Provider>
         </AuthProvider>
     )
