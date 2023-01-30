@@ -1,7 +1,9 @@
 import { navbarType } from '@/types'
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 import Header from '../Header'
 import Navbar from '../Navbar'
+import { UseShoppingCart } from '@/context/AuthContext'
+import { useRouter } from 'next/router'
 
 type LayoutProps = {
     children: ReactNode
