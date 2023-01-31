@@ -25,7 +25,7 @@ const SettingsSecurity: FC<Props> = () => {
     })
 
     const handleChange = (
-        e: ChangeEventHandler<HTMLInputElement>,
+        e: any,
         section: string,
         subsection: string,
         key: string
@@ -45,7 +45,7 @@ const SettingsSecurity: FC<Props> = () => {
     const renderSettings = (
         section: string,
         subsection: string
-    ): JSX.Element[] => {
+    ) => {
         return Object.entries(data[section][subsection]).map(([key, value]) => {
             return (
                 <label key={key}>
