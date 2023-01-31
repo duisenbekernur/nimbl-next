@@ -71,7 +71,7 @@ const Navbar: FC = () => {
                                 }
                                 alt="icon"
                             />
-                            {name}
+                            <span>{name}</span>
                         </li>
                     </Link>
                 )
