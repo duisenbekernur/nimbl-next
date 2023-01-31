@@ -7,6 +7,7 @@ import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowDown from '../../assets/icons/arrow-down.svg'
 import previewImg from '../../assets/video/preview.svg'
 import { Transition } from 'react-transition-group'
+import users from '../Community/ChatUser/users'
 
 const channels = [
     {
@@ -345,7 +346,7 @@ const Sidebar = () => {
                                                         </p>
                                                         <Image
                                                             className={styles.img}
-                                                            src={profileLogo}
+                                                            src={users[idx]}
                                                             alt='profile'
                                                         />
                                                         <p className={styles.name}>

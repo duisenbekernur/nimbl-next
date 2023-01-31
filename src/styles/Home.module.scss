@@ -1,17 +1,18 @@
+@import './breakpoints';
+
 .main {
-    width: 100%;
-    height: 100%;
+    width: 100;
+    height: calc(100vh - 120px);
     display: grid;
     overflow: hidden;
-    grid-template-columns: minmax(400px, 1fr) minmax(1000px, 2fr);
+    grid-template-columns: minmax(200px, 1fr) minmax(400px, 2.2fr);
     column-gap: 15px;
     .content {
         display: flex;
         flex-direction: column;
-        padding: 15px;
         row-gap: 15px;
         overflow: hidden;
-
+        overflow-y: scroll !important;
         .dropdowns {
             display: flex;
             justify-content: space-between;
@@ -24,6 +25,8 @@
             flex-wrap: wrap;
             gap: 23px;
             padding: 5px 5px 5px 20px;
+            position: relative;
+            overflow-y: scroll !important;
         }
     }
 }

@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints';
+
 .card {
     display: flex;
     flex-direction: column;
@@ -5,16 +7,12 @@
     position: relative;
     overflow: hidden;
     width: 23%;
-    height: auto;
+    height: 320px;
     color: #fff;
     transition: 0.5s all;
 
-    &:hover {
-        -webkit-box-shadow: 0px 0px 10px 8px rgba(68, 120, 233, 0.5);
-        -moz-box-shadow: 0px 0px 10px 8px rgba(68, 120, 233, 0.5);
-        box-shadow: 0px 0px 10px 8px rgba(68, 120, 233, 0.5);
-        transform: scale(1.1);
-        background-color: black;
+    @include breakpoint(1300px) {
+        font-size: 12px;
     }
 
     &__preview {
@@ -22,24 +20,71 @@
 
         img {
             width: 100%;
-            height: 160px;
+            height: 200px;
             object-fit: cover;
         }
+
         video {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
+        }
+
+        .card__preview__bottom {
+            .card__preview__bottom_title {
+                @include breakpoint(1400px) {
+                    font-size: 15px;
+                }
+
+                @include breakpoint(1300px) {
+                    font-size: 11px;
+                }
+
+                @include breakpoint(1100px) {
+                    font-size: 10px;
+                }
+
+                @include breakpoint(1500px) {
+                    font-size: 10px;
+                }
+
+                @include breakpoint(1600px) {
+                    font-size: 10px;
+                }
+            }
+
+            .card__preview__bottom_info {
+                @include breakpoint(1400px) {
+                    font-size: 16px;
+                }
+
+                @include breakpoint(1100px) {
+                    font-size: 12px;
+                }
+
+                @include breakpoint(1500px) {
+                    font-size: 10px;
+                }
+
+                @include breakpoint(1600px) {
+                    font-size: 10px;
+                }
+            }
         }
 
         &__bottom {
             position: absolute;
-            bottom: -18%;
+            bottom: 0%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
             height: 50px;
-            padding: 0 15px;
+            padding: 0 12px;
+
+            @include breakpoint(1200px) {
+                padding: 0 5px;
+            }
 
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(5px);
@@ -60,33 +105,30 @@
                 gap: 8px;
                 font-weight: 400;
                 font-size: 13px;
+
+                @include breakpoint(1300px) {
+                    font-size: 9px;
+                }
             }
 
             &_info {
                 span {
-                    font-size: 15px;
+                    font-size: 13px;
+
+                    @include breakpoint(1300px) {
+                        font-size: 12px;
+                    }
+
+                    @include breakpoint(1200px) {
+                        font-size: 10px;
+                    }
+
                     font-weight: 600;
-                    background: -webkit-linear-gradient(
-                        to top right,
-                        var(--main-color-blue) 24%,
-                        var(--main-color-purple) 43%,
-                        var(--main-color-pink) 77%
-                    );
-                    background: -moz-linear-gradient(
-                        to top right,
-                        var(--main-color-blue) 24%,
-                        var(--main-color-purple) 43%,
-                        var(--main-color-pink) 77%
-                    );
-                    background: linear-gradient(
-                        to top right,
-                        var(--main-color-blue) 24%,
-                        var(--main-color-purple) 43%,
-                        var(--main-color-pink) 77%
-                    );
-                    background-clip: text;
+                    background: linear-gradient(90.24deg, #01EAF2 0.21%, #3B65FF 57.08%, #D70BDA 102.91%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    
                 }
             }
         }
@@ -94,10 +136,12 @@
 
     &__info {
         margin-top: 8%;
+
         h3 {
             font-weight: 400;
             font-size: 15px;
         }
+
         padding: 5px 10px;
 
         &_bottom {
@@ -123,6 +167,7 @@
             h3 {
                 font-size: 12px;
             }
+
             padding: 8px 12px;
 
             &_bottom {

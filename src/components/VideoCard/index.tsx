@@ -26,7 +26,7 @@ const VideoCard: FC<videoCardType> = ({
             } catch (error) {
                 console.log(error);
             }
-        }, 1500)
+        }, 200)
     }
     useEffect(() => {
         attemptPlay();

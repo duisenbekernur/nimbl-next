@@ -14,6 +14,11 @@ import { RootState } from '@/store/store'
 import { Transition } from 'react-transition-group'
 import Layout from '@/components/Layout'
 
+import trendingImg from '../assets/trending_videos.png'
+import cryptonewsImg from '../assets/crypto_news.png'
+import nft from '../assets/eth_nft.png'
+import play2earn from '../assets/play_to_earn.png'
+
 function Home() {
     const router = useRouter()
     const { isAuth } = UseShoppingCart()
@@ -79,10 +84,10 @@ function Home() {
                     <Transition timeout={duration} in={isHeaderShow}>
                         {state => (
                             <div className={styles.dropdowns} style={{...defaultStyle, ...transitionStyles[state]}}>
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
+                                <RecomendationDropdown srcImg={trendingImg} title={'Trending Videos'} />
+                                <RecomendationDropdown srcImg={cryptonewsImg} title={'Crypto News'} />
+                                <RecomendationDropdown srcImg={nft} title={'ETH NFTs'} />
+                                <RecomendationDropdown srcImg={play2earn} title={'Play2Earn'} />
                             </div>
                         )}
                     </Transition>

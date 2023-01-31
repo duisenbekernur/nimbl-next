@@ -36,17 +36,32 @@
   margin: 0 5px 5px 0;
 }
 .rankings_wrapper .rankings_container .ranking_one {
-  background: url("../../assets/trending_videos.png");
+  background: url("../../assets/trending_videos.png") !important;
+  background-position: center center !important;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .rankings_wrapper .rankings_container .ranking_two {
-  background: url("../../assets/crypto_news.png");
+  background: url("../../assets/crypto_news.png") !important;
+  background-position: center center !important;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .rankings_wrapper .rankings_container .ranking_three {
-  background: url("../../assets/eth_nft.png");
+  background: url("../../assets/eth_nft.png") !important;
+  background-position: center center !important;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .rankings_wrapper .rankings_container .ranking_four {
-  background: url("../../assets/play_to_earn.png");
+  background: url("../../assets/play_to_earn.png") !important;
+  background-position: center center !important;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .rankings_wrapper .rankings_container .ranking_five {
   background: url("../../assets/play_to_earn.png");
+  background-position: center center !important;
+  background-size: cover;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=Rankings.module.css.map */
