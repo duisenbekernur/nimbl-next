@@ -89,8 +89,37 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                @keyframes span {
+                    from {
+                        -webkit-mask-position: 150%;
+                    }
+            
+                    to {
+                        -webkit-mask-position: -50%;
+                    }
+                }
                 &:hover {
                     cursor: pointer;
+                    font-size: 14px;
+                    font-size: 600;
+                    background: linear-gradient(
+                        270deg,
+                        #ea00d5 -6.27%,
+                        #3d5eff 60.51%,
+                        #00eaf2 69.84%
+                    );
+
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                    -webkit-mask-image: linear-gradient(
+                        -75deg,
+                        rgba(0, 0, 0, 0.6) 30%,
+                        #000 50%,
+                        rgba(0, 0, 0, 0.6) 70%
+                    );
+                    -webkit-mask-size: 200%;
+                    animation: span 2s infinite;
                 }
 
                 img {
