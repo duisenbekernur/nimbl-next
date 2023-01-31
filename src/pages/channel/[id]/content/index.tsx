@@ -179,4 +179,4 @@ const ChannelContent = () => {
     )
 }
 
-export default ChannelContent
+export default withAuthorization(ChannelContent)
