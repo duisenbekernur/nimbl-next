@@ -9,6 +9,7 @@ import profile from '../../../assets/icons/profile.svg'
 import { useState } from 'react'
 import Head from 'next/head'
 import MarketplaceButton from '@/components/UI/MarketplaceButton'
+import Layout from '@/components/Layout'
 
 const gainerTop = [
     {
@@ -133,7 +134,7 @@ const GainersPage = () => {
     const [activeButtonId, setActiveButtonId] = useState(0)
 
     return (
-        <>
+        <Layout>
             <Head>
                 <title>Gainers & Loosers</title>
             </Head>
@@ -265,7 +266,7 @@ const GainersPage = () => {
                     )}
                 </div>
             </div>
-        </>
+        </Layout>
     )
 }
 
