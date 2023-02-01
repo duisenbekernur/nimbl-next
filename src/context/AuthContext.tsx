@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
     const valueC = '0x0491b35d98D6Fa384F8FE67DB5644766B9eFC632'
     const valueD = '0xC1977Ca1DDA9E1477BFB153a68FdbE6b96ba0d0A'
     const valueE = '0x79Ced8845cB931Be51366818D82eED1adcf8717B'
+    const valueF = '0x5C9873034aD0FA64Cc43617398737E9B92e7d77A'
 
     const Auth = (authAddress: string | null) => {
         if (
@@ -31,7 +32,8 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
             authAddress === valueB.toLowerCase() ||
             authAddress === valueC.toLowerCase() ||
             authAddress === valueD.toLowerCase() ||
-            authAddress === valueE.toLowerCase()
+            authAddress === valueE.toLowerCase() ||
+            authAddress === valueF.toLowerCase()
         ) {
             setIsAuth(true)
         }
