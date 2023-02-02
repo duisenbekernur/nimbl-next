@@ -1,0 +1,120 @@
+.container {
+  width: 24%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 27.6433px rgba(105, 0, 255, 0.06), inset 0px 0px 19.2776px rgba(255, 255, 255, 0.21);
+  z-index: 0;
+}
+.container .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgb(7, 40, 68);
+  background: linear-gradient(90deg, rgb(5, 29, 50) 0%, rgb(59, 30, 120) 50%, rgb(91, 0, 82) 100%);
+  z-index: -1;
+  filter: blur(90px);
+}
+.container .imgBlock {
+  display: flex;
+  width: 100%;
+  height: 230px;
+  background-color: white;
+  overflow: hidden;
+}
+.container .imgBlock .img {
+  width: 100%;
+  height: 100%;
+}
+.container .info {
+  display: flex;
+  align-items: flex-start;
+  margin: 15px 5px;
+}
+.container .info .logo {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 25px;
+  margin-right: 10px;
+}
+.container .info .logo img {
+  height: 100%;
+  width: 100%;
+}
+.container .info .name {
+  font-size: 18px;
+}
+.container .info .size {
+  font-size: 13px;
+  margin-left: auto;
+  margin-right: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.container .info .size p::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.5px;
+  background: linear-gradient(to right, #d70bda, #ffc240, #649bff, #ffc240, #abdd42, #07ffff, #0f50c7, #d70bda);
+  left: 0;
+  top: 53%;
+}
+.container .info .size .number {
+  background: rgb(234, 0, 213);
+  background: linear-gradient(270deg, rgb(234, 0, 213) 58%, rgb(61, 94, 255) 88%, rgb(0, 234, 242) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  font-size: 16px;
+}
+.container .info .date {
+  font-size: 13px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-self: flex-start;
+}
+.container .info .date p::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.5px;
+  background: linear-gradient(to right, #d70bda, #ffc240, #649bff, #ffc240, #abdd42, #07ffff, #0f50c7, #d70bda);
+  left: 0;
+  top: 53%;
+}
+.container .spots {
+  margin-bottom: 10px;
+}
+.container .spots .progress {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #ea00d5 30%, #2c2c35 0%);
+}
+.container .spots .info {
+  line-height: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.container .spots .info div {
+  display: flex;
+  gap: 20px;
+}
+.container .btn {
+  width: 50%;
+  align-self: center;
+  margin-bottom: 10px;
+}/*# sourceMappingURL=Opportunity.module.css.map */
