@@ -7,6 +7,7 @@ import clockImg from '../../assets/icons/clock.svg'
 import channelImg from '../../assets/icons/channel-logo.svg'
 import { FC, useRef, useState } from 'react'
 import { videoCardType } from '@/types'
+import Link from 'next/link'
 
 const VideoCard: FC<videoCardType> = ({
     // id,
@@ -41,10 +42,14 @@ const VideoCard: FC<videoCardType> = ({
                     ></video>
                 )}
                 <div className={styles.card__preview__bottom}>
-                    <div className={styles.card__preview__bottom_title}>
+                    <Link
+                        href="/channel/1"
+                        className={styles.card__preview__bottom_title}
+                        title='Go to the channel'
+                    >
                         <Image src={channelImg} alt="logo" />
                         <p>{channel}</p>
-                    </div>
+                    </Link>
 
                     <div className={styles.card__preview__bottom_info}>
                         <h5>Floor Price:</h5>
