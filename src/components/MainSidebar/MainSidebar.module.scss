@@ -1,9 +1,8 @@
-@import '../../styles/breakpoints';
-
 .sidebar {
     overflow-y: scroll;
     display: grid;
-    grid-template-rows: 0.7fr 1.2fr !important;
+    grid-template-rows: 0.7fr 1.2fr;
+    width: 100%;
     display: flex;
     flex-direction: column;
     color: #fff;
@@ -12,13 +11,13 @@
         width: 100%;
         &_wrap {
             width: 100%;
-            aspect-ratio: 16/9;
+            height: 300px;
         }
     }
     /* Show Subscribers */
     &_tabs {
         width: 100%;
-        background: rgba(80, 27, 27, 0.05);
+        background: rgba(255, 255, 255, 0.05);
         box-shadow: inset 3.5875px 3.5875px 24.2156px rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(46.5146px);
         display: flex;
@@ -26,9 +25,6 @@
             cursor: pointer;
             width: 25%;
             font-size: 23px;
-            @include breakpoint(1200px) {
-                font-size: 12px !important;
-            }
             height: 72px;
             display: flex;
             align-items: center;
@@ -47,11 +43,8 @@
     }
     &_sort {
         display: flex;
+        justify-content: space-around;
         margin-bottom: 30px;
-        @include breakpoint(1400px) {
-            flex-direction: column;
-            gap: 10px !important;
-        }
         .sort {
             display: flex;
             background: #141c25;
@@ -60,8 +53,6 @@
             justify-content: center;
             align-items: center;
             white-space: nowrap;
-            width: fit-content;
-            
             cursor: pointer;
             &.byCategory {
                 display: flex;
@@ -70,9 +61,6 @@
                 padding: 0 20px;
                 font-weight: 400;
                 font-size: 21.525px;
-                @include breakpoint(1200px) {
-                    font-size: 12px !important;
-                }
                 line-height: 30px;
             }
             &.all {
@@ -114,12 +102,6 @@
             th {
                 font-weight: 400;
                 font-size: 19px;
-                @include breakpoint(1500px) {
-                    font-size: 12px !important;
-                }
-                @include breakpoint(1300px) {
-                    font-size: 10px !important;
-                }
             }
             td {
                 cursor: pointer;
@@ -146,25 +128,16 @@
                     font-weight: 400;
                     font-size: 22px;
                     line-height: 31px;
-                    @include breakpoint(1200px) {
-                        font-size: 10px !important;
-                    }
                 }
             }
             .table_subs {
                 font-weight: 400;
                 font-size: 22px;
                 margin-right: 69px;
-                @include breakpoint(1200px) {
-                    font-size: 12px !important;
-                }
             }
             .table_floor {
                 font-weight: 400;
                 font-size: 22px;
-                @include breakpoint(1200px) {
-                    font-size: 10px !important;
-                }
                 background-color: linear-gradient(
                     270deg,
                     #ea00d5 -6.27%,
@@ -182,7 +155,7 @@
         &_head {
             display: flex;
             align-items: center;
-            
+
             .back_btn {
                 cursor: pointer;
                 padding: 10px 15px;
@@ -198,7 +171,7 @@
                 margin-left: 22px;
                 .subs_title {
                     font-weight: 400;
-                    font-size: 30.3701px !important;
+                    font-size: 30.3701px;
                     line-height: 43px;
                     margin-left: 21px;
                 }
@@ -462,6 +435,6 @@
         #3b65ff 57.08%,
         #d70bda 102.91%
     );
-    background-clip: text;
+    //background-clip: text;
     -webkit-text-fill-color: transparent;
 }

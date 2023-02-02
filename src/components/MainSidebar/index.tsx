@@ -6,8 +6,9 @@ import profileLogo from '../../assets/icons/profile.svg'
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowDown from '../../assets/icons/arrow-down.svg'
 import previewImg from '../../assets/video/preview.svg'
+
+import VideoPlayer from '../VideoPlayer'
 import { Transition } from 'react-transition-group'
-import users from '../Community/ChatUser/users'
 
 const channels = [
     {
@@ -265,13 +266,13 @@ const Sidebar = () => {
     }
 
     return (
+            
         <div className={styles.sidebar} >
             <Transition timeout={duration} in={isHeaderShow}>
                 {state => (
                     <div className={styles.sidebar_video} style={{ ...defaultStyle, ...transitionStyles[state] }}>
                         <div className={styles.sidebar_video_wrap}>
-                            {/* <video-player :poster="poster" /> */}
-                            <video src='https://www.youtube.com/watch?v=IU3EXFfxRIQ&ab_channel=RahulinWeb3'></video>
+                            <VideoPlayer />
                         </div>
                     </div>)}
             </Transition>
@@ -346,7 +347,7 @@ const Sidebar = () => {
                                                         </p>
                                                         <Image
                                                             className={styles.img}
-                                                            src={users[idx]}
+                                                            src={profileLogo}
                                                             alt='profile'
                                                         />
                                                         <p className={styles.name}>

@@ -71,7 +71,7 @@ const Navbar= ({...rest}) => {
                                 }
                                 alt="icon"
                             />
-                            {name}
+                            <span>{name}</span>
                         </li>
                     </Link>
                 )

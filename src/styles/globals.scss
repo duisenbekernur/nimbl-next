@@ -12,10 +12,10 @@
         var(--main-color-pink)
     );
 
-    --scrollbar-gradient: linear-gradient(
+    --scrollbar-gradient: linear-gradient (
         var(--main-color-blue),
         var(--main-color-pink)
-    );
+    )
 }
 
 
@@ -30,6 +30,20 @@
     background: url('../assets/background.jpg') no-repeat center center / cover;
     width: 100vw;
     height: 100vh;   
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
     overflow: hidden;
 }
 

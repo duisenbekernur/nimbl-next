@@ -14,16 +14,15 @@ import { RootState } from '@/store/store'
 import { Transition } from 'react-transition-group'
 import Layout from '@/components/Layout'
 
-import trendingImg from '../assets/trending_videos.png'
-import cryptonewsImg from '../assets/crypto_news.png'
-import nft from '../assets/eth_nft.png'
-import play2earn from '../assets/play_to_earn.png'
 
 function Home() {
     const router = useRouter()
     const { isAuth } = UseShoppingCart()
     const data = useSelector((state: RootState) => state.videos.videos)
     const [videos, setVideos] = useState<videoCardType[] | null>(data)
+
+
+
 
     useEffect(() => {
         if (!isAuth) {
@@ -84,19 +83,23 @@ function Home() {
                     <Transition timeout={duration} in={isHeaderShow}>
                         {state => (
                             <div className={styles.dropdowns} style={{...defaultStyle, ...transitionStyles[state]}}>
-                                <RecomendationDropdown srcImg={trendingImg} title={'Trending Videos'} />
-                                <RecomendationDropdown srcImg={cryptonewsImg} title={'Crypto News'} />
-                                <RecomendationDropdown srcImg={nft} title={'ETH NFTs'} />
-                                <RecomendationDropdown srcImg={play2earn} title={'Play2Earn'} />
+                                <RecomendationDropdown />
+                                <RecomendationDropdown />
+                                <RecomendationDropdown />
+                                <RecomendationDropdown />
                             </div>
                         )}
                     </Transition>
 
                     <Transition timeout={duration1} in={isVideoShow}>
                         {state => (
-                            <div className={styles.content__videos} style={{...defaultStyle1, ...transitionStyles[state]}}>
+                            <div className={styles.content__videos} style={{...defaultStyle1, ...transitionStyles[state]}} >
                                 {videos?.map((item, index) => (
-                                    <VideoCard key={index} {...item} />
+                                    <VideoCard
+                                        key={index}
+                                        {...item}
+
+                                    />
                                 ))}
                             </div>
                         )}
