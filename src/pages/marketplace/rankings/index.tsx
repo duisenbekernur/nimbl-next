@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import categorySvg from '../../../assets/icons/top-creator-icon.svg'
 import arrowDownSvg from '../../../assets/icons/arrow_down.svg'
 import Image from 'next/image'
@@ -12,7 +12,9 @@ import channelImg from '../../../assets/icons/channel.svg'
 import pauseImg from '../../../assets/icons/pause_2.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
-import { setActive } from '@/store/features/rankings-filter/filter'
+import { setActive } from '@/store/features/rankings-filter/filter';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const RankingsPage = () => {
     const [isGrid, setIsGrid] = useState(true)
@@ -20,6 +22,9 @@ const RankingsPage = () => {
     const dispatch = useDispatch()
     const { time } = useSelector((store: RootState) => store.filter)
     console.log(time)
+    useEffect(()=> {
+    AOS.init({duration: 850})
+    }, [])
     return (
         <div className={styles.table_content}>
             <div className={styles.mainContainer}>
@@ -176,7 +181,7 @@ const RankingsPage = () => {
                 {isGrid ? (
                     <>
                         <div className={styles.card_grid}>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-down">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -303,7 +308,7 @@ const RankingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-down">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -427,134 +432,7 @@ const RankingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.ranking_boxs}>
-                                <div className={styles.card_loop}>
-                                    <div className={styles.card_box}>
-                                        <div className={styles.video_header}>
-                                            <Image
-                                                className={
-                                                    styles.video_header_logo
-                                                }
-                                                src={channelImg}
-                                                alt=""
-                                            />
-                                            <div className={styles.video_pause}>
-                                                <Image
-                                                    className={
-                                                        styles.video_box_pause
-                                                    }
-                                                    src={pauseImg}
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className={styles.video_body}>
-                                            <div
-                                                className={styles.box_title}
-                                                style={{ color: '#fff' }}
-                                            >
-                                                @Yellow Stone
-                                            </div>
-                                            <div className={styles.box_buttons}>
-                                                <div
-                                                    className={
-                                                        styles.box_button
-                                                    }
-                                                    style={{
-                                                        color: '#fff',
-                                                        width: '40%',
-                                                        marginLeft: '-10px',
-                                                    }}
-                                                >
-                                                    <div
-                                                        className={
-                                                            styles.box_button_header
-                                                        }
-                                                        style={{
-                                                            color: '#fff',
-                                                        }}
-                                                    >
-                                                        <div
-                                                            className={
-                                                                styles.count
-                                                            }
-                                                        >
-                                                            500K
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            styles.box_button_footer
-                                                        }
-                                                    >
-                                                        members
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    className={
-                                                        styles.box_button
-                                                    }
-                                                >
-                                                    <div
-                                                        className={
-                                                            styles.box_button_title
-                                                        }
-                                                        style={{
-                                                            marginRight: '10px',
-                                                        }}
-                                                    >
-                                                        134 NMBL
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            styles.box_button_footer
-                                                        }
-                                                        style={{
-                                                            color: '#fff',
-                                                            marginRight: '12px',
-                                                        }}
-                                                    >
-                                                        floor price
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className={styles.box_footer}>
-                                                <div
-                                                    className={
-                                                        styles.tag_content
-                                                    }
-                                                    style={{
-                                                        gap: '25px',
-                                                    }}
-                                                >
-                                                    <div
-                                                        className={styles.tag}
-                                                        style={{
-                                                            padding: '3px 7px',
-                                                            fontWeight: '400',
-                                                            fontSize: '16px',
-                                                        }}
-                                                    >
-                                                        #ETH-NFTs
-                                                    </div>
-                                                    <div
-                                                        className={styles.tag}
-                                                        style={{
-                                                            marginBottom: '5px',
-                                                            marginRight:
-                                                                '-12px',
-                                                        }}
-                                                    >
-                                                        #NFT-Trading
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-down">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -681,7 +559,134 @@ const RankingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-down">
+                                <div className={styles.card_loop}>
+                                    <div className={styles.card_box}>
+                                        <div className={styles.video_header}>
+                                            <Image
+                                                className={
+                                                    styles.video_header_logo
+                                                }
+                                                src={channelImg}
+                                                alt=""
+                                            />
+                                            <div className={styles.video_pause}>
+                                                <Image
+                                                    className={
+                                                        styles.video_box_pause
+                                                    }
+                                                    src={pauseImg}
+                                                    alt=""
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className={styles.video_body}>
+                                            <div
+                                                className={styles.box_title}
+                                                style={{ color: '#fff' }}
+                                            >
+                                                @Yellow Stone
+                                            </div>
+                                            <div className={styles.box_buttons}>
+                                                <div
+                                                    className={
+                                                        styles.box_button
+                                                    }
+                                                    style={{
+                                                        color: '#fff',
+                                                        width: '40%',
+                                                        marginLeft: '-10px',
+                                                    }}
+                                                >
+                                                    <div
+                                                        className={
+                                                            styles.box_button_header
+                                                        }
+                                                        style={{
+                                                            color: '#fff',
+                                                        }}
+                                                    >
+                                                        <div
+                                                            className={
+                                                                styles.count
+                                                            }
+                                                        >
+                                                            500K
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        className={
+                                                            styles.box_button_footer
+                                                        }
+                                                    >
+                                                        members
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className={
+                                                        styles.box_button
+                                                    }
+                                                >
+                                                    <div
+                                                        className={
+                                                            styles.box_button_title
+                                                        }
+                                                        style={{
+                                                            marginRight: '10px',
+                                                        }}
+                                                    >
+                                                        134 NMBL
+                                                    </div>
+                                                    <div
+                                                        className={
+                                                            styles.box_button_footer
+                                                        }
+                                                        style={{
+                                                            color: '#fff',
+                                                            marginRight: '12px',
+                                                        }}
+                                                    >
+                                                        floor price
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className={styles.box_footer}>
+                                                <div
+                                                    className={
+                                                        styles.tag_content
+                                                    }
+                                                    style={{
+                                                        gap: '25px',
+                                                    }}
+                                                >
+                                                    <div
+                                                        className={styles.tag}
+                                                        style={{
+                                                            padding: '3px 7px',
+                                                            fontWeight: '400',
+                                                            fontSize: '16px',
+                                                        }}
+                                                    >
+                                                        #ETH-NFTs
+                                                    </div>
+                                                    <div
+                                                        className={styles.tag}
+                                                        style={{
+                                                            marginBottom: '5px',
+                                                            marginRight:
+                                                                '-12px',
+                                                        }}
+                                                    >
+                                                        #NFT-Trading
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.ranking_boxs} data-aos="fade-down">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -815,7 +820,7 @@ const RankingsPage = () => {
                                 marginTop: '-10px',
                             }}
                         >
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-up">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -942,7 +947,7 @@ const RankingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-up">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -1069,7 +1074,7 @@ const RankingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-up">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -1196,7 +1201,7 @@ const RankingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-up">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -1323,7 +1328,7 @@ const RankingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.ranking_boxs}>
+                            <div className={styles.ranking_boxs} data-aos="fade-up">
                                 <div className={styles.card_loop}>
                                     <div className={styles.card_box}>
                                         <div className={styles.video_header}>
@@ -1389,29 +1394,27 @@ const RankingsPage = () => {
                                                 <div
                                                     className={
                                                         styles.box_button
-                                                    }
-                                                >
+                                                    }>
                                                     <div
                                                         className={
                                                             styles.box_button_title
                                                         }
                                                         style={{
                                                             marginRight: '10px',
-                                                        }}
-                                                    >
+                                                        }}>
                                                         134 NMBL
                                                     </div>
-                                                    <div
-                                                        className={
-                                                            styles.box_button_footer
-                                                        }
-                                                        style={{
-                                                            color: '#fff',
-                                                            marginRight: '12px',
-                                                        }}
-                                                    >
-                                                        floor price
-                                                    </div>
+                                                        <div
+                                                            className={
+                                                                styles.box_button_footer
+                                                            }
+                                                            style={{
+                                                                color: '#fff',
+                                                                marginRight: '12px',
+                                                            }}
+                                                        >
+                                                            floor price
+                                                        </div>
                                                 </div>
                                             </div>
 

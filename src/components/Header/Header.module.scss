@@ -102,24 +102,16 @@
                     cursor: pointer;
                     font-size: 14px;
                     font-size: 600;
-                    background: linear-gradient(
-                        270deg,
-                        #ea00d5 -6.27%,
-                        #3d5eff 60.51%,
-                        #00eaf2 69.84%
-                    );
-
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                    background: none;
 
                     -webkit-mask-image: linear-gradient(
-                        -75deg,
-                        rgba(0, 0, 0, 0.6) 30%,
-                        #000 50%,
-                        rgba(0, 0, 0, 0.6) 70%
-                    );
-                    -webkit-mask-size: 200%;
-                    animation: span 2s infinite;
+                    -90deg,
+                    #fff 30%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    #fff 70%
+                );
+                -webkit-mask-size: 200%;
+                animation: span 2s infinite;
                 }
 
                 img {
