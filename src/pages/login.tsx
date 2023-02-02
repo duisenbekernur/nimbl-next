@@ -17,6 +17,7 @@ const LoginPage = () => {
     const { Auth } = UseShoppingCart()
     const [isLoading, setIsLoading] = useState(false)
 
+
     useEffect(() => {
         if (account) {
             Auth(account)
