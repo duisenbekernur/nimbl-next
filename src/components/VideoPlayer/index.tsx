@@ -1,6 +1,7 @@
 import { likeSolid } from '@/assets/icons'
 import Image from 'next/image'
 import styles from './VideoPlayer.module.scss'
+import screenfull from 'screenfull'
 
 import playIcon from '@/assets/icons/play.svg'
 import volumeIcon from '@/assets/icons/volume.png'
@@ -30,20 +31,21 @@ const VideoPlayer = () => {
 
     const videoRef = useRef<HTMLVideoElement | null>(null)
     const volumeRef = useRef<HTMLDivElement | null>(null)
+    const playerRef = useRef<HTMLDivElement | null>(null)
 
-    function getCurrentTime() {
+    const getCurrentTime = () => {
         return `${currentMinutes < 10 ? '0' : ''}${currentMinutes}:${
             currentSeconds < 10 ? '0' : ''
         }${currentSeconds}`
     }
 
-    function getDurationTime() {
+    const getDurationTime = () => {
         return `${durationMinutes < 10 ? '0' : ''}${durationMinutes}:${
             durationSeconds < 10 ? '0' : ''
         }${durationSeconds}`
     }
 
-    function updateCurrentTime() {
+    const updateCurrentTime = () => {
         setCurrentMinutes(Math.floor((videoRef.current?.currentTime || 0) / 60))
         const temp = Math.floor(
             (videoRef.current?.currentTime || 0) - currentMinutes * 60
@@ -51,21 +53,21 @@ const VideoPlayer = () => {
         setCurrentSeconds(temp !== 60 ? temp : 0)
     }
 
-    function durationTime() {
+    const durationTime = () => {
         setDurationSeconds(
             Math.floor((videoRef.current?.duration || 0) - durationMinutes * 60)
         )
         setDurationMinutes(Math.floor((videoRef.current?.duration || 0) / 60))
     }
 
-    function togglePlay() {
+    const togglePlay = () => {
         const method = videoRef.current?.paused && true ? 'play' : 'pause'
         //@ts-ignore
         videoRef.current[method]()
         setStop(method === 'play' ? false : true)
     }
 
-    function scrub(e: any) {
+    const scrub = (e: any) => {
         const scrubTime =
             (e.nativeEvent.offsetX / (videoRef?.current?.clientWidth || 1)) *
             (videoRef?.current?.duration || 0)
@@ -75,14 +77,14 @@ const VideoPlayer = () => {
         }
     }
 
-    function handleProgress() {
+    const handleProgress = () => {
         const percent =
             // @ts-ignore
             (videoRef.current?.currentTime / videoRef.current?.duration) * 100
         setProgress(`${percent}%`)
     }
 
-    function handleProgressVolume(e: any) {
+    const handleProgressVolume = (e: any) => {
         const percent =
             (e.nativeEvent.offsetX / (volumeRef?.current?.clientWidth || 0)) *
             100
@@ -93,10 +95,13 @@ const VideoPlayer = () => {
         videoRef.current.volume = percent / 100
     }
 
-    useEffect(() => {}, [])
+    const handleFullScreen = () => {
+        //@ts-ignore
+        screenfull.toggle(playerRef.current)
+    }
 
     return (
-        <div className={styles.player} >
+        <div ref={playerRef} className={styles.player}>
             <video
                 ref={videoRef}
                 width={'100%'}
@@ -111,7 +116,6 @@ const VideoPlayer = () => {
                 muted={muted}
                 src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
             />
-            {/* <VideoPlayer  /> */}
 
             <div className={styles.player_top}>
                 <div className={styles.player_top_title}>
@@ -216,9 +220,7 @@ const VideoPlayer = () => {
                         <Image
                             src={fullIcon}
                             alt="full screen"
-                            onClick={() => {
-                                videoRef.current?.requestFullscreen()
-                            }}
+                            onClick={handleFullScreen}
                         />
                     </div>
                 </div>
