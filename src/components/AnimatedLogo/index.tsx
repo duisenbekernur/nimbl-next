@@ -22,7 +22,7 @@ const MetaLogo = ({ meshJson }: any) => {
         if (
             metaRef &&
             metaRef.current &&
-            metaRef.current.children.length == 0
+            metaRef.current.children.length === 0
         ) {
             metaRef.current.appendChild(viewer.container)
             metaRef.current.style.fill = "red"

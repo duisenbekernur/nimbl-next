@@ -15,6 +15,7 @@ import {
 import Link from 'next/link'
 import VideoList from '@/components/VideosList'
 import { useState } from 'react'
+import withAuthorization from '@/HOC/Authorization/Authorization'
 
 function VideoPage() {
     const [activeTab, setActiveTab] = useState<0 | 1 | 2>(0)
@@ -188,4 +189,4 @@ function VideoPage() {
     )
 }
 
-export default VideoPage
+export default withAuthorization(VideoPage)
