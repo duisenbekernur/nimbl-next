@@ -8,6 +8,7 @@ import commentsSolid from './comments-solid.svg'
 import trade from './trade.svg'
 import eyeGray from './eye-gray.svg'
 import clockGray from './clock-gray.svg'
+import likeRegular from './like-regular.svg'
 
 
 export {
@@ -20,6 +21,7 @@ export {
     commentsSolid,
     trade,
     eyeGray,
-    clockGray
+    clockGray,
+    likeRegular
 
 }

@@ -20,3 +20,15 @@ export type videoCardType = {
     avatar: string
     poster: string
 }
+
+export type CommunityFeedMessageType = {
+    id: number,
+    author: {
+        name: string,
+        img: string,
+    },
+    text: string,
+    img?: string,
+    likeCount: number,
+    createdDate: Date,
+}
