@@ -9,6 +9,7 @@ import previewImg from '../../assets/video/preview.svg'
 
 import VideoPlayer from '../VideoPlayer'
 import { Transition } from 'react-transition-group'
+import useSound from 'use-sound'
 
 const channels = [
     {
@@ -242,6 +243,13 @@ const Sidebar = () => {
     const [isHeaderShow, setIsHeaderShow] = useState(true)
     const [isTrendingShow, setIsTrending] = useState(true)
 
+    const soundUrl = '/sounds/ui-click.mp3'
+
+    const [playOn] = useSound(
+        soundUrl,
+        { volume: 20 }
+    );
+
 
     useEffect(() =>{
         setTimeout(() => {
@@ -282,12 +290,12 @@ const Sidebar = () => {
                         {showSubscribers === false ? (
                             <>
                                 <div className={styles.sidebar_tabs} style={{ ...defaultStyle, ...transitionStyles[state] }}>
-                                    <div className={`${styles.tab} ${styles.active}`}>
+                                    <div className={`${styles.tab} ${styles.active}`} onClick={() => playOn()}>
                                         Top
                                     </div>
-                                    <div className={styles.tab}>Trending</div>
-                                    <div className={styles.tab}>Rising</div>
-                                    <div className={styles.tab}>Watching List</div>
+                                    <div className={styles.tab} onClick={() => playOn()}>Trending</div>
+                                    <div className={styles.tab} onClick={() => playOn()}>Rising</div>
+                                    <div className={styles.tab} onClick={() => playOn()}>Watching List</div>
                                 </div>
                                 <div className={styles.channels} style={{ ...defaultStyle, ...transitionStyles[state] }}>
                                     <div className={styles.sidebar_sort}>

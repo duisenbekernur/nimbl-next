@@ -3,23 +3,17 @@
     height: 100vh;
     display: grid;
     grid-template-columns: minmax(400px, 1fr) minmax(1000px, 2fr);
-    background: url('../../assets/background.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+
     .community_feed {
         display: flex;
         flex-direction: column;
         height: 100%;
         overflow-y: scroll;
-        background: rgba(255, 255, 255, 0.021);
-        box-shadow: inset 4px 4px 27px rgba(255, 255, 255, 0.021);
-        backdrop-filter: blur(51.863px);
 
         .community_feed_title {
             width: 100%;
             height: fit-content;
+            background: #000;
             background: linear-gradient(273.52deg, rgba(0, 234, 242, 0.2) -54.44%, rgba(234, 0, 213, 0.2) 110.67%);
             backdrop-filter: blur(8.96875px);
             display: flex;
@@ -34,7 +28,10 @@
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> develop
 
         .community_item {
             border-bottom: 1px solid rgba(45, 53, 74, 1);
@@ -113,11 +110,13 @@
                 }
             }
         }
+<<<<<<< HEAD
 >>>>>>> parent of 1985c49 (k)
+=======
+>>>>>>> develop
     }
 
     .community_chat {
-        position: relative;
 
         .community_chat_users::-webkit-scrollbar {
             height: 5px !important;
@@ -128,12 +127,14 @@
             box-shadow: inset 4px 4px 27px rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(51.863px);
             display: flex;
-            flex-direction: row;
             align-items: center;
             overflow-x: scroll;
             height: fit-content;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> develop
 
             .community_chat_user {
                 display: flex;
@@ -165,7 +166,10 @@
                     align-self: center;
                 }
             }
+<<<<<<< HEAD
 >>>>>>> parent of 1985c49 (k)
+=======
+>>>>>>> develop
         }
 
         .community_chat_stat {
@@ -243,7 +247,6 @@
                 align-self: stretch;
                 height: 150px !important;
                 padding-left: 25px;
-                cursor: pointer;
 
                 .stat_text {
                     margin-right: 50px;
@@ -269,8 +272,9 @@
 
         .community_chat_messages {
             width: 100%;
-            height: calc(79vh);
+            height: 60vh;
             overflow-y: scroll;
+<<<<<<< HEAD
             position: relative;
         }
 
@@ -312,10 +316,18 @@
                         align-items: center;
                     }
 
+=======
+            .messages_block {
+                margin-left: 40px;
+                .message_details {
+                    display: flex;
+                    flex-direction: column;
+>>>>>>> develop
                     .user_info {
                         display: flex;
                         align-items: center;
                         padding-top: 15px;
+<<<<<<< HEAD
 
 
                         .user_data {
@@ -348,36 +360,39 @@
                         align-items: space-between;
                         position: relative;
 >>>>>>> parent of 1985c49 (k)
+=======
+                        .user_image {
+                            width: 50px;
+                            height: 50px;
+                        }
+>>>>>>> develop
 
-            form {
-                width: 80%;
+                        .user_data {
+                            display: flex;
+                            align-items: baseline;
+                            margin-left: 33px;
+                            .username {
+                                font-weight: 400;
+                                font-size: 26.364px;
+                                color: #01EAF2;
+                                margin: 0 10px;
+                            }
 
-                input[type=text]:focus {
-                    border: none !important;
+                            .submission_date {
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #82868D;
+                            }
+                        }
+                    }
+
+                    .message {
+                        font-weight: 400;
+                        font-size: 26.364px;
+                        color: #FFFFFF;
+                        margin-left: 90px;
+                    }
                 }
-
-                input[type=text] {
-                    width: 100%;
-                    background: transparent;
-                    border: none;
-                    border-left: 2px solid #5F6771 !important;
-                    color: #5F6771;
-                    font-weight: 400;
-                    font-size: 22px;
-                    padding-left: 2px;
-                }
-            }
-
-            .submit_btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(106.95deg, rgba(1, 167, 255, 0.8) 0.4%, rgba(255, 0, 245, 0.8) 103.58%);
-                box-shadow: inset 11px 16px 33px rgba(255, 255, 255, 0.11);
-                backdrop-filter: blur(93px);
-                border-radius: 5px;
-                padding: 8px;
-                cursor: pointer;
             }
         }
     }
