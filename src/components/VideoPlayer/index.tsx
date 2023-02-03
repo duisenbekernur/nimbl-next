@@ -3,9 +3,10 @@ import Image from 'next/image'
 import styles from './VideoPlayer.module.scss'
 import screenfull from 'screenfull'
 
+import stopIcon from '@/assets/icons/stop.svg'
 import playIcon from '@/assets/icons/play.svg'
 import volumeIcon from '@/assets/icons/volume.png'
-import muteIcon from '@/assets/icons/mute.png'
+import muteIcon from '@/assets/icons/mute.svg'
 import surprizeIcon from '@/assets/icons/surprize.png'
 import donateIcon from '@/assets/icons/donate.png'
 import subtitleIcon from '@/assets/icons/subs.png'
@@ -20,7 +21,7 @@ import { useEffect, useRef, useState } from 'react'
 const VideoPlayer = () => {
     const [stop, setStop] = useState(false)
     const [isMouseDown, setIsMouseDown] = useState(false)
-    const [muted, setMuted] = useState(false)
+    const [muted, setMuted] = useState(true)
     const [progress, setProgress] = useState('0%')
     const [volumeProgress, setVolumeProgress] = useState('100%')
     const [currentMinutes, setCurrentMinutes] = useState(0)
@@ -28,6 +29,7 @@ const VideoPlayer = () => {
     const [durationMinutes, setDurationMinutes] = useState(0)
     const [durationSeconds, setDurationSeconds] = useState(0)
     const [toggleSettings, setToggleSettings] = useState(false)
+    const [isControllersVisible, setIsControllersVisible] = useState(false)
 
     const videoRef = useRef<HTMLVideoElement | null>(null)
     const volumeRef = useRef<HTMLDivElement | null>(null)
@@ -50,7 +52,11 @@ const VideoPlayer = () => {
         const temp = Math.floor(
             (videoRef.current?.currentTime || 0) - currentMinutes * 60
         )
-        setCurrentSeconds(temp !== 60 ? temp : 0)
+        if (temp % 60 < 0) {
+            setCurrentSeconds(60 + (temp % 60))
+        } else {
+            setCurrentSeconds(temp % 60)
+        }
     }
 
     const durationTime = () => {
@@ -100,8 +106,56 @@ const VideoPlayer = () => {
         screenfull.toggle(playerRef.current)
     }
 
+    const handleKeyDown = (e: any) => {
+        if (e.key === 'f') {
+            //@ts-ignore
+            screenfull.toggle(playerRef.current)
+        }
+        if (e.keyCode == '37') {
+            //@ts-ignore
+            videoRef.current.currentTime -= 10
+        }
+        if (e.keyCode == '39') {
+            //@ts-ignore
+            videoRef.current.currentTime += 10
+        }
+        if (e.keyCode == '38') {
+            //@ts-ignore
+            if (videoRef.current?.volume != 1) {
+                //@ts-ignore
+                videoRef.current.volume += 0.02
+                //@ts-ignore
+                setVolumeProgress(`${videoRef.current.volume * 100}%`)
+            }
+            setMuted(false)
+        }
+        if (e.keyCode == '40') {
+            //@ts-ignore
+            if (videoRef.current?.volume > 0.02) {
+                console.log(videoRef.current?.volume)
+                //@ts-ignore
+                videoRef.current.volume -= 0.02
+                //@ts-ignore
+                setVolumeProgress(`${videoRef.current.volume * 100}%`)
+            } else {
+                setMuted(true)
+                setVolumeProgress(`0%`)
+            }
+        }
+        if (e.keyCode == '32') {
+            togglePlay()
+        }
+    }
+
     return (
-        <div ref={playerRef} className={styles.player}>
+        <div
+            ref={playerRef}
+            className={styles.player}
+            onMouseEnter={() => setIsControllersVisible(true)}
+            onMouseLeave={() => setIsControllersVisible(false)}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+        >
             <video
                 ref={videoRef}
                 width={'100%'}
@@ -112,12 +166,20 @@ const VideoPlayer = () => {
                     updateCurrentTime()
                     durationTime()
                 }}
+                onDoubleClick={handleFullScreen}
                 onClick={togglePlay}
                 muted={muted}
                 src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
+                // src="https://www.youtube.com/watch?v=arDpUtrps6o&ab_channel=kazakhlofi"
             />
 
-            <div className={styles.player_top}>
+            <div
+                className={styles.player_top}
+                style={{
+                    opacity: isControllersVisible ? '1' : '0',
+                    transition: '.3s all',
+                }}
+            >
                 <div className={styles.player_top_title}>
                     <h3>
                         IGNORE THE FUD Binance CZ | AAVE Freezes Lending Markets
@@ -142,8 +204,20 @@ const VideoPlayer = () => {
                 </div>
             </div>
 
-            <div className={styles.bottom_opacity}></div>
-            <div className={styles.player_controller_bottom}>
+            <div
+                className={styles.bottom_opacity}
+                style={{
+                    opacity: isControllersVisible ? '.5 ' : '0',
+                    transition: '.3s all',
+                }}
+            ></div>
+            <div
+                className={styles.player_controller_bottom}
+                style={{
+                    opacity: isControllersVisible ? '1' : '0',
+                    transition: '.3s all',
+                }}
+            >
                 <div className={styles.player_controller_bottom_likes}>
                     <span>
                         <Image
@@ -177,13 +251,16 @@ const VideoPlayer = () => {
                 <div className={styles.bottom_opacity_content}>
                     <div className={styles.player_controller_bottom_volume_row}>
                         <Image
-                            src={playIcon}
+                            src={stop ? stopIcon : playIcon}
+                            width={25}
+                            height={stop ? 18 : 22}
                             alt="pause"
                             onClick={togglePlay}
                         />
                         <div className={styles.volume_progress}>
                             <Image
                                 src={muted ? muteIcon : volumeIcon}
+                                height={muted ? 21 : 15}
                                 alt="volume"
                                 onClick={() => setMuted(!muted)}
                             />
@@ -260,7 +337,7 @@ const VideoPlayer = () => {
 
             {stop && (
                 <div className={styles.pause_center}>
-                    <Image width={30} height={30} src={playIcon} alt="pause" />
+                    <Image width={30} height={30} src={stopIcon} alt="pause" />
                 </div>
             )}
         </div>
