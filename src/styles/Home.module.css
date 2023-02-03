@@ -1,5 +1,9 @@
 .main {
+<<<<<<< HEAD
   width: 100%;
+=======
+  width: 100vw;
+>>>>>>> main
   height: 100%;
   display: grid;
   overflow: hidden;
@@ -13,6 +17,10 @@
   padding: 15px;
   row-gap: 15px;
   overflow: hidden;
+<<<<<<< HEAD
+=======
+  width: 100%;
+>>>>>>> main
 }
 .main .content .dropdowns {
   display: flex;
@@ -25,4 +33,9 @@
   flex-wrap: wrap;
   gap: 23px;
   padding: 5px;
+<<<<<<< HEAD
+=======
+  height: 100%;
+  width: 100%;
+>>>>>>> main
 }/*# sourceMappingURL=Home.module.css.map */

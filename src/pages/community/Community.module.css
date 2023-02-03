@@ -15,6 +15,10 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+<<<<<<< HEAD
+=======
+  background: #000;
+>>>>>>> main
   background: linear-gradient(273.52deg, rgba(0, 234, 242, 0.2) -54.44%, rgba(234, 0, 213, 0.2) 110.67%);
   -webkit-backdrop-filter: blur(8.96875px);
           backdrop-filter: blur(8.96875px);
@@ -199,7 +203,10 @@
   align-self: stretch;
   height: 150px !important;
   padding-left: 25px;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+>>>>>>> main
 }
 .community_main .community_chat .community_chat_stat .community_chat_stat_dropdown .stat_text {
   margin-right: 50px;
@@ -222,6 +229,7 @@
   height: 60vh;
   overflow-y: scroll;
 }
+<<<<<<< HEAD
 .community_main .community_chat .community_chat_messages .messages_block:hover {
   background: linear-gradient(90.26deg, rgba(3, 230, 243, 0.17) 2.73%, rgba(48, 127, 253, 0.23) 53.67%, rgba(194, 24, 223, 0.44) 96.23%);
 }
@@ -236,21 +244,35 @@
 .community_main .community_chat .community_chat_messages .messages_block .user_image {
   width: 50px;
   height: 50px;
+=======
+.community_main .community_chat .community_chat_messages .messages_block {
+  margin-left: 40px;
+>>>>>>> main
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   justify-content: center;
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .reactions {
   display: flex;
   align-items: center;
+=======
+>>>>>>> main
 }
 .community_main .community_chat .community_chat_messages .messages_block .message_details .user_info {
   display: flex;
   align-items: center;
   padding-top: 15px;
 }
+<<<<<<< HEAD
+=======
+.community_main .community_chat .community_chat_messages .messages_block .message_details .user_info .user_image {
+  width: 50px;
+  height: 50px;
+}
+>>>>>>> main
 .community_main .community_chat .community_chat_messages .messages_block .message_details .user_info .user_data {
   display: flex;
   align-items: baseline;
@@ -271,6 +293,7 @@
   font-weight: 400;
   font-size: 26.364px;
   color: #FFFFFF;
+<<<<<<< HEAD
   margin-left: 40px;
   display: flex;
   flex-direction: column-reverse;
@@ -306,4 +329,7 @@
 .community_main .community_chat .community_chat_messages .messages_block .message_details .message .reactions .options .options_img {
   margin-top: 5px;
   cursor: pointer;
+=======
+  margin-left: 90px;
+>>>>>>> main
 }/*# sourceMappingURL=Community.module.css.map */

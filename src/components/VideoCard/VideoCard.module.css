@@ -1,0 +1,112 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  max-width: 280px;
+  height: 280px;
+  color: #fff;
+  transition: 0.5s all;
+}
+.card__preview {
+  position: relative;
+  width: 300px;
+}
+.card__preview img {
+  width: 100%;
+  height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__preview video {
+  width: 100%;
+  height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__preview__bottom {
+  position: absolute;
+  bottom: -18%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+@media screen and (min-width: 1900px) {
+  .card__preview__bottom {
+    bottom: -10%;
+  }
+}
+.card__preview__bottom img {
+  height: 35px;
+  width: 35px;
+}
+.card__preview__bottom_title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 15px;
+  text-decoration: none;
+  color: #fff;
+}
+.card__preview__bottom_info {
+  padding-right: 10px;
+}
+.card__preview__bottom_info span {
+  font-weight: bold;
+  background: linear-gradient(90.24deg, #01EAF2 0.21%, #3B65FF 57.08%, #D70BDA 102.91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.card__info {
+  margin-top: 8%;
+  padding: 5px 10px;
+}
+.card__info h3 {
+  font-weight: 400;
+  font-size: 15px;
+}
+.card__info_bottom {
+  display: flex;
+  gap: 25px;
+  margin-top: 15px;
+  font-size: 13px;
+}
+.card__info_bottom div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1420px) {
+  .card {
+    width: 31%;
+  }
+  .card__info {
+    padding: 8px 12px;
+  }
+  .card__info h3 {
+    font-size: 12px;
+  }
+  .card__info_bottom {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .card {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 815px) {
+  .card {
+    width: 29%;
+  }
+}/*# sourceMappingURL=VideoCard.module.css.map */
