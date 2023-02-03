@@ -6,8 +6,12 @@
     box-shadow: inset 0px 0px 50px 12px rgba(0, 0, 0, 0.64);
     position: relative;
 
+    video:hover {
+        opacity: .7;
+    }
     video {
         object-fit: cover;
+        transition: all .3s ease-in-out;
     }
 
     &_controller_bottom {
@@ -125,8 +129,9 @@
     height: 50px;
     border-radius: 100%;
     position: absolute;
-    bottom: 50%;
-    right: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;

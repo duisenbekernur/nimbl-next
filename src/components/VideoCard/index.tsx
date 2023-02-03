@@ -20,7 +20,7 @@ const VideoCard: FC<videoCardType> = ({
     const [isShow, setIsShow] = useState(false)
     const videoRef = useRef(null)
     const [videoSound, setVideoSound] = useState(false)
-    const soundUrl = '/sounds/rollover.mp3'
+    const soundUrl = '/sounds/click.mp3'
 
     const [play, { stop }] = useSound(soundUrl, { volume: 0.3 })
 
@@ -41,7 +41,6 @@ const VideoCard: FC<videoCardType> = ({
                         width={300}
                         height={100}
                         alt="preview"
-                        onMouseEnter={()=>{play()}}
                     />
                 ) : (
                     <video
