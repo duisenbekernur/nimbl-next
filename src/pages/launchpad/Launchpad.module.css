@@ -5,11 +5,6 @@
   padding: 0 20px;
   /*# sourceMappingURL=LaunchpadNav.module.css.map */
 }
-.launchpad .launchpad_navigation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .launchpad .launchpad_navigation .navigation_buttons {
   display: flex;
 }

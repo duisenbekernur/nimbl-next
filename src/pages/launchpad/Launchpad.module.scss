@@ -89,8 +89,193 @@
     width: 100vw;
     height: 100vh;
     .launchpad_navigation {
+<<<<<<< HEAD
         
 >>>>>>> parent of e9f0e55 (almost there)
+=======
+        .navigation_buttons {
+            .button:hover {
+                background: linear-gradient(273.52deg, rgba(0, 234, 242, 0.327) -54.44%, rgba(234, 0, 215, 0.393) 110.67%);
+            }
+
+            display: flex;
+
+            .button {
+                display: flex;
+                align-items: center;
+                margin-right: 27px;
+                padding: 20px;
+                transition: all .3s ease-in-out;
+                background: rgba(85, 85, 85, 0.14);
+                backdrop-filter: blur(11.2278px);
+                border-radius: 8.63678px;
+                border: 1px solid rgba(152, 25, 137, 0.227);
+                .button_img {
+                    margin-right: 25px;
+                }
+
+                .button_title {
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .launchpad_cards {
+        display: flex;
+
+        .launchpad_card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+            background: #141B22;
+            position: relative;
+            margin-top: 27px;
+            margin-right: 20px;
+
+            .card_corner_bottom {
+                position: absolute;
+                bottom: -20px;
+                right: -20px;
+            }
+
+            .card_corner_top {
+                position: absolute;
+                top: -20px;
+                left: -20px;
+            }
+
+            .card_img {
+                width: 100%;
+                background: url('../../assets/launchpad_card_bg.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 200px;
+
+                .card_play {
+                    width: 98.22px;
+                    height: 98.22px;
+                }
+            }
+
+            .card_body {
+                .card_title {
+                    font-size: 40.8849px;
+                    color: #FFFFFF;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+
+                .card_stats {
+                    display: flex;
+                    justify-content: space-around;
+
+                    .stat_block_one {
+                        display: flex;
+                        flex-direction: column;
+                        background: rgba(0, 0, 0, 0.23);
+                        backdrop-filter: blur(30.6733px);
+                        /* Note: backdrop-filter has minimal browser support */
+                        padding: 15px 30px;
+                        border-radius: 6.59433px 0px 0px 6.59433px;
+
+                        .top {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .users_amount {
+                                font-size: 19.783px;
+                                color: #fff;
+                            }
+                        }
+
+                        .members {
+                            text-align: center;
+                            font-size: 19.783px;
+                            color: #fff;
+                        }
+                    }
+
+                    .stat_block_two {
+                        display: flex;
+                        flex-direction: column;
+                        background: rgba(0, 0, 0, 0.23);
+                        backdrop-filter: blur(30.6733px);
+                        /* Note: backdrop-filter has minimal browser support */
+                        padding: 18px 30px;
+                        border-radius: 0px 6.59433px 6.59433px 0px;
+
+                        .text_one {
+                            background: linear-gradient(270deg, #EA00D5 -6.27%, #3D5EFF 60.51%, #00EAF2 109.84%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            font-weight: 400;
+                            font-size: 19.783px;
+                        }
+
+                        .text_two {
+                            font-weight: 400;
+                            font-size: 18.4641px;
+                            color: #FFFFFF;
+                            margin-top: 4px;
+                        }
+                    }
+                }
+
+                .card_text {
+                    font-weight: 400;
+                    font-size: 18.7569px;
+                    text-align: center;
+                    margin-top: 20px;
+                    margin-bottom: 26px;
+                    color: #FFFFFF;
+                    padding: 0 20px;
+                }
+
+                .card_info {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    .date {
+                        h2 {
+                            font-weight: 400;
+                            font-size: 18.7569px;
+                            color: #FFFFFF;
+                        }
+
+                        h1 {
+                            font-weight: 400;
+                            font-size: 23px;
+                            color: #FFFFFF;
+                        }
+                    }
+
+                    .card_tags {
+                        div {
+                            background: #131217;
+                            color: #6BB8FF;
+                            font-weight: 400;
+                            font-size: 18.9425px;
+                            padding: 5px 10px;
+                            margin-top: 2px;
+                        }
+
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+>>>>>>> parent of 7bf1f44 (launchpad navigation in process)
     }
   }
 }
