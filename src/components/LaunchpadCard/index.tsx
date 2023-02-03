@@ -1,20 +1,23 @@
 import React from 'react';
-import styles from './LaunchpadCard.module.css';
+import styles from '../../pages/launchpad/Launchpad.module.css';
 import Image from 'next/image';
-import icons from './icons';
+import card_play from '../../assets/launchpad_card_play.svg';
+import com from '../../assets/launchpad_com.svg';
+import border_bottom from '../../assets/launchpad_corner_bottom.svg';
+import border_top from '../../assets/launchpad_corner_top.svg';
 
 const LaunchpadCard = () => {
   return (
     <div className={`${styles.launchpad_card}`}>
                 <div className={`${styles.card_img}`}>
-                    <Image className={`${styles.card_play}`} src={icons[0]} alt=""/>
+                    <Image className={`${card_play}`} src={card_play} alt=""/>
                 </div>
                 <div className={`${styles.card_body}`}>
                     <div className={`${styles.card_title}`}>@BlueWard2</div>
                     <div className={`${styles.card_stats}`}>
                         <div className={`${styles.stat_block_one}`}>
                             <div className={`${styles.top}`}>
-                                <Image src={icons[1]} alt=""/>
+                                <Image src={com} alt=""/>
                                 <h1 className={`${styles.users_amount}`}>500k</h1>
                             </div>
                             <div className={`${styles.members}`}>members</div>
@@ -40,8 +43,8 @@ const LaunchpadCard = () => {
                         </div>
                     </div>
                 </div>
-                <Image className={`${styles.card_corner_bottom}`} src={icons[2]} alt=""/>
-                <Image className={`${styles.card_corner_top}`} src={icons[3]} alt=""/>
+                <Image className={`${styles.card_corner_bottom}`} src={border_bottom} alt=""/>
+                <Image className={`${styles.card_corner_top}`} src={border_top} alt=""/>
             </div>
   )
 }

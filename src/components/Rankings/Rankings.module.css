@@ -1,19 +1,23 @@
 .rankings_wrapper {
-  width: 100vw;
+  width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .rankings_wrapper .rankings_container {
-  width: 85%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   display: flex;
   gap: 20px;
 }
-.rankings_wrapper .rankings_container .ranking {
-  background-position: center center !important;
+.rankings_wrapper .rankings_container .ranking_one {
+  background: url("../../assets/trending_videos.png");
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -22,19 +26,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
-.rankings_wrapper .rankings_container .ranking h1 {
+.rankings_wrapper .rankings_container .ranking_one h1 {
   color: #fff;
-  font-size: 22px;
+  font-size: 24px;
 }
-.rankings_wrapper .rankings_container .ranking .img {
+.rankings_wrapper .rankings_container .ranking_one .img {
   position: absolute;
   bottom: 0;
   right: 0;
   cursor: pointer;
   margin: 0 5px 5px 0;
 }
+<<<<<<< HEAD
 .rankings_wrapper .rankings_container .ranking_one {
   background: url("../../assets/trending_videos.png") !important;
   background-position: center center !important;
@@ -64,4 +68,97 @@
   background-position: center center !important;
   background-size: cover;
   background-repeat: no-repeat;
+=======
+.rankings_wrapper .rankings_container .ranking_two {
+  background: url("../../assets/crypto_news.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 300px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rankings_wrapper .rankings_container .ranking_two h1 {
+  color: #fff;
+  font-size: 24px;
+}
+.rankings_wrapper .rankings_container .ranking_two .img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin: 0 5px 5px 0;
+}
+.rankings_wrapper .rankings_container .ranking_three {
+  background: url("../../assets/eth_nft.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 300px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rankings_wrapper .rankings_container .ranking_three h1 {
+  color: #fff;
+  font-size: 24px;
+}
+.rankings_wrapper .rankings_container .ranking_three .img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin: 0 5px 5px 0;
+}
+.rankings_wrapper .rankings_container .ranking_four {
+  background: url("../../assets/play_to_earn.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 300px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rankings_wrapper .rankings_container .ranking_four h1 {
+  color: #fff;
+  font-size: 24px;
+}
+.rankings_wrapper .rankings_container .ranking_four .img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin: 0 5px 5px 0;
+}
+.rankings_wrapper .rankings_container .ranking_five {
+  background: url("../../assets/play_to_earn.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 300px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rankings_wrapper .rankings_container .ranking_five h1 {
+  color: #fff;
+  font-size: 24px;
+}
+.rankings_wrapper .rankings_container .ranking_five .img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin: 0 5px 5px 0;
+>>>>>>> parent of 1985c49 (k)
 }/*# sourceMappingURL=Rankings.module.css.map */

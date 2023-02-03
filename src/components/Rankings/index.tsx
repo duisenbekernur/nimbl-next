@@ -7,23 +7,23 @@ const Rankings = () => {
   return (
     <div className={`${styles.rankings_wrapper}`}>
         <div className={`${styles.rankings_container}`}>
-            <div className={`${styles.ranking_one} ${styles.ranking}` }>
+            <div className={`${styles.ranking_one}`}>
                 <h1>Trending Videos</h1>
                 <Image className={`${styles.img}`} src={more} alt=""/>
             </div>
-            <div className={`${styles.ranking_two} ${styles.ranking}`}>
+            <div className={`${styles.ranking_two}`}>
                 <h1>Trending Videos</h1>
                 <Image className={`${styles.img}`} src={more} alt=""/>
             </div>
-            <div className={`${styles.ranking_three } ${styles.ranking}`}>
+            <div className={`${styles.ranking_three}`}>
                 <h1>Trending Videos</h1>
                 <Image className={`${styles.img}`} src={more} alt=""/>
             </div>
-            <div className={`${styles.ranking_four} ${styles.ranking}`}>
+            <div className={`${styles.ranking_four}`}>
                 <h1>Trending Videos</h1>
                 <Image className={`${styles.img}`} src={more} alt=""/>
             </div>
-            <div className={`${styles.ranking_five} ${styles.ranking}`}>
+            <div className={`${styles.ranking_five}`}>
                 <h1>Trending Videos</h1>
                 <Image className={`${styles.img}`} src={more} alt=""/>
             </div>

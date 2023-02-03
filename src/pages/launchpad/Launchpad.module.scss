@@ -123,6 +123,40 @@
         }
     }
 
+    .launchpad_navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .navigation_buttons {
+            .button:hover {
+                background: linear-gradient(273.52deg, rgba(0, 234, 242, 0.327) -54.44%, rgba(234, 0, 215, 0.393) 110.67%);
+            }
+
+            display: flex;
+
+            .button {
+                display: flex;
+                align-items: center;
+                margin-right: 27px;
+                padding: 20px;
+                transition: all .3s ease-in-out;
+                background: rgba(85, 85, 85, 0.14);
+                backdrop-filter: blur(11.2278px);
+                border-radius: 8.63678px;
+                border: 1px solid rgba(152, 25, 137, 0.227);
+                .button_img {
+                    margin-right: 25px;
+                }
+
+                .button_title {
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: white;
+                }
+            }
+        }
+    }
+
     .launchpad_cards {
         display: flex;
 
