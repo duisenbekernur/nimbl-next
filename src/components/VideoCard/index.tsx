@@ -7,8 +7,7 @@ import channelImg from '../../assets/icons/channel-logo.svg'
 import { FC, useRef, useState } from 'react'
 import { videoCardType } from '@/types'
 import Link from 'next/link'
-import useSound from 'use-sound';
-
+import useSound from 'use-sound'
 
 const VideoCard: FC<videoCardType> = ({
     // id,
@@ -21,34 +20,28 @@ const VideoCard: FC<videoCardType> = ({
     const [isShow, setIsShow] = useState(false)
     const videoRef = useRef(null)
     const [videoSound, setVideoSound] = useState(false)
-    const soundUrl = '/sounds/ui-click.mp3'
+    const soundUrl = '/sounds/rollover.mp3'
 
-    const [play, { stop }] = useSound(
-        soundUrl,
-        { volume: 20 }
-    );
+    const [play, { stop }] = useSound(soundUrl, { volume: 0.3 })
 
     return (
-        <div
-            className={styles.card}
-            ref={videoRef}
-            onMouseEnter={() => {
-                setIsShow(true)
-                play()
-            }}
-
-            onMouseLeave={() => {
-                setIsShow(false)
-                stop()
-            }}
-        >
-            <div className={styles.card__preview}>
+        <div className={styles.card} ref={videoRef}>
+            <div
+                className={styles.card__preview}
+                onMouseEnter={() => {
+                    setIsShow(true)
+                }}
+                onMouseLeave={() => {
+                    setIsShow(false)
+                }}
+            >
                 {!isShow ? (
                     <Image
                         src={poster}
                         width={300}
                         height={100}
                         alt="preview"
+                        onMouseEnter={()=>{play()}}
                     />
                 ) : (
                     <video
@@ -60,7 +53,7 @@ const VideoCard: FC<videoCardType> = ({
                     <Link
                         href="/channel/1"
                         className={styles.card__preview__bottom_title}
-                        title='Go to the channel'
+                        title="Go to the channel"
                     >
                         <Image src={channelImg} alt="logo" />
                         <p>{channel}</p>

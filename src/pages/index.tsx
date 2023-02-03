@@ -14,21 +14,16 @@ import { RootState } from '@/store/store'
 import { Transition } from 'react-transition-group'
 import Layout from '@/components/Layout'
 
-
 function Home() {
     const router = useRouter()
     const { isAuth } = UseShoppingCart()
     const data = useSelector((state: RootState) => state.videos.videos)
     const [videos, setVideos] = useState<videoCardType[] | null>(data)
 
-
-
-
     useEffect(() => {
         if (!isAuth) {
             router.push('/login')
         }
-
     }, [])
 
     const duration = 1200
@@ -43,22 +38,22 @@ function Home() {
         opacity: 0,
     }
 
-    const transitionStyles:any = {
+    const transitionStyles: any = {
         entering: { opacity: 0 },
-        entered:  { opacity: 0 },
-        exiting:  { opacity: 1 },
-        exited:  { opacity: 1 },
-    };
+        entered: { opacity: 0 },
+        exiting: { opacity: 1 },
+        exited: { opacity: 1 },
+    }
 
     const [isHeaderShow, setIsHeaderShow] = useState(true)
     const [isVideoShow, setIsVideoShow] = useState(true)
 
-    useEffect(() =>{
+    useEffect(() => {
         setTimeout(() => {
-            setIsHeaderShow(oldState => false)
+            setIsHeaderShow((oldState) => false)
         }, duration)
         setTimeout(() => {
-            setIsVideoShow(oldState => false)
+            setIsVideoShow((oldState) => false)
         }, duration1)
     }, [])
     return isAuth ? (
@@ -81,8 +76,14 @@ function Home() {
 
                 <div className={styles.content}>
                     <Transition timeout={duration} in={isHeaderShow}>
-                        {state => (
-                            <div className={styles.dropdowns} style={{...defaultStyle, ...transitionStyles[state]}}>
+                        {(state) => (
+                            <div
+                                className={styles.dropdowns}
+                                style={{
+                                    ...defaultStyle,
+                                    ...transitionStyles[state],
+                                }}
+                            >
                                 <RecomendationDropdown />
                                 <RecomendationDropdown />
                                 <RecomendationDropdown />
@@ -92,19 +93,20 @@ function Home() {
                     </Transition>
 
                     <Transition timeout={duration1} in={isVideoShow}>
-                        {state => (
-                            <div className={styles.content__videos} style={{...defaultStyle1, ...transitionStyles[state]}} >
+                        {(state) => (
+                            <div
+                                className={styles.content__videos}
+                                style={{
+                                    ...defaultStyle1,
+                                    ...transitionStyles[state],
+                                }}
+                            >
                                 {videos?.map((item, index) => (
-                                    <VideoCard
-                                        key={index}
-                                        {...item}
-
-                                    />
+                                    <VideoCard key={index} {...item} />
                                 ))}
                             </div>
                         )}
                     </Transition>
-
                 </div>
             </main>
         </Layout>
