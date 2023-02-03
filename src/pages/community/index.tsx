@@ -13,6 +13,7 @@ import arrowDown from '../../assets/arrowDown.svg'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
 import CommunityFeed from '@/components/Community/CommunityFeed'
+import CommunityChat from '@/components/Community/CommunityChat'
 
 const users = [
     { name: 'TupacTV', img: user1 },
@@ -39,34 +40,40 @@ const Community = () => {
                     </div>
                 </div>
                 <div className={styles.community_chat}>
-                    <div className={`${styles.community_chat_users}`}>
-                        {users.map((user) => {
+                    <div className={styles.community_chat_users}>
+                        {users.map((user, idx) => {
                             return (
-                                <div key={user.name}
-                                    className={`${styles.community_chat_user}`}
-                                >
-                                    <Image
-                                        className={`${styles.img}`}
-                                        src={user.img}
-                                        alt={user.name}
-                                    />
-                                    <div className={`${styles.line}`}></div>
-                                </div>
+                                
+                                    <div
+                                        key={user.name}
+                                        className={`${styles.community_chat_user}`}
+                                    >
+                                        <Image
+                                            className={styles.img}
+                                            src={user.img}
+                                            alt={user.name}
+                                        />
+                                        <span className={styles.user_name}>{user.name}</span>
+                                        {idx < users.length - 1 && (
+                                        <div className={styles.line}></div>
+                                    )}
+                                    </div>
+                               
                             )
                         })}
                     </div>
-                    <div className={`${styles.community_chat_stat}`}>
-                        <div className={`${styles.community_chat_stat_logo}`}>
+                    <div className={styles.community_chat_stat}>
+                        <div className={styles.community_chat_stat_logo}>
                             <Image
                                 className={`${styles.img}`}
                                 src={logo}
                                 alt=""
                             />
                             <div className={`${styles.text}`}>
-                                <h1 className={`${styles.title}`}>Bankless</h1>
-                                <h3 className={`${styles.details}`}>
+                                <h2 className={`${styles.title}`}>Bankless</h2>
+                                <span className={`${styles.details}`}>
                                     Community Size: <span>4.2k</span>
-                                </h3>
+                                </span>
                             </div>
                         </div>
                         <div className={`${styles.community_chat_stat_info}`}>
@@ -81,242 +88,18 @@ const Community = () => {
                             className={`${styles.community_chat_stat_dropdown}`}
                         >
                             <div className={`${styles.stat_text}`}>
-                                <h1>GaryVee #1</h1>
-                                <h2>32 online</h2>
+                                <span className={styles.stat_level}>GaryVee #1</span>
+                                <span className={styles.stat_online}>32 online</span>
                             </div>
                             <Image
                                 className={`${styles.img}`}
                                 src={arrowDown}
-                                alt=""
+                                alt="arrowDown"
                             />
                         </div>
                     </div>
-                    <div className={`${styles.community_chat_messages}`}>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles.messages_block}`}>
-                            <div className={`${styles.message_details}`}>
-                                <div className={`${styles.user_info}`}>
-                                    <Image
-                                        className={`${styles.user_image}`}
-                                        src={user5}
-                                        alt=""
-                                    />
-                                    <div className={`${styles.user_data}`}>
-                                        <div className={`${styles.username}`}>
-                                            Akie
-                                        </div>
-                                        <div
-                                            className={`${styles.submission_date}`}
-                                        >
-                                            Today at 09:26
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.message}`}>
-                                    Hahaha. Dont worry mate he is figuringit
-                                    out. He is getting confused too
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                    <CommunityChat />
                     </div>
                 </div>
             </div>

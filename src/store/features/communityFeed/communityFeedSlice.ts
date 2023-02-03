@@ -46,7 +46,7 @@ const initialState: CommunityFeedMessageType[] = [
     },
 ]
 
-const navbarSlice = createSlice({
+const communityFeedSlice = createSlice({
     name: 'communityFeed',
     initialState,
     reducers: {
@@ -57,6 +57,6 @@ const navbarSlice = createSlice({
     },
 })
 
-export const { addMessage, resetState } = navbarSlice.actions
+export const { addMessage, resetState } = communityFeedSlice.actions
 
-export default navbarSlice.reducer
+export default communityFeedSlice.reducer

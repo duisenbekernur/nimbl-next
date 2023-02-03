@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import style from './SettingsAccount.module.scss'
 import Image from 'next/image'
 import avatar from '@/assets/settings_avatar.png'

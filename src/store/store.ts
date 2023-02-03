@@ -4,6 +4,7 @@ import navbarSlice from './features/navbar/navbarSlice'
 import filter from './features/rankings-filter/filter'
 import videos from './features/videos/videosSlice'
 import communityFeed from './features/communityFeed/communityFeedSlice'
+import communityChat from './features/communityChat/communityChatSlice'
 
 
 const store = configureStore({
@@ -11,8 +12,8 @@ const store = configureStore({
         navbar: navbarSlice,
         filter:filter,
         videos,
-        communityFeed 
-
+        communityFeed,
+        communityChat
     }
 })
 

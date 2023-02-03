@@ -9,6 +9,8 @@ import trade from './trade.svg'
 import eyeGray from './eye-gray.svg'
 import clockGray from './clock-gray.svg'
 import likeRegular from './like-regular.svg'
+import reply from './reply.svg'
+import smileWhite from './smile-white.svg'
 
 
 export {
@@ -22,6 +24,8 @@ export {
     trade,
     eyeGray,
     clockGray,
-    likeRegular
+    likeRegular,
+    reply,
+    smileWhite
 
 }
