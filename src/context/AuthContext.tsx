@@ -27,7 +27,6 @@ export const UseShoppingCart = () => {
     return useContext(AuthContext)
 }
 
-
 export const AuthProvider = ({ children }: AuthProviderContext) => {
     const [isAuth, setIsAuth] = useState(false)
 
