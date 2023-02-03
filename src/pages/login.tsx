@@ -26,16 +26,16 @@ const LoginPage = () => {
     const { register, handleSubmit } = useForm<Inputs>();
 
 
-    // useEffect(() => {
-    //     if (account) {
-    //         Auth(account)
-    //         //this routing incorrect, because routing should happen when they passed the Authorization
-    //         Router.push('/')
-    //     }
-    //     else if(isAuth){
-    //         Router.push('/')
-    //     }
-    // }, [account, login])
+    useEffect(() => {
+        if (account) {
+            Auth(account)
+            //this routing incorrect, because routing should happen when they passed the Authorization
+            Router.push('/')
+        }
+        else if(isAuth){
+            Router.push('/')
+        }
+    }, [account, login])
 
     const handleLogin = async () => {
         setIsLoading(true)
