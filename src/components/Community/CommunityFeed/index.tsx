@@ -13,14 +13,12 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 const CommunityFeed: FC = () => {
     const communityFeedState = useSelector((store: RootState) =>
-        [...store.communityFeed].sort(
-            (a, b) => b.createdDate - a.createdDate
-        )
+        [...store.communityFeed].sort((a, b) => b.createdDate - a.createdDate)
     )
     const dispatch = useDispatch()
 
     useEffect(() => {
-        let timerId: NodeJS.Timeout | null = null
+        let timerId: ReturnType<typeof setTimeout> | null = null
         new Promise((resolve, reject) => {
             timerId = setTimeout(() => {
                 resolve(6)
@@ -87,7 +85,9 @@ const CommunityFeed: FC = () => {
                                         <span className={styles.name}>
                                             {message.author.name}
                                         </span>
-                                        <span className={styles.submission_time}>
+                                        <span
+                                            className={styles.submission_time}
+                                        >
                                             {formatDistance(
                                                 message.createdDate,
                                                 new Date(),

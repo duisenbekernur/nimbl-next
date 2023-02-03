@@ -43,22 +43,22 @@ const Community = () => {
                     <div className={styles.community_chat_users}>
                         {users.map((user, idx) => {
                             return (
-                                
-                                    <div
-                                        key={user.name}
-                                        className={`${styles.community_chat_user}`}
-                                    >
-                                        <Image
-                                            className={styles.img}
-                                            src={user.img}
-                                            alt={user.name}
-                                        />
-                                        <span className={styles.user_name}>{user.name}</span>
-                                        {idx < users.length - 1 && (
+                                <div
+                                    key={user.name}
+                                    className={`${styles.community_chat_user}`}
+                                >
+                                    <Image
+                                        className={styles.img}
+                                        src={user.img}
+                                        alt={user.name}
+                                    />
+                                    <span className={styles.user_name}>
+                                        {user.name}
+                                    </span>
+                                    {idx < users.length - 1 && (
                                         <div className={styles.line}></div>
                                     )}
-                                    </div>
-                               
+                                </div>
                             )
                         })}
                     </div>
@@ -88,8 +88,12 @@ const Community = () => {
                             className={`${styles.community_chat_stat_dropdown}`}
                         >
                             <div className={`${styles.stat_text}`}>
-                                <span className={styles.stat_level}>GaryVee #1</span>
-                                <span className={styles.stat_online}>32 online</span>
+                                <span className={styles.stat_level}>
+                                    GaryVee #1
+                                </span>
+                                <span className={styles.stat_online}>
+                                    32 online
+                                </span>
                             </div>
                             <Image
                                 className={`${styles.img}`}
@@ -99,7 +103,7 @@ const Community = () => {
                         </div>
                     </div>
                     <div>
-                    <CommunityChat />
+                        <CommunityChat />
                     </div>
                 </div>
             </div>
