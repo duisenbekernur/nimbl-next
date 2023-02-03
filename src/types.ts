@@ -30,5 +30,5 @@ export type CommunityFeedMessageType = {
     text: string,
     img?: string,
     likeCount: number,
-    createdDate: Date,
+    createdDate: number,
 }

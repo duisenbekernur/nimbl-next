@@ -13,7 +13,7 @@ const store = configureStore({
         videos,
         communityFeed 
 
-    },
+    }
 })
 
 export type RootState = ReturnType<typeof store.getState>

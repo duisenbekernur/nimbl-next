@@ -14,7 +14,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 const CommunityFeed: FC = () => {
     const communityFeedState = useSelector((store: RootState) =>
         [...store.communityFeed].sort(
-            (a, b) => b.createdDate.getTime() - a.createdDate.getTime()
+            (a, b) => b.createdDate - a.createdDate
         )
     )
     const dispatch = useDispatch()
@@ -33,7 +33,7 @@ const CommunityFeed: FC = () => {
                         },
                         text: 'Reading about people grabbing multi-figures monthly as incomes in investments even in this crazy days in the market, any pointers on how to make substantial progress in earning? would be appreciated. Reading about people grabbing multi-figures monthly as incomes in investments even in this crazy days in the market',
                         likeCount: 2,
-                        createdDate: new Date(),
+                        createdDate: new Date().getTime(),
                     })
                 )
             }, 3000)
@@ -49,7 +49,7 @@ const CommunityFeed: FC = () => {
                         text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione natus vero dignissimos voluptatibus et voluptatem, at omnis, id accusamus nostrum exercitationem laborum voluptatum consequuntur quos tenetur maxime sint, doloremque deleniti.',
                         likeCount: 5,
                         img: '/fakeImg/video-7.jpg',
-                        createdDate: new Date(),
+                        createdDate: new Date().getTime(),
                     })
                 )
             }, 5000)

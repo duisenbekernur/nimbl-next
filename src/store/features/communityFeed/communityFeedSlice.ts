@@ -12,7 +12,7 @@ const initialState: CommunityFeedMessageType[] = [
         text: 'It is buyin time!',
         img: '/fakeImg/video-14.jpg',
         likeCount: 158,
-        createdDate: new Date(Date.now() - (2* 60 * 60 * 1000)), // 2h ago
+        createdDate: new Date(Date.now() - (2* 60 * 60 * 1000)).getTime(), // 2h ago
     },
     {
         id: 2,
@@ -22,7 +22,7 @@ const initialState: CommunityFeedMessageType[] = [
         },
         text: 'Users who connect their crypto wallet are able to purchase NFTs and set them as their profile picture which will be displayed in a special hexagonal shape.',
         likeCount: 505,
-        createdDate: new Date(Date.now() - (4* 60 * 60 * 1000)), // 4h ago,
+        createdDate: new Date(Date.now() - (4* 60 * 60 * 1000)).getTime(), // 4h ago,
     },
     {
         id: 3,
@@ -32,7 +32,7 @@ const initialState: CommunityFeedMessageType[] = [
         },
         text: 'Reading about people grabbing multi-figures monthly as incomes in investments even in this crazy days in the market, any pointers on how to make substantial progress in earning? would be appreciated.',
         likeCount: 1205,
-        createdDate: new Date(Date.now() - (5 * 60 * 60 * 1000)), // 5h ago,
+        createdDate: new Date(Date.now() - (5 * 60 * 60 * 1000)).getTime(), // 5h ago,
     },
     {
         id: 4,
@@ -42,7 +42,7 @@ const initialState: CommunityFeedMessageType[] = [
         },
         text: 'Reading about people grabbing multi-figures monthly as incomes in investments even in this crazy days in the market, any pointers on how to make substantial progress in earning? would be appreciated. Reading about people grabbing multi-figures monthly as incomes in investments even in this crazy days in the market',
         likeCount: 2500,
-        createdDate: new Date('2023-01-26'),
+        createdDate: new Date('2023-01-26').getTime(),
     },
 ]
 
