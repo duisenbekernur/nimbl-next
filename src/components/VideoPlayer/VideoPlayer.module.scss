@@ -6,10 +6,6 @@
     box-shadow: inset 0px 0px 50px 12px rgba(0, 0, 0, 0.64);
     position: relative;
 
-    video {
-        object-fit: cover;
-    }
-
     &_controller_bottom {
         position: absolute;
         display: flex;
@@ -81,12 +77,12 @@
         &_volume_row {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 15px;
             padding: 5px;
 
             img {
-                // width: 20px;
-                // height: 15px;
+                width: 20px;
+                height: 15px;
                 cursor: pointer;
             }
         }
@@ -164,7 +160,7 @@
 }
 .volume_progress {
     display: flex;
-    // gap: 105px;
+
     .progress {
         width: 100px;
         height: 8px;
