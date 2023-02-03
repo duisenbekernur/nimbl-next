@@ -8,6 +8,7 @@ import SettingsLikes from '@/components/Settings/SettingsLikes'
 import SettingsSecurity from '@/components/Settings/SettingsSecurity'
 import SettingsWallet from '@/components/Settings/SettingsWallet'
 
+
 enum SettingsTabs {
     ACCOUNT = 'Account',
     NOTIFICATIONS = 'Notifications',
@@ -28,6 +29,10 @@ const settingsTabsArr: SettingsTabsStr[] = [
 
 const SettingsPage = () => {
     const [activeSettingsTab, setActiveSettingsTab] = useState<SettingsTabsStr>('ACCOUNT')
+
+
+
+
     return (
         <Layout>
             <div className={styles.settings}>

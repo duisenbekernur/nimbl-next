@@ -1,5 +1,6 @@
 import { useState, FC } from 'react'
 import style from './SettingsSecurity.module.scss'
+import useSound from 'use-sound'
 
 type Props = {}
 
@@ -24,6 +25,19 @@ const SettingsSecurity: FC<Props> = () => {
 
     })
 
+    const soundUrl = '/sounds/pop-down.mp3'
+    const soundUrl2 = '/sounds/pop-up-on.mp3'
+
+    const [playOn] = useSound(
+        soundUrl,
+        { volume: 1 }
+    );
+
+    const [playOff] = useSound(
+        soundUrl2,
+        { volume: 1 }
+    );
+
     const handleChange = (
         e: any,
         section: string,
@@ -40,6 +54,8 @@ const SettingsSecurity: FC<Props> = () => {
                 },
             },
         }))
+        // eslint-disable-next-line no-unused-expressions
+        e.target.checked ? playOn() : playOff()
     }
 
     const renderSettings = (
