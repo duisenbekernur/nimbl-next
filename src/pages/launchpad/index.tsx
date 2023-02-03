@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useRef } from 'react'
 import styles from './Launchpad.module.css'
 import Rankings from '../../components/Rankings/index'
@@ -97,6 +98,19 @@ const Launchpad = () => {
                     })}
                 </Swiper>
             </div>
+=======
+import React from 'react';
+import styles from './Launchpad.module.css';
+
+const Launchpad = () => {
+  return (
+    <div className={`${styles.launchpad}`}>
+        <div className={`${styles.launchpad_navigation}`}>
+            
+        </div>
+        <div className={`${styles.launchpad_cards}`}>
+
+>>>>>>> parent of e9f0e55 (almost there)
         </div>
     )
 }

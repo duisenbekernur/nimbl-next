@@ -1,6 +1,7 @@
 .launchpad {
   width: 100vw;
   height: 100vh;
+<<<<<<< HEAD
   padding: 0 20px;
   /*# sourceMappingURL=LaunchpadNav.module.css.map */
 }
@@ -74,4 +75,6 @@
 .launchpad .launchpad_cards .swiper {
   width: 100%;
   overflow-y: scroll;
+=======
+>>>>>>> parent of e9f0e55 (almost there)
 }/*# sourceMappingURL=Launchpad.module.css.map */
