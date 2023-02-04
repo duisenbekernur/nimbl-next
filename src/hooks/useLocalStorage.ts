@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react'
+import is from '@sindresorhus/is'
+import boolean = is.boolean
 
-export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
+export function useLocalStorage<T>(key: string, initialValue?: T | (() => T)) {
     const [value, setValue] = useState<T>(() => {
-        const jsonValue = localStorage.getItem(key)
-        if (jsonValue != null) return JSON.parse(jsonValue)
-
-        if (typeof initialValue === 'function') {
-            return (initialValue as () => T)()
-        } else {
-            return initialValue
+        if (typeof window !== 'undefined') {
+            const item = window.localStorage.getItem(key);
+            return item ? JSON.parse(item) : initialValue;
         }
-    })
+        return initialValue;
+    });
 
-    useEffect(() => {
-        localStorage.setItem(key, JSON.stringify(value))
-    }, [key, value])
+    const setLocalStorageValue = (newValue: T) => {
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem(key, JSON.stringify(newValue));
+        }
+        setValue(newValue);
+    };
 
-    return [value, setValue] as [typeof value, typeof setValue]
+
+    return [value, setLocalStorageValue] as const;
 }

@@ -18,6 +18,7 @@ import {
     hideRecomendationDropdownTransition,
 } from '@/store/features/transitions/transitions'
 
+
 function Home() {
     const router = useRouter()
     const { isAuth } = UseShoppingCart()
@@ -28,6 +29,7 @@ function Home() {
 
     const { isShowMainVideos, isShowRecomendationDropdown, isFirstRender } =
         useSelector((store: RootState) => store.transitions)
+
 
     useEffect(() => {
         if (!isAuth) {

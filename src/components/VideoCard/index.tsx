@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import styles from './VideoCard.module.scss'
-
 import previewImg from '../../assets/video/preview.svg'
 import eyeImg from '../../assets/icons/eye.svg'
 import clockImg from '../../assets/icons/clock.svg'
@@ -8,6 +7,8 @@ import channelImg from '../../assets/icons/channel-logo.svg'
 import { FC, useRef, useState } from 'react'
 import { videoCardType } from '@/types'
 import Link from 'next/link'
+import useSound from 'use-sound';
+
 
 const VideoCard: FC<videoCardType> = ({
     // id,
@@ -19,13 +20,27 @@ const VideoCard: FC<videoCardType> = ({
 }) => {
     const [isShow, setIsShow] = useState(false)
     const videoRef = useRef(null)
+    const [videoSound, setVideoSound] = useState(false)
+    const soundUrl = '/sounds/ui-click.mp3'
+
+    const [play, { stop }] = useSound(
+        soundUrl,
+        { volume: 20 }
+    );
 
     return (
         <div
             className={styles.card}
             ref={videoRef}
-            onMouseEnter={() => setIsShow(true)}
-            onMouseOut={() => setIsShow(false)}
+            onMouseEnter={() => {
+                setIsShow(true)
+                play()
+            }}
+
+            onMouseLeave={() => {
+                setIsShow(false)
+                stop()
+            }}
         >
             <div className={styles.card__preview}>
                 {!isShow ? (
@@ -39,7 +54,7 @@ const VideoCard: FC<videoCardType> = ({
                     <video
                         autoPlay={true}
                         src="./alb_numbers001_1080p_24fps.mp4"
-                    ></video>
+                    />
                 )}
                 <div className={styles.card__preview__bottom}>
                     <Link

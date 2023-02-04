@@ -12,6 +12,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
         <AuthProvider>
+
+
             <Provider store={store}>
                 {/* <Layout> */}
                     <Component {...pageProps} />

@@ -6,23 +6,36 @@ import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
 import Router from 'next/router'
 import purple from '@/components/AnimatedLogo/beta-fox.json'
+import { SubmitHandler, useForm } from 'react-hook-form'
 declare global {
     interface Window {
         ethereum?: MetaMaskInpageProvider
     }
 }
 
+type Inputs = {
+    login: string,
+    password: string,
+};
+
 const LoginPage = () => {
     const [account, setAccount] = useState<string | null>(null)
-    const { Auth } = UseShoppingCart()
+    const [login, setLogin] = useState<Inputs | null>(null)
+    const { Auth, isAuth } = UseShoppingCart()
     const [isLoading, setIsLoading] = useState(false)
+    const { register, handleSubmit } = useForm<Inputs>();
+
 
     useEffect(() => {
         if (account) {
             Auth(account)
+            //this routing incorrect, because routing should happen when they passed the Authorization
             Router.push('/')
         }
-    }, [account])
+        else if(isAuth){
+            Router.push('/')
+        }
+    }, [account, login])
 
     const handleLogin = async () => {
         setIsLoading(true)
@@ -44,6 +57,13 @@ const LoginPage = () => {
         return await setAccount(null)
     }
 
+    const onSubmit: SubmitHandler<Inputs> = data => {
+        if(data?.login && data?.password){
+            Auth(account, data)
+            setLogin({login:data?.login, password:data?.password})
+        }
+    };
+
     return (
         <>
             <Script src="../components/AnimatedLogo/index.js" />
@@ -51,16 +71,16 @@ const LoginPage = () => {
                 <div className={styles.metaLogo}>
                     <MetaLogo meshJson={purple} />
                 </div>
-                <form className="login_form">
+                <form className="login_form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="input_wrapper">
                         <label>Login</label>
-                        <input type="text" placeholder="Login" />
+                        <input type="text" placeholder="Login" {...register("login")}/>
                     </div>
                     <div className="input_wrapper">
                         <label>Password</label>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" {...register("password")}/>
                     </div>
-                    <button>Submit</button>
+                    <button type='submit'>Submit</button>
                 </form>
                 {account === null ? (
                     <button

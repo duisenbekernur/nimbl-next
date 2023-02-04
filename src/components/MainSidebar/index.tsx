@@ -15,6 +15,7 @@ import VideoPlayer from '../VideoPlayer'
 import { Transition } from 'react-transition-group'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
+import useSound from 'use-sound'
 
 const channels = [
     {
@@ -248,9 +249,16 @@ const Sidebar = () => {
     const [isHeaderShow, setIsHeaderShow] = useState(true)
     const [isTrendingShow, setIsTrending] = useState(true)
 
-    const { isShowMainSidebar, isShowMainVideoPlayer } = useSelector(
+
+const { isShowMainSidebar, isShowMainVideoPlayer } = useSelector(
         (store: RootState) => store.transitions
     )
+    const soundUrl = '/sounds/ui-click.mp3'
+
+    const [playOn] = useSound(
+        soundUrl,
+        { volume: 20 }
+    );
 
     const dispatch = useDispatch()
 
@@ -309,39 +317,22 @@ const Sidebar = () => {
                 </div>
             )}
             {isShowMainSidebar ? (
-                <Transition timeout={duration1} in={isTrendingShow}>
-                    {(state) => (
-                        <>
-                            {showSubscribers === false ? (
-                                <>
-                                    <div
-                                        className={styles.sidebar_tabs}
-                                        style={{
-                                            ...defaultStyle,
-                                            ...transitionStyles[state],
-                                        }}
-                                    >
-                                        <div
-                                            className={`${styles.tab} ${styles.active}`}
-                                        >
-                                            Top
-                                        </div>
-                                        <div className={styles.tab}>
-                                            Trending
-                                        </div>
-                                        <div className={styles.tab}>Rising</div>
-                                        <div className={styles.tab}>
-                                            Watching List
-                                        </div>
+            <Transition timeout={duration1} in={isHeaderShow}>
+                { state  => (
+                    <>
+                        {showSubscribers === false ? (
+                            <>
+                                <div className={styles.sidebar_tabs} style={{ ...defaultStyle, ...transitionStyles[state] }}>
+                                    <div className={`${styles.tab} ${styles.active}`} onClick={() => playOn()}>
+                                        Top
                                     </div>
-                                    <div
-                                        className={styles.channels}
-                                        style={{
-                                            ...defaultStyle,
-                                            ...transitionStyles[state],
-                                        }}
-                                    >
-                                        <div className={styles.sidebar_sort}>
+                                    <div className={styles.tab} onClick={() => playOn()}>Trending</div>
+                                    <div className={styles.tab} onClick={() => playOn()}>Rising</div>
+                                    <div className={styles.tab} onClick={() => playOn()}>Watching List</div>
+                                </div>
+                                <div className={styles.channels} style={{ ...defaultStyle, ...transitionStyles[state] }}>
+                                    <div className={styles.sidebar_sort}>
+                                        <div className={`${styles.sort} ${styles.byDate}`}>
                                             <div
                                                 className={`${styles.sort} ${styles.byDate}`}
                                             >
