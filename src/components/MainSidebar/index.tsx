@@ -471,6 +471,7 @@ const { isShowMainSidebar, isShowMainVideoPlayer } = useSelector(
                                             </table>
                                         </div>
                                     </div>
+                                    </div>
                                 </>
                             ) : (
                                 <>
