@@ -44,6 +44,11 @@
             }
         }
 
+        .message_image {
+            object-fit: contain;
+            margin-top: 9px;
+        }
+
         .message {
             margin-top: 9px;
             font-size: 17px;
@@ -70,6 +75,7 @@
                 vertical-align: middle;
                 color: #acacac;
                 user-select: none;
+                transition: transform 0.2s ease;
 
                 .emoji {
                     font-size: 14px;
@@ -81,6 +87,10 @@
                         transform: scale(1.4) rotate(-10deg)
                             translate(-10%, -5%);
                     }
+                }
+
+                &:active {
+                    transform: scale(.85);
                 }
 
                 &.active_react {
@@ -144,10 +154,10 @@
         flex-direction: column;
         font-size: 22px;
         top: 0;
-        transform: translateY(0);
+        transform: translateY(-50%);
         padding: 0;
         margin: 0;
-
+        z-index: 999;
         li {
             padding: 4px 0;
             text-align: center;

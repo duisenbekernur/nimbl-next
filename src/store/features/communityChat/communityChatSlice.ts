@@ -1,6 +1,5 @@
 import { CommunityChatMessageType, Emoji } from '@/types'
 import { createSlice } from '@reduxjs/toolkit'
-import { stat } from 'fs'
 
 const initialState: CommunityChatMessageType[] = [
     {
@@ -47,6 +46,7 @@ const initialState: CommunityChatMessageType[] = [
         },
         text: "very soon #Iguverse whitelist, don't miss it, there is simply no better NFT, a new era where the very creativity of users is important.  artificial intelligence",
         react: [],
+        img: '/fakeImg/video-5.jpg',
         createdDate: new Date(Date.now() - 25 * 60 * 60 * 1000).getTime(), // 5h ago
     },
     {
@@ -69,7 +69,7 @@ const CommunityChatSlice = createSlice({
     name: 'communityChat',
     initialState,
     reducers: {
-        addMessage: (
+        addMessageChat: (
             state,
             { payload }: { payload: CommunityChatMessageType }
         ) => {
@@ -98,6 +98,6 @@ const CommunityChatSlice = createSlice({
     },
 })
 
-export const { addMessage, resetState, addReaction } = CommunityChatSlice.actions
+export const { addMessageChat, resetState, addReaction } = CommunityChatSlice.actions
 
 export default CommunityChatSlice.reducer

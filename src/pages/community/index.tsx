@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import styles from './Community.module.scss'
 import user1 from '../../assets/user1.png'
 import user2 from '../../assets/user2.png'
@@ -13,7 +14,8 @@ import arrowDown from '../../assets/arrowDown.svg'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
 import CommunityFeed from '@/components/Community/CommunityFeed'
-import CommunityChat from '@/components/Community/CommunityChat'
+const CommunityChat = dynamic(() => import('@/components/Community/CommunityChat'), { ssr: false })
+
 
 const users = [
     { name: 'TupacTV', img: user1 },
@@ -102,7 +104,7 @@ const Community = () => {
                             />
                         </div>
                     </div>
-                    <div>
+                    <div className={styles.chat_wrap}>
                         <CommunityChat />
                     </div>
                 </div>

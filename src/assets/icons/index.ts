@@ -11,6 +11,8 @@ import clockGray from './clock-gray.svg'
 import likeRegular from './like-regular.svg'
 import reply from './reply.svg'
 import smileWhite from './smile-white.svg'
+import attach from './attach.svg'
+import telegram from './telegram.svg'
 
 
 export {
@@ -26,6 +28,7 @@ export {
     clockGray,
     likeRegular,
     reply,
-    smileWhite
-
+    smileWhite,
+    attach,
+    telegram
 }

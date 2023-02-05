@@ -49,6 +49,9 @@
                     transform: rotate(-5deg) scale(1.1);
                     
                 }
+                &:active {
+                    transform: scale(.8);
+                }
             }
 
             .dislike {
@@ -56,6 +59,9 @@
                 &:hover {
                     transform: rotate(175deg) scale(1.1);
                     
+                }
+                &:active {
+                    transform: scale(.8) rotate(180deg) translateY(-15%);
                 }
             }
 
@@ -65,8 +71,7 @@
                 object-fit: contain;
                 cursor: pointer;
                 transition: transform .2s ease-in-out;
-                
-              
+                user-select: none;
             }
 
             .likeAmount {
@@ -84,9 +89,6 @@
         }
     }
 }
-
-
-
 
 .divider_line {
     margin-left: 10px;

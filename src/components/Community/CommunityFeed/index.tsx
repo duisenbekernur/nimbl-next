@@ -102,7 +102,7 @@ const CommunityFeed: FC = () => {
                                     </div>
                                     <div className={styles.details_footer}>
                                         <Image
-                                            className={`${styles.like}`}
+                                            className={styles.like}
                                             src={likeRegular}
                                             alt="like"
                                         />

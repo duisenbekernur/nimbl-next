@@ -40,6 +40,10 @@
     }
 
     .community_chat {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
         .community_chat_users {
             background: rgba(255, 255, 255, 0.05);
             box-shadow: inset 4px 4px 27px rgba(255, 255, 255, 0.04);
@@ -219,6 +223,10 @@
             }
         }
 
-        
+        .chat_wrap {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
     }
 }
