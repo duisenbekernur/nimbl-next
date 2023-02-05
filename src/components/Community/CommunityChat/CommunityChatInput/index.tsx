@@ -7,7 +7,11 @@ import { Emoji } from '@/types'
 import { useDispatch } from 'react-redux'
 import { addMessageChat } from '@/store/features/communityChat/communityChatSlice'
 
-const CommunityChatInput: FC = ({ setShouldScrollTo }) => {
+type Props = {
+    setShouldScrollTo: (to: string) => void
+}
+
+const CommunityChatInput: FC<Props> = ({ setShouldScrollTo }) => {
     const [text, setText] = useState<string>('')
     const [file, setFile] = useState<string | null>(null)
     const [imgAspect, setImgAspect] = useState<number>(1)
