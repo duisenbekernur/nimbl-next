@@ -19,7 +19,6 @@ const CommunityChatInput: FC<Props> = ({ setShouldScrollTo }) => {
     const dispatch = useDispatch()
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log('era')
         event.preventDefault()
         if (event.target.files) {
             const file = event.target.files[0]
@@ -63,7 +62,6 @@ const CommunityChatInput: FC<Props> = ({ setShouldScrollTo }) => {
     }
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        console.log('submit')
         event.preventDefault()
         if (text.trim()) {
             dispatch(

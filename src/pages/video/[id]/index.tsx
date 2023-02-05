@@ -17,6 +17,8 @@ import VideoList from '@/components/VideosList'
 import { useState } from 'react'
 import withAuthorization from '@/HOC/Authorization/Authorization'
 import Layout from '@/components/Layout'
+import CommunityChat from '@/components/Community/CommunityChat'
+import VideoPlayer from '@/components/VideoPlayer'
 
 function VideoPage() {
     const [activeTab, setActiveTab] = useState<0 | 1 | 2>(0)
@@ -24,8 +26,9 @@ function VideoPage() {
        <Layout>
             <div className={style.videoPage__main}>
                 <div className={style.videoPage__content}>
-                    <div className={style.video_player}>
-                        <Image fill src="/fakeImg/video-1.jpg" alt="twitter" />
+                    <div className={style.outer_wrap_video_player}>
+                       {/*  <Image fill src="/fakeImg/video-1.jpg" alt="twitter" /> */}
+                      <div className={style.inner_wrap_video_player}> <VideoPlayer /></div>
                     </div>
                     <div className={style.video_data}>
                         <h1 className={style.title}>
@@ -183,8 +186,9 @@ function VideoPage() {
                         </div>
                     </div>
                     <div className={style.sidebar__content}>
-                        {' '}
-                        <VideoList />
+                        {activeTab === 0 ? <VideoList /> :
+                        activeTab === 1 ? <CommunityChat /> :
+                        null}
                     </div>
                 </div>
             </div>
