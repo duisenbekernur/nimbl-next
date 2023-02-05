@@ -65,19 +65,21 @@ const CommunityChatInput: FC<Props> = ({ setShouldScrollTo }) => {
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         console.log('submit')
         event.preventDefault()
-        dispatch(
-            addMessageChat({
-                id: Math.random() * 100,
-                author: {
-                    name: 'NotCrypto',
-                    img: '/usersImg/user5.png',
-                },
-                text,
-                img: file || undefined,
-                react: [],
-                createdDate: new Date().getTime(),
-            })
-        )
+        if (text.trim()) {
+            dispatch(
+                addMessageChat({
+                    id: Math.random() * 100,
+                    author: {
+                        name: 'NotCrypto',
+                        img: '/usersImg/user5.png',
+                    },
+                    text: text.trim(),
+                    img: file || undefined,
+                    react: [],
+                    createdDate: new Date().getTime(),
+                })
+            )
+        }
         // reset
         setFile(null)
         setText('')
