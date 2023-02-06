@@ -24,16 +24,27 @@ const LoginPage = () => {
     const { Auth, isAuth } = UseShoppingCart()
     const [isLoading, setIsLoading] = useState(false)
     const { register, handleSubmit } = useForm<Inputs>();
+    const [isExit, setIsExit] = useState(false)
 
 
     useEffect(() => {
         if (account) {
             Auth(account.toLowerCase())
             //this routing incorrect, because routing should happen when they passed the Authorization
-            Router.push('/')
+            setTimeout(() =>{
+                Router.push('/')
+            }, 7000)
+            setTimeout(() =>{
+                setIsExit(true)
+            }, 5000)
         }
-        else if(isAuth){
-            Router.push('/')
+        if(isAuth){
+            setTimeout(() =>{
+                Router.push('/')
+            }, 7000)
+            setTimeout(() =>{
+                setIsExit(true)
+            }, 5000)
         }
     }, [account, login])
 
@@ -65,6 +76,13 @@ const LoginPage = () => {
     };
 
     return (
+        isAuth ? <>
+            <div className="login_video">
+                <video autoPlay muted playsInline className={`${isExit? 'exiting' : null}`}>
+                    <source src="login_video.mp4" />
+                </video>
+            </div>
+            </>:
         <>
             <Script src="../components/AnimatedLogo/index.js" />
             <div className={`${styles.loginContainer} login_wrapper`}>
