@@ -17,6 +17,7 @@ import {
     hideMainVideosTransition,
     hideRecomendationDropdownTransition,
 } from '@/store/features/transitions/transitions'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 
 function Home() {
@@ -60,7 +61,7 @@ function Home() {
     const [isVideoShow, setIsVideoShow] = useState(true)
 
     useEffect(() => {
-        if (isFirstRender) {
+        if (isFirstRender && !Boolean(localStorage.getItem('login'))) {
             dispatch(hideFirstRender())
             return
         }
