@@ -20,3 +20,35 @@ export type videoCardType = {
     avatar: string
     poster: string
 }
+
+export type CommunityFeedMessageType = {
+    id: number
+    author: {
+        name: string
+        img: string
+    }
+    text: string
+    img?: string
+    likeCount: number
+    createdDate: number
+}
+
+
+export enum Emoji {
+    CLAPPING_HANDS = '👏',
+    THUMBS_UP = '👍',
+    FACE_WITH_TEARS_OF_JOY =  '😂',
+    FIRE = '🔥'
+}
+
+export type CommunityChatMessageType = {
+    id: number
+    author: {
+        name: string
+        img: string
+    }
+    text: string
+    img?: string
+    react: { emoji: Emoji, reacted: string[] }[]
+    createdDate: number
+}
