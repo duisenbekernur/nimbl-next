@@ -61,7 +61,7 @@ function Home() {
     const [isVideoShow, setIsVideoShow] = useState(true)
 
     useEffect(() => {
-        if (isFirstRender && !Boolean(localStorage.getItem('login'))) {
+        if (isFirstRender && !(localStorage.getItem('login'))) {
             dispatch(hideFirstRender())
             return
         }
