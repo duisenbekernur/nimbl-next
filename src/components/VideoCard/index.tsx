@@ -25,7 +25,7 @@ const VideoCard: FC<videoCardType> = ({
 
     const [play, { stop }] = useSound(
         soundUrl,
-        { volume: 20 }
+        { volume: 5 }
     );
 
     return (
