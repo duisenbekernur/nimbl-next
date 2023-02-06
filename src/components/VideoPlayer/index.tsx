@@ -174,33 +174,40 @@ const VideoPlayer = () => {
             />
 
             <div
-                className={styles.player_top}
+                className={styles.player_top_container}
                 style={{
                     opacity: isControllersVisible ? '1' : '0',
-                    transition: '.3s all',
                 }}
             >
-                <div className={styles.player_top_title}>
-                    <h3>
-                        IGNORE THE FUD Binance CZ | AAVE Freezes Lending Markets
-                        | Polygon Solana NFT
-                    </h3>
-                    <div>
-                        <span>
-                            <Image src={viewIcon} alt="view" />
-                            100 345
-                        </span>
-                        <span>
-                            <Image src={likeIcon} alt="like" />5 324
-                        </span>
+                <div className={styles.player_top_opacity}></div>
+                <div
+                    className={styles.player_top}
+                    style={{
+                        opacity: isControllersVisible ? '1' : '0',
+                    }}
+                >
+                    <div className={styles.player_top_title}>
+                        <h3>
+                            IGNORE THE FUD Binance CZ | AAVE Freezes Lending
+                            Markets | Polygon Solana NFT
+                        </h3>
+                        <div>
+                            <span>
+                                <Image src={viewIcon} alt="view" />
+                                100 345
+                            </span>
+                            <span>
+                                <Image src={likeIcon} alt="like" />5 324
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div className={styles.player_top_channel}>
-                    <div className={styles.player_top_channel_content}>
-                        <h4>Helen_NFT</h4>
-                        <p>245,511 members</p>
+                    <div className={styles.player_top_channel}>
+                        <div className={styles.player_top_channel_content}>
+                            <h4>Helen_NFT</h4>
+                            <p>245,511 members</p>
+                        </div>
+                        <Image src={channelIcon} alt="channel logo" />
                     </div>
-                    <Image src={channelIcon} alt="channel logo" />
                 </div>
             </div>
 
