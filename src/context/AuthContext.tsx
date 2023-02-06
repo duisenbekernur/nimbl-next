@@ -56,7 +56,9 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
 
     useEffect(() => {
         if(isAuth){
-            Router.push('/')
+            setTimeout(() =>{
+                Router.push('/')
+            }, 7000)
         }
     }, [isAuth])
 
