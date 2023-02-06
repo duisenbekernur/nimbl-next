@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
     const valueF = '0x5C9873034aD0FA64Cc43617398737E9B92e7d77A'
 
     useEffect(() => {
-        addresses.filter((address) => address === loginLocal?.address ? setIsAuth(true) : null)
+        addresses.filter((address) => address.toLowerCase() === loginLocal?.address ? setIsAuth(true) : null)
         if (loginLocal?.login === 'Nimbl123!@#' && loginLocal?.password === 'qwerty123*()') {
             setIsAuth(true)
         }

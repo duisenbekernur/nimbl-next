@@ -28,7 +28,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (account) {
-            Auth(account)
+            Auth(account.toLowerCase())
             //this routing incorrect, because routing should happen when they passed the Authorization
             Router.push('/')
         }
