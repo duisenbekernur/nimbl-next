@@ -6,13 +6,18 @@ import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
 import { useRouter } from 'next/router'
 import { UseShoppingCart } from '@/context/AuthContext'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useRef, useState } from 'react'
 import { videoCardType } from '@/types'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { Transition } from 'react-transition-group'
 import Layout from '@/components/Layout'
+import {
+    hideFirstRender,
+    hideMainVideosTransition,
+    hideRecomendationDropdownTransition,
+} from '@/store/features/transitions/transitions'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 
 function Home() {
@@ -20,11 +25,16 @@ function Home() {
     const { isAuth } = UseShoppingCart()
     const videos = useSelector((state: RootState) => state.videos.videos)
 
+    const dispatch = useDispatch()
+
+    const { isShowMainVideos, isShowRecomendationDropdown, isFirstRender } =
+        useSelector((store: RootState) => store.transitions)
+
+
     useEffect(() => {
         if (!isAuth) {
             router.push('/login')
         }
-
     }, [])
 
     const duration = 1200
@@ -35,28 +45,41 @@ function Home() {
         opacity: 0,
     }
     const defaultStyle1 = {
-        transition: `opacity ${duration}ms ease-in-out`,
+        transition: `opacity ${duration1}ms ease-in-out`,
         opacity: 0,
     }
 
-    const transitionStyles:any = {
+    const transitionStyles: any = {
         entering: { opacity: 0 },
-        entered:  { opacity: 0 },
-        exiting:  { opacity: 1 },
-        exited:  { opacity: 1 },
-    };
+        entered: { opacity: 0 },
+        exiting: { opacity: 1 },
+        exited: { opacity: 1 },
+    }
 
     const [isHeaderShow, setIsHeaderShow] = useState(true)
     const [isVideoShow, setIsVideoShow] = useState(true)
 
-    useEffect(() =>{
+    useEffect(() => {
+        if (isFirstRender && !(localStorage.getItem('login'))) {
+            dispatch(hideFirstRender())
+            return
+        }
+
         setTimeout(() => {
-            setIsHeaderShow(oldState => false)
+            setIsHeaderShow((oldState) => false)
+            setTimeout(() => {
+                dispatch(hideRecomendationDropdownTransition())
+            }, duration)
         }, duration)
+
         setTimeout(() => {
-            setIsVideoShow(oldState => false)
+            setIsVideoShow((oldState) => false)
+            setTimeout(() => {
+                dispatch(hideMainVideosTransition())
+            }, duration1)
         }, duration1)
     }, [])
+
     return isAuth ? (
         <Layout>
             <Head>
@@ -76,32 +99,56 @@ function Home() {
                 <div className='col-4'><Sidebar /></div>
 
                 <div className={`${styles.content} ${"col-8"}`}>
-                    <Transition timeout={duration} in={isHeaderShow}>
-                        {state => (
-                            <div className={styles.dropdowns} style={{...defaultStyle, ...transitionStyles[state]}}>
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                            </div>
-                        )}
-                    </Transition>
+                    {isShowRecomendationDropdown ? (
+                        <Transition timeout={duration} in={isHeaderShow}>
+                            {(state) => (
+                                <div
+                                    className={styles.dropdowns}
+                                    style={{
+                                        ...defaultStyle,
+                                        ...transitionStyles[state],
+                                    }}
+                                >
+                                    <RecomendationDropdown />
+                                    <RecomendationDropdown />
+                                    <RecomendationDropdown />
+                                    <RecomendationDropdown />
+                                </div>
+                            )}
+                        </Transition>
+                    ) : (
+                        <div className={styles.dropdowns}>
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                        </div>
+                    )}
 
-                    <Transition timeout={duration1} in={isVideoShow}>
-                        {state => (
-                            <div className={styles.content_videos} style={{...defaultStyle1, ...transitionStyles[state]}} >
-                                {videos?.map((item, index) => (
-                                    <VideoCard
-                                        key={index}
-                                        {...item}
-
-                                    />
-                                ))}
-                            </div>
-                        )}
-                    </Transition>
-
-                </div> 
+                    {isShowMainVideos ? (
+                        <Transition timeout={duration1} in={isVideoShow}>
+                            {(state) => (
+                                <div
+                                    className={styles.content__videos}
+                                    style={{
+                                        ...defaultStyle1,
+                                        ...transitionStyles[state],
+                                    }}
+                                >
+                                    {videos?.map((item, index) => (
+                                        <VideoCard key={index} {...item} />
+                                    ))}
+                                </div>
+                            )}
+                        </Transition>
+                    ) : (
+                        <div className={styles.content__videos}>
+                            {videos?.map((item, index) => (
+                                <VideoCard key={index} {...item} />
+                            ))}
+                        </div>
+                    )}
+                </div>
             </main>
         </Layout>
     ) : null

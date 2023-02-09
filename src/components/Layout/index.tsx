@@ -2,6 +2,12 @@ import { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import Header from '../Header'
 import Navbar from '../Navbar'
 import { Transition } from 'react-transition-group'
+import {
+    hideHeaderTransition,
+    hideNavbarTransition,
+} from '@/store/features/transitions/transitions'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
 
 type LayoutProps = {
     children: ReactNode
@@ -24,9 +30,14 @@ const transitionStyles: any = {
 const Layout: FC<LayoutProps> = ({ children }) => {
     const [isHeaderShow, setIsHeaderShow] = useState(true)
 
+
+    const dispatch = useDispatch()
+
     useEffect(() => {
+        setIsHeaderShow((oldState) => false)
         setTimeout(() => {
-            setIsHeaderShow((oldState) => false)
+            dispatch(hideHeaderTransition())
+            dispatch(hideNavbarTransition())
         }, duration)
     }, [])
 
@@ -215,6 +226,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                     </>
                 )}
             </Transition>
+
         </div>
     )
 }
