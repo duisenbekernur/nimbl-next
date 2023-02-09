@@ -7,14 +7,6 @@
     height: auto;
     color: #fff;
     cursor: pointer;
-
-    &:hover {
-        box-shadow: 0px 0px 12px rgba(65, 107, 255, 0.4);
-
-        .card_info {
-            background-color: var(--dark-glass)
-        }
-    }
 }
 
 .card_preview {
@@ -43,15 +35,6 @@
         align-items: center;
         text-decoration: none;
         color: white;
-        white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-        p {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
         img {
             border-radius: 50%;
             border: 1px solid white;
@@ -62,8 +45,7 @@
     .channel_price {
         display: flex;
         flex-direction: column;
-        white-space: nowrap;
-        margin-left: 0.4rem;
+
         span:first-child {
             font-size: 15px;
             line-height: 18px;
