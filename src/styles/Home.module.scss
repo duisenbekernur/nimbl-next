@@ -24,20 +24,9 @@
         &_videos {
             overflow-y: scroll;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             column-gap: var(--gap-main-grid);
             row-gap: 20px;
-
-            &::-webkit-scrollbar-thumb {
-                background: transparent; 
-              }
-              &:hover {
-                &::-webkit-scrollbar-thumb {
-                    background: var(--scrollbar-gradient);
-                    border-radius: 6px;
-                  }
-                
-              }
         }
     }
 }

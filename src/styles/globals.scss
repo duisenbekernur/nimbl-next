@@ -92,8 +92,15 @@ body {
     }
 }
 
+.content {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
+
+    height: 5px;
 }
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-gradient);
