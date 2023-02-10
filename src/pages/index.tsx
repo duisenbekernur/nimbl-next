@@ -5,25 +5,15 @@ import RecomendationDropdown from '@/components/RecomendationDropdown'
 import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
 import {useRouter} from 'next/router'
-import {UseShoppingCart} from '@/context/AuthContext'
-import {useEffect, useRef, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '@/store/store'
 import Layout from '@/components/Layout'
 
-
 function Home() {
     const router = useRouter()
-    const {isAuth} = UseShoppingCart()
     const videos = useSelector((state: RootState) => state.videos.videos)
 
-    useEffect(() => {
-        if (!isAuth) {
-            router.push('/login')
-        }
-    }, [])
-
-    return isAuth ? (
+    return (
         <Layout>
             <Head>
                 <title>NIMBL</title>
@@ -51,7 +41,7 @@ function Home() {
                 </div>
             </main>
         </Layout>
-    ) : null
+    )
 }
 
 export default withAuthorization(Home)

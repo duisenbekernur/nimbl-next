@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux'
 import { videoCardType } from '@/types'
 import { RootState } from '@/store/store'
 import Layout from '@/components/Layout'
+import withAuthorization from '@/HOC/Authorization/Authorization'
 
 const announcements = [
     {
@@ -523,4 +524,4 @@ const ChannelPage = () => {
     )
 }
 
-export default ChannelPage
+export default withAuthorization(ChannelPage)

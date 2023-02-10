@@ -7,6 +7,7 @@ import SettingsNotifications from '@/components/Settings/SettingsNotifications'
 import SettingsLikes from '@/components/Settings/SettingsLikes'
 import SettingsSecurity from '@/components/Settings/SettingsSecurity'
 import SettingsWallet from '@/components/Settings/SettingsWallet'
+import withAuthorization from '@/HOC/Authorization/Authorization'
 
 
 enum SettingsTabs {
@@ -66,4 +67,4 @@ const SettingsPage = () => {
     )
 }
 
-export default SettingsPage
+export default withAuthorization(SettingsPage)
