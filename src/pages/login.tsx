@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 import { MetaMaskInpageProvider } from '@metamask/providers'
 import { UseShoppingCart } from '../context/AuthContext'
 import styles from '../styles/Login.module.scss'
@@ -25,6 +25,7 @@ const LoginPage = () => {
     const [isLoading, setIsLoading] = useState(false)
     const { register, handleSubmit } = useForm<Inputs>();
     const [isExit, setIsExit] = useState(false)
+    const videoRef = useRef<HTMLVideoElement | null>(null);
 
 
     useEffect(() => {
@@ -39,6 +40,7 @@ const LoginPage = () => {
             }, 5000)
         }
         if(isAuth){
+            if(videoRef.current) videoRef.current.play();
             setTimeout(() =>{
                 Router.push('/')
             }, 7000)
@@ -78,7 +80,7 @@ const LoginPage = () => {
     return (
         isAuth ? <>
             <div className="login_video">
-                <video autoPlay loop playsInline className={`${isExit? 'exiting' : null}`}>
+                <video ref={videoRef} autoPlay playsInline className={`${isExit? 'exiting' : null}`}>
                     <source src="login_video.mp4" />
                 </video>
             </div>
