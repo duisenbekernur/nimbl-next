@@ -1,6 +1,10 @@
 import {useEffect, useState} from 'react'
 import styles from './MainSidebar.module.scss'
 import Image from 'next/image'
+import {
+    hideMainSidebarTransition,
+    hideMainVideoPlayerTransition,
+} from '@/store/features/transitions/transitions'
 
 import profileLogo from '../../assets/icons/profile.svg'
 import arrowLeft from '../../assets/icons/arrow-left.svg'
@@ -36,7 +40,7 @@ const trendingVideo = [
 ]
 
 const duration = 400
-const duration1 = 800
+const duration1 = 400
 
 const defaultStyle = {
     transition: `opacity ${duration}ms ease-in-out`,
@@ -144,30 +148,38 @@ const Sidebar = () => {
                                         </div>
                                         <div className={styles.go_to_channel}>Go to channel</div>
                                     </div>
-                                    <div className={styles.about_channel}>
-                                        <div className={styles.about_channel_box}>
-                                            <div className={styles.value}>{100000}</div>
-                                            <div className={styles.key}>Members</div>
+                                    <div className={styles.about_channel_box}>
+                                        <div className={styles.value}>
+                                            {100000}
                                         </div>
-                                        <div className={styles.about_channel_box}>
-                                            <div className={styles.value}>{100000}</div>
-                                            <div className={styles.key}>Views</div>
+                                        <div className={styles.key}>Views</div>
+                                    </div>
+                                    <div className={styles.about_channel_box}>
+                                        <div className={styles.value}>
+                                            {100000}
                                         </div>
-                                        <div className={styles.about_channel_box}>
-                                            <div className={styles.value}>{100000}</div>
-                                            <div className={styles.key}>Shares</div>
+                                        <div className={styles.key}>Shares</div>
+                                    </div>
+                                    <div className={styles.about_channel_box}>
+                                        <div className={styles.value}>
+                                            {100}
                                         </div>
-                                        <div className={styles.about_channel_box}>
-                                            <div className={styles.value}>{100}</div>
-                                            <div className={styles.key}>Floor Price</div>
+                                        <div className={styles.key}>
+                                            Floor Price
                                         </div>
-                                        <div className={styles.about_channel_box}>
-                                            <div className={styles.value}>{150}</div>
-                                            <div className={styles.key}>Volume</div>
+                                    </div>
+                                    <div className={styles.about_channel_box}>
+                                        <div className={styles.value}>
+                                            {150}
                                         </div>
-                                        <div className={styles.about_channel_box}>
-                                            <div className={styles.value}>{500}</div>
-                                            <div className={styles.key}>Listings</div>
+                                        <div className={styles.key}>Volume</div>
+                                    </div>
+                                    <div className={styles.about_channel_box}>
+                                        <div className={styles.value}>
+                                            {500}
+                                        </div>
+                                        <div className={styles.key}>
+                                            Listings
                                         </div>
                                     </div>
                                     <div className={styles.subs_videos}>
@@ -189,8 +201,8 @@ const Sidebar = () => {
                                                     </div>
                                                     <div className={styles.subs_videos_names}>{item.title} </div>
                                                 </div>
-                                            ))}
-                                        </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div> */}
                             </>
