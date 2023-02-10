@@ -8,6 +8,7 @@ import {
 } from '@/store/features/transitions/transitions'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
+import Blobs from './Blobs'
 
 type LayoutProps = {
     children: ReactNode
@@ -69,6 +70,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                 <Header />
             )}
 
+            <Blobs />
             <main className="content">{children}</main>
 
             {isShowNavbar ? (
