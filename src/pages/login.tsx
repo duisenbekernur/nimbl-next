@@ -80,7 +80,7 @@ const LoginPage = () => {
     return (
         isAuth ? <>
             <div className="login_video">
-                <video ref={videoRef} autoPlay playsInline className={`${isExit? 'exiting' : null}`}>
+                <video ref={videoRef} autoPlay muted controls={false} playsInline className={`${isExit? 'exiting' : null}`}>
                     <source src="login_video.mp4" />
                 </video>
             </div>
