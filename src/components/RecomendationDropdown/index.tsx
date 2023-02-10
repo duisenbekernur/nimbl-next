@@ -16,21 +16,6 @@ const RecomendationDropdown = () => {
                     <Image src={plus} alt="plus" />
                 </div>
             </div>
-
-            <div className={styles.sub_categories}>
-                <div className={styles.sub_categories_item}>
-                    <Image src={trendingImg} alt="trending" />
-                    <div>
-                        <h3>Trending Videos</h3>
-                    </div>
-                </div>
-                <div className={styles.sub_categories_item}>
-                    <Image src={trendingImg} alt="trending" />
-                    <div>
-                        <h3>Trending Videos</h3>
-                    </div>
-                </div>
-            </div>
         </div>
     )
 }

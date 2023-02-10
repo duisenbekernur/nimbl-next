@@ -19,6 +19,13 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             column-gap: var(--gap-main-grid);
+            display: flex;
+            height: 190px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            &::-webkit-scrollbar{
+                height: 0;
+            }
         }
 
         &_videos {

@@ -42,6 +42,10 @@ function Home() {
                         <RecomendationDropdown />
                         <RecomendationDropdown />
                         <RecomendationDropdown />
+                        <RecomendationDropdown />
+                        <RecomendationDropdown />
+                        <RecomendationDropdown />
+                        <RecomendationDropdown />
                     </div>
                     <div className={styles.content_videos}>
                         {videos?.map((item, index) => (
