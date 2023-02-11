@@ -1,0 +1,198 @@
+.form_wrap {
+    background: #141c25;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.buttons_wrap {
+    display: flex;
+    height: 100%;
+    .button_file,
+    .button_smile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 50px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        will-change: opacity;
+
+        &:hover {
+            img {
+                opacity: 0.5;
+            }
+            
+        }
+    }
+
+    .button_file {
+        input[type='file'] {
+            display: none;
+        }
+    }
+    .button_smile {
+        position: relative;
+
+       
+        .input_emoji_popper {
+            transition: all 0.2s;
+            pointer-events: none;
+            opacity: 0;
+            position: absolute;
+            list-style-type: none;
+            height: 40px;
+            background-color: #141c25c4;
+            display: flex;
+            font-size: 22px;
+            top: 0;
+            transform: translateY(-50%);
+            padding: 0;
+            margin: 0;
+            border-radius: 9999px;
+            overflow: hidden;
+            z-index: 9999;
+            li {
+                padding: 4px;
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    background: rgba(255, 255, 255, 0.205);
+                }
+            }
+        }
+
+        &:hover {
+            .input_emoji_popper {
+                pointer-events: auto;
+                opacity: 1;
+                transform: translateY(-70%);
+            }
+        }
+
+    }
+}
+
+.attach_img {
+    width: auto;
+    height: 130px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateY(-105%);
+
+    button {
+        position: absolute;
+        background-color: rgba(22, 4, 58, 0.411);
+        border: none;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        padding-bottom: 5px;
+        border-radius: 9999px;
+        cursor: pointer;
+        top: 5px;
+        color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.input_wrap {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    flex-grow: 1;
+
+    &::before {
+        content: '';
+        height: 50%;
+        width: 3px;
+        background-color: #5f6771;
+        transform: translateX(-10px);
+        border-radius: 9999px;
+    }
+
+    .input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 15px;
+        width: 100%;
+    }
+}
+
+.submit_wrap {
+    height: 100%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button[type='submit'] {
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        background: linear-gradient(
+            106.95deg,
+            rgba(1, 167, 255, 0.8) 0.4%,
+            rgba(255, 0, 245, 0.8) 103.58%
+        );
+        box-shadow: inset 7.38528px 10.7422px 22.1558px
+            rgba(255, 255, 255, 0.11);
+        backdrop-filter: blur(62.4392px);
+        border-radius: 5px;
+        border: none;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        .telegram_icon {
+            height: 18px;
+            animation-fill-mode: forwards;
+
+            animation-duration: 0.5s;
+        }
+
+        &:not([disabled]) {
+            &:active {
+                transform: translateY(2px);
+            }
+            &:hover {
+                .telegram_icon {
+                    animation-name: sendTelegram;
+                }
+            }
+        }
+    }
+}
+
+@keyframes sendTelegram {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    51% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

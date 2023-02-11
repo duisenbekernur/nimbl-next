@@ -8,6 +8,11 @@ import commentsSolid from './comments-solid.svg'
 import trade from './trade.svg'
 import eyeGray from './eye-gray.svg'
 import clockGray from './clock-gray.svg'
+import likeRegular from './like-regular.svg'
+import reply from './reply.svg'
+import smileWhite from './smile-white.svg'
+import attach from './attach.svg'
+import telegram from './telegram.svg'
 
 
 export {
@@ -20,6 +25,10 @@ export {
     commentsSolid,
     trade,
     eyeGray,
-    clockGray
-
+    clockGray,
+    likeRegular,
+    reply,
+    smileWhite,
+    attach,
+    telegram
 }

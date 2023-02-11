@@ -1,0 +1,99 @@
+.community_item {
+    width: 100%;
+    display: flex;
+    padding: 18px 10px;
+
+    .avatar {
+        width: 35px;
+        height: 35px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .details {
+        .details_header {
+            display: flex;
+            align-items: baseline;
+            width: fit-content;
+            .name {
+                color: #ffffff;
+                font-size: 15px;
+            }
+
+            .submission_time {
+                color: #8e8e8e;
+                font-size: 11px;
+                margin-left: 13px;
+            }
+        }
+
+        .details_comment {
+            margin-top: 8px;
+
+            .text {
+                color: #ffffff;
+                font-size: 15px;
+                line-height: 21px;
+            }
+        }
+
+        .details_footer {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+
+            .like {
+                margin-right: 7px;
+                &:hover {
+                    transform: rotate(-5deg) scale(1.1);
+                    
+                }
+                &:active {
+                    transform: scale(.8);
+                }
+            }
+
+            .dislike {
+                transform: rotate(180deg) translateY(-15%);
+                &:hover {
+                    transform: rotate(175deg) scale(1.1);
+                    
+                }
+                &:active {
+                    transform: scale(.8) rotate(180deg) translateY(-15%);
+                }
+            }
+
+            .like,
+            .dislike {
+                height: 17px;
+                object-fit: contain;
+                cursor: pointer;
+                transition: transform .2s ease-in-out;
+                user-select: none;
+            }
+
+            .likeAmount {
+                margin-right: 30px;
+                color: #8e8e8e;
+                font-size: 13px;
+            }
+        }
+
+        .comment_img {
+            width: 220px;
+            height: 130px;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+    }
+}
+
+.divider_line {
+    margin-left: 10px;
+    width: 60%;
+    background:  #2D354A;
+    height: 1px;
+}
+

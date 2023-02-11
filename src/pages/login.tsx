@@ -6,24 +6,47 @@ import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
 import Router from 'next/router'
 import purple from '@/components/AnimatedLogo/beta-fox.json'
+import { SubmitHandler, useForm } from 'react-hook-form'
 declare global {
     interface Window {
         ethereum?: MetaMaskInpageProvider
     }
 }
 
+type Inputs = {
+    login: string,
+    password: string,
+};
+
 const LoginPage = () => {
     const [account, setAccount] = useState<string | null>(null)
-    const { Auth } = UseShoppingCart()
+    const [login, setLogin] = useState<Inputs | null>(null)
+    const { Auth, isAuth } = UseShoppingCart()
     const [isLoading, setIsLoading] = useState(false)
+    const { register, handleSubmit } = useForm<Inputs>();
+    const [isExit, setIsExit] = useState(false)
 
 
     useEffect(() => {
         if (account) {
-            Auth(account)
-            Router.push('/')
+            Auth(account.toLowerCase())
+            //this routing incorrect, because routing should happen when they passed the Authorization
+            setTimeout(() =>{
+                Router.push('/')
+            }, 7000)
+            setTimeout(() =>{
+                setIsExit(true)
+            }, 5000)
         }
-    }, [account])
+        if(isAuth){
+            setTimeout(() =>{
+                Router.push('/')
+            }, 7000)
+            setTimeout(() =>{
+                setIsExit(true)
+            }, 5000)
+        }
+    }, [account, login])
 
     const handleLogin = async () => {
         setIsLoading(true)
@@ -45,23 +68,37 @@ const LoginPage = () => {
         return await setAccount(null)
     }
 
+    const onSubmit: SubmitHandler<Inputs> = data => {
+        if(data?.login && data?.password){
+            Auth(account, data)
+            setLogin({login:data?.login, password:data?.password})
+        }
+    };
+
     return (
+        isAuth ? <>
+            <div className="login_video">
+                <video autoPlay playsInline className={`${isExit? 'exiting' : null}`}>
+                    <source src="login_video.mp4" />
+                </video>
+            </div>
+            </>:
         <>
             <Script src="../components/AnimatedLogo/index.js" />
             <div className={`${styles.loginContainer} login_wrapper`}>
                 <div className={styles.metaLogo}>
                     <MetaLogo meshJson={purple} />
                 </div>
-                <form className="login_form">
+                <form className="login_form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="input_wrapper">
                         <label>Login</label>
-                        <input type="text" placeholder="Login" />
+                        <input type="text" placeholder="Login" {...register("login")}/>
                     </div>
                     <div className="input_wrapper">
                         <label>Password</label>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" {...register("password")}/>
                     </div>
-                    <button>Submit</button>
+                    <button type='submit'>Submit</button>
                 </form>
                 {account === null ? (
                     <button
