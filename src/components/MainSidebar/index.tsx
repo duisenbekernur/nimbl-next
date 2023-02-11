@@ -11,6 +11,8 @@ import VideoPlayer from '../VideoPlayer'
 import { Transition } from 'react-transition-group'
 import useSound from 'use-sound'
 
+import userIcons from '../../pages/user'
+
 const channels = [
     {
         id: 1,
@@ -243,11 +245,11 @@ const Sidebar = () => {
     const [isHeaderShow, setIsHeaderShow] = useState(true)
     const [isTrendingShow, setIsTrending] = useState(true)
 
-    const soundUrl = '/sounds/ui-click.mp3'
+    const soundUrl = '/sounds/click.mp3'
 
     const [playOn] = useSound(
         soundUrl,
-        { volume: 20 }
+        { volume: 0.6 }
     );
 
 
@@ -355,7 +357,7 @@ const Sidebar = () => {
                                                         </p>
                                                         <Image
                                                             className={styles.img}
-                                                            src={profileLogo}
+                                                            src={userIcons[idx]}
                                                             alt='profile'
                                                         />
                                                         <p className={styles.name}>

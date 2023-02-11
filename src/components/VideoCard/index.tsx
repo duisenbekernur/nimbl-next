@@ -4,7 +4,7 @@ import previewImg from '../../assets/video/preview.svg'
 import eyeImg from '../../assets/icons/eye.svg'
 import clockImg from '../../assets/icons/clock.svg'
 import channelImg from '../../assets/icons/channel-logo.svg'
-import { FC, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { videoCardType } from '@/types'
 import Link from 'next/link'
 import useSound from 'use-sound'
@@ -21,7 +21,7 @@ const VideoCard: FC<videoCardType> = ({
     const videoRef = useRef(null)
     const [videoSound, setVideoSound] = useState(false)
     const soundUrl = '/sounds/click.mp3'
-
+    const [isHover, setIsHover] = useState(false)
     const [play, { stop }] = useSound(soundUrl, { volume: 0.3 })
 
     return (
@@ -54,7 +54,7 @@ const VideoCard: FC<videoCardType> = ({
                         className={styles.card__preview__bottom_title}
                         title="Go to the channel"
                     >
-                        <Image src={channelImg} alt="logo" />
+                        <Image src={avatar} alt="logo" />
                         <p>{channel}</p>
                     </Link>
 

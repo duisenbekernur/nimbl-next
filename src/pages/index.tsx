@@ -13,6 +13,12 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { Transition } from 'react-transition-group'
 import Layout from '@/components/Layout'
+import userIcons from './user'
+
+import trendingVideos from '../assets/dropdown/trending.png'
+import cryptonews from '../assets/dropdown/cryptonews.png'
+import eth from '../assets/dropdown/eth.png'
+import p2e from '../assets/dropdown/p2e.png'
 
 function Home() {
     const router = useRouter()
@@ -84,10 +90,10 @@ function Home() {
                                     ...transitionStyles[state],
                                 }}
                             >
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
+                                <RecomendationDropdown title="Trending Videos" src={trendingVideos} />
+                                <RecomendationDropdown title="Crypto News" src={cryptonews}/>
+                                <RecomendationDropdown title="ETH NFTs" src={eth}/>
+                                <RecomendationDropdown title="Play2Earn" src={p2e}/>
                             </div>
                         )}
                     </Transition>
@@ -102,7 +108,7 @@ function Home() {
                                 }}
                             >
                                 {videos?.map((item, index) => (
-                                    <VideoCard key={index} {...item} />
+                                    <VideoCard key={index} {...item} avatar={userIcons[index]} />
                                 ))}
                             </div>
                         )}
