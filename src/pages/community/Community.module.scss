@@ -17,35 +17,27 @@
         .community_feed_title {
             width: 100%;
             height: fit-content;
-            background: linear-gradient(
-                273.52deg,
-                rgba(0, 234, 242, 0.2) -54.44%,
-                rgba(234, 0, 213, 0.2) 110.67%
-            );
+            background: linear-gradient(273.52deg,
+                    rgba(0, 234, 242, 0.2) -54.44%,
+                    rgba(234, 0, 213, 0.2) 110.67%);
             display: flex;
             justify-content: center;
             border: 1px solid rgba(128, 0, 128, 0.607);
             padding: 8px 0;
+
             span {
                 color: white;
                 font-size: 20px;
             }
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> develop
+
+
 
         .community_feed_body {
             flex-grow: 1;
             overflow-y: auto;
             padding-bottom: 50px;
         }
-<<<<<<< HEAD
->>>>>>> parent of 1985c49 (k)
-=======
->>>>>>> develop
     }
 
     .community_chat {
@@ -53,6 +45,7 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+
         .community_chat_users {
             background: rgba(255, 255, 255, 0.05);
             box-shadow: inset 4px 4px 27px rgba(255, 255, 255, 0.04);
@@ -67,6 +60,7 @@
                 display: flex;
                 position: relative;
                 cursor: pointer;
+
                 .img {
                     width: 90px;
                     height: 90px;
@@ -82,6 +76,7 @@
                     .user_name {
                         display: block;
                     }
+
                     img {
                         border-color: #00deea9d;
                         filter: brightness(0.3);
@@ -99,23 +94,18 @@
                 }
 
                 .line {
-                    background: linear-gradient(
-                        0deg,
-                        rgba(191, 25, 224, 0.61) -2.65%,
-                        rgba(52, 117, 254, 0.61) 30.73%,
-                        rgba(5, 226, 243, 0.61) 70.6%,
-                        rgba(23, 216, 31, 0.366) 106.71%
-                    );
+                    background: linear-gradient(0deg,
+                            rgba(191, 25, 224, 0.61) -2.65%,
+                            rgba(52, 117, 254, 0.61) 30.73%,
+                            rgba(5, 226, 243, 0.61) 70.6%,
+                            rgba(23, 216, 31, 0.366) 106.71%);
                     width: 3px;
                     height: 80px;
                     display: block;
                     align-self: center;
                 }
             }
-<<<<<<< HEAD
->>>>>>> parent of 1985c49 (k)
-=======
->>>>>>> develop
+
         }
 
         .community_chat_stat {
@@ -151,12 +141,10 @@
                         color: #ffffff;
 
                         span {
-                            background: linear-gradient(
-                                270deg,
-                                #ea00d5 -6.27%,
-                                #3d5eff 60.51%,
-                                #00eaf2 109.84%
-                            );
+                            background: linear-gradient(270deg,
+                                    #ea00d5 -6.27%,
+                                    #3d5eff 60.51%,
+                                    #00eaf2 109.84%);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
                             background-clip: text;
@@ -186,12 +174,10 @@
                     font-weight: bold;
 
                     span {
-                        background: linear-gradient(
-                            270deg,
-                            #ea00d5 -6.27%,
-                            #3d5eff 60.51%,
-                            #00eaf2 109.84%
-                        );
+                        background: linear-gradient(270deg,
+                                #ea00d5 -6.27%,
+                                #3d5eff 60.51%,
+                                #00eaf2 109.84%);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
@@ -206,8 +192,7 @@
                 align-items: center;
                 justify-content: space-between;
                 background: rgba(255, 255, 255, 0.05);
-                box-shadow: inset 2.68556px 2.68556px 18.1275px
-                    rgba(255, 255, 255, 0.04);
+                box-shadow: inset 2.68556px 2.68556px 18.1275px rgba(255, 255, 255, 0.04);
                 backdrop-filter: blur(34.8203px);
                 align-self: stretch;
                 margin-left: auto;
@@ -215,7 +200,8 @@
 
                 .stat_text {
                     margin-right: 50px;
-                    display: flex;flex-direction: column;
+                    display: flex;
+                    flex-direction: column;
 
                     .stat_level {
                         color: #ffffff;
@@ -230,8 +216,8 @@
                 }
 
                 .img {
-                   height: 13px;
-                   cursor: pointer;
+                    height: 13px;
+                    cursor: pointer;
                 }
             }
         }
