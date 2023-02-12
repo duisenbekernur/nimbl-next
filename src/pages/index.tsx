@@ -6,11 +6,11 @@ import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
 import {useRouter} from 'next/router'
 import {UseShoppingCart} from '@/context/AuthContext'
-import {useEffect, useRef, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useEffect} from 'react'
+import {useSelector} from 'react-redux'
 import {RootState} from '@/store/store'
 import Layout from '@/components/Layout'
-
+import HorizontalScroll from 'react-scroll-horizontal'
 
 function Home() {
     const router = useRouter()
@@ -37,16 +37,15 @@ function Home() {
                     <Sidebar />
                 </div>
                 <div className={`${styles.content} ${'col-8'}`}>
-                    <div className={styles.dropdowns}>
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                    </div>
+                    <HorizontalScroll reverseScroll>
+                        <div className={styles.dropdowns}>
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                        </div>
+                    </HorizontalScroll>
                     <div className={styles.content_videos}>
                         {videos?.map((item, index) => (
                             <VideoCard key={index} {...item} />
