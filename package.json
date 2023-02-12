@@ -10,6 +10,7 @@
         "install-with-force": "npm i --force"
     },
     "dependencies": {
+        "@egjs/react-flicking": "^3.7.1",
         "@metamask/logo": "^3.1.1",
         "@metamask/providers": "^10.2.1",
         "@next/font": "13.1.2",
@@ -32,7 +33,6 @@
         "react-dom": "18.2.0",
         "react-hook-form": "^7.43.0",
         "react-redux": "^8.0.5",
-        "react-scroll-horizontal": "^1.6.6",
         "react-transition-group": "^4.4.5",
         "sass": "^1.57.1",
         "screenfull": "^6.0.2",

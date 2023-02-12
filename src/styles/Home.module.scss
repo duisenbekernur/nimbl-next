@@ -39,7 +39,7 @@
         @media screen and (max-width: 845px) {
             .dropdowns {
                 grid-auto-columns: calc((100% - var(--gap-main-grid) * 0) / 1);
-                width: 400px;
+                width: 300px;
             }
         }
 

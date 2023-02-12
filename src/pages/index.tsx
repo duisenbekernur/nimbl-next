@@ -6,16 +6,17 @@ import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
 import {useRouter} from 'next/router'
 import {UseShoppingCart} from '@/context/AuthContext'
-import {useEffect} from 'react'
+import {useEffect, useRef, useState, WheelEvent} from 'react'
 import {useSelector} from 'react-redux'
 import {RootState} from '@/store/store'
 import Layout from '@/components/Layout'
-import HorizontalScroll from 'react-scroll-horizontal'
+import Flicking from '@egjs/react-flicking'
 
 function Home() {
     const router = useRouter()
     const {isAuth} = UseShoppingCart()
     const videos = useSelector((state: RootState) => state.videos.videos)
+    const recomendationsRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         if (!isAuth) {
@@ -37,15 +38,19 @@ function Home() {
                     <Sidebar />
                 </div>
                 <div className={`${styles.content} ${'col-8'}`}>
-                    <HorizontalScroll reverseScroll>
+                    <Flicking moveType="freeScroll" bound={true}>
                         <div className={styles.dropdowns}>
                             <RecomendationDropdown />
                             <RecomendationDropdown />
                             <RecomendationDropdown />
                             <RecomendationDropdown />
                             <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
+                            <RecomendationDropdown />
                         </div>
-                    </HorizontalScroll>
+                    </Flicking>
                     <div className={styles.content_videos}>
                         {videos?.map((item, index) => (
                             <VideoCard key={index} {...item} />
