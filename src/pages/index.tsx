@@ -4,8 +4,7 @@ import Sidebar from '@/components/MainSidebar'
 import RecomendationDropdown from '@/components/RecomendationDropdown'
 import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
-import { useRouter } from 'next/router'
-import { UseShoppingCart } from '@/context/AuthContext'
+import { UseAuth } from '@/context/AuthContext'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { videoCardType } from '@/types'
@@ -16,20 +15,8 @@ import Layout from '@/components/Layout'
 
 
 function Home() {
-    const router = useRouter()
-    const { isAuth } = UseShoppingCart()
     const data = useSelector((state: RootState) => state.videos.videos)
     const [videos, setVideos] = useState<videoCardType[] | null>(data)
-
-
-
-
-    useEffect(() => {
-        if (!isAuth) {
-            router.push('/login')
-        }
-
-    }, [])
 
     const duration = 1200
     const duration1 = 2000
@@ -61,7 +48,7 @@ function Home() {
             setIsVideoShow(oldState => false)
         }, duration1)
     }, [])
-    return isAuth ? (
+    return (
         <Layout>
             <Head>
                 <title>Create Next App</title>
@@ -108,7 +95,7 @@ function Home() {
                 </div>
             </main>
         </Layout>
-    ) : null
+    )
 }
 
 export default withAuthorization(Home)

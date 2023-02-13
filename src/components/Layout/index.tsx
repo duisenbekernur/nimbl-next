@@ -2,6 +2,7 @@ import { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import Header from '../Header'
 import Navbar from '../Navbar'
 import { Transition } from 'react-transition-group';
+import { UseAuth } from '@/context/AuthContext'
 
 type LayoutProps = {
     children: ReactNode
@@ -23,6 +24,7 @@ const transitionStyles:any = {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
     const [isHeaderShow, setIsHeaderShow] = useState(true)
+    const { isAuth } = UseAuth()
 
     useEffect(() =>{
         setTimeout(() => {
@@ -42,7 +44,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 
                 )}
             </Transition>
-            <main className="content">{children}</main>
+            <main className="content">{isAuth? children: null}</main>
             <Transition timeout={duration} nodeRef={headerRef} in={isHeaderShow}>
                 {state => (
                     <>

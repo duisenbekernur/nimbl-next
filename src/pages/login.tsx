@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MetaMaskInpageProvider } from '@metamask/providers'
-import { UseShoppingCart } from '../context/AuthContext'
+import { UseAuth } from '../context/AuthContext'
 import styles from '../styles/Login.module.scss'
 import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
@@ -20,33 +20,9 @@ type Inputs = {
 
 const LoginPage = () => {
     const [account, setAccount] = useState<string | null>(null)
-    const [login, setLogin] = useState<Inputs | null>(null)
-    const { Auth, isAuth } = UseShoppingCart()
+    const { Auth, isAuth, isRouting } = UseAuth()
     const [isLoading, setIsLoading] = useState(false)
     const { register, handleSubmit } = useForm<Inputs>();
-    const [isExit, setIsExit] = useState(false)
-
-
-    useEffect(() => {
-        if (account) {
-            Auth(account.toLowerCase())
-            //this routing incorrect, because routing should happen when they passed the Authorization
-            setTimeout(() =>{
-                Router.push('/')
-            }, 7000)
-            setTimeout(() =>{
-                setIsExit(true)
-            }, 5000)
-        }
-        if(isAuth){
-            setTimeout(() =>{
-                Router.push('/')
-            }, 7000)
-            setTimeout(() =>{
-                setIsExit(true)
-            }, 5000)
-        }
-    }, [account, login])
 
     const handleLogin = async () => {
         setIsLoading(true)
@@ -71,14 +47,13 @@ const LoginPage = () => {
     const onSubmit: SubmitHandler<Inputs> = data => {
         if(data?.login && data?.password){
             Auth(account, data)
-            setLogin({login:data?.login, password:data?.password})
         }
     };
 
     return (
         isAuth ? <>
             <div className="login_video">
-                <video autoPlay muted playsInline className={`${isExit? 'exiting' : null}`}>
+                <video autoPlay muted playsInline className={`${isRouting? 'exiting' : null}`}>
                     <source src="login_video.mp4" />
                 </video>
             </div>
