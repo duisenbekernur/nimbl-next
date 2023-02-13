@@ -7,7 +7,7 @@ const RecomendationDropdown = (props:any) => {
     return (
         <div className={styles.main}>
             <div className={styles.background}>
-                <Image src={trendingImg} alt="trending" />
+                <Image src={``} alt="trending" />
                     <h3>Trending Videos</h3>
                 <div className={styles.plus}>
                     <Image src={plus} alt="plus" />
