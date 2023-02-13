@@ -10,7 +10,6 @@ import {useEffect, useRef, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '@/store/store'
 import Layout from '@/components/Layout'
-import userIcons from './user'
 
 import trendingVideos from '../assets/dropdown/trending.png'
 import cryptonews from '../assets/dropdown/cryptonews.png'
