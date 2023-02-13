@@ -14,7 +14,6 @@ import { RootState } from '@/store/store'
 import { Transition } from 'react-transition-group'
 import Layout from '@/components/Layout'
 import {Swiper, SwiperSlide} from 'swiper/react'
-
 import 'swiper/css'
 
 function Home() {

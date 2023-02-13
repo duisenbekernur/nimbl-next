@@ -17,7 +17,7 @@ export type videoCardType = {
     title: string
     channel: string
     price: number
-    avatar: string
+    avatar: any
     poster: string
 }
 

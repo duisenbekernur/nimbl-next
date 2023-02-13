@@ -72,8 +72,9 @@
 
     &__right {
         display: flex;
+        align-items: center;
         flex-direction: row;
-        gap: 50px;
+        gap: 18px;
 
         &_dropdowns {
             display: flex;
@@ -124,7 +125,14 @@
                 }
             }
         }
-
+        &_useraddress {
+            cursor: pointer;
+            margin-right: 10px;
+            h1 {
+                color: white;
+                font-size: 12px;
+            }
+        }
         &_icons {
             display: flex;
             align-items: center;

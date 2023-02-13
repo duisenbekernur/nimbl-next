@@ -61,7 +61,7 @@ const Sidebar = () => {
     const [isTrendingShow, setIsTrending] = useState(true)
     const [activeTab, setActiveTab] = useState(0)
 
-    const soundUrl = '/sounds/ui-click.mp3'
+    const soundUrl = '/sounds/click.mp3'
 
     const [playOn] = useSound(soundUrl, {volume: 20})
 

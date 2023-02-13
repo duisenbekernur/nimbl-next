@@ -10,13 +10,12 @@ import { useDispatch } from 'react-redux'
 import { setNavbarActive } from '@/store/features/navbar/navbarSlice'
 // import arrowLeftImg from '@/assets/icons/back.svg'
 
-const Header = ({...rest}) => {
+const Header = ({ ...rest }) => {
     const dropdownItems = ['WALLET', 'WLS', 'AIRDROP']
     const dispatch = useDispatch()
     return (
         <div className={styles.header} {...rest}>
             <div className={styles.header__logo}>
-
                 <Link href="/" onClick={() => dispatch(setNavbarActive(1))}>
                     <Image width={150} height={50} src={logoImg} alt="logo" />
                 </Link>
@@ -50,12 +49,9 @@ const Header = ({...rest}) => {
                 </ul>
                 <div className={styles.header__right_icons}>
                     <Image width={30} height={30} src={chatImg} alt="chat" />
-                    <Image
-                        width={45}
-                        height={45}
-                        src={avatarImg}
-                        alt="avatar"
-                    />
+                </div>
+                <div className={styles.header__right_useraddress}>
+                    <h1>0xC197...</h1>
                 </div>
             </div>
         </div>
