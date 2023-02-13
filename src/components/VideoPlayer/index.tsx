@@ -1,4 +1,4 @@
-import { likeSolid } from '@/assets/icons'
+import {likeSolid} from '@/assets/icons'
 import Image from 'next/image'
 import styles from './VideoPlayer.module.scss'
 import screenfull from 'screenfull'
@@ -16,7 +16,7 @@ import channelIcon from '@/assets/avatar3.png'
 import viewIcon from '@/assets/icons/eye.svg'
 import likeIcon from '@/assets/icons/like-solid.svg'
 
-import { useEffect, useRef, useState } from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 const VideoPlayer = () => {
     const [stop, setStop] = useState(false)
@@ -36,9 +36,7 @@ const VideoPlayer = () => {
     const playerRef = useRef<HTMLDivElement | null>(null)
 
     const getCurrentTime = () => {
-        return `${currentMinutes < 10 ? '0' : ''}${currentMinutes}:${
-            currentSeconds < 10 ? '0' : ''
-        }${currentSeconds}`
+        return `${currentMinutes < 10 ? '0' : ''}${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`
     }
 
     const getDurationTime = () => {
@@ -49,9 +47,7 @@ const VideoPlayer = () => {
 
     const updateCurrentTime = () => {
         setCurrentMinutes(Math.floor((videoRef.current?.currentTime || 0) / 60))
-        const temp = Math.floor(
-            (videoRef.current?.currentTime || 0) - currentMinutes * 60
-        )
+        const temp = Math.floor((videoRef.current?.currentTime || 0) - currentMinutes * 60)
         if (temp % 60 < 0) {
             setCurrentSeconds(60 + (temp % 60))
         } else {
@@ -60,9 +56,7 @@ const VideoPlayer = () => {
     }
 
     const durationTime = () => {
-        setDurationSeconds(
-            Math.floor((videoRef.current?.duration || 0) - durationMinutes * 60)
-        )
+        setDurationSeconds(Math.floor((videoRef.current?.duration || 0) - durationMinutes * 60))
         setDurationMinutes(Math.floor((videoRef.current?.duration || 0) / 60))
     }
 
@@ -75,8 +69,7 @@ const VideoPlayer = () => {
 
     const scrub = (e: any) => {
         const scrubTime =
-            (e.nativeEvent.offsetX / (videoRef?.current?.clientWidth || 1)) *
-            (videoRef?.current?.duration || 0)
+            (e.nativeEvent.offsetX / (videoRef?.current?.clientWidth || 1)) * (videoRef?.current?.duration || 0)
         if (!isNaN(scrubTime)) {
             //@ts-ignore
             videoRef.current.currentTime = scrubTime
@@ -91,9 +84,7 @@ const VideoPlayer = () => {
     }
 
     const handleProgressVolume = (e: any) => {
-        const percent =
-            (e.nativeEvent.offsetX / (volumeRef?.current?.clientWidth || 0)) *
-            100
+        const percent = (e.nativeEvent.offsetX / (volumeRef?.current?.clientWidth || 0)) * 100
         setVolumeProgress(`${percent}%`)
         setMuted(percent === 0)
         if (muted && percent === 0) setVolumeProgress('1%')
@@ -120,8 +111,9 @@ const VideoPlayer = () => {
             videoRef.current.currentTime += 10
         }
         if (e.keyCode == '38') {
+            console.log(videoRef.current?.volume)
             //@ts-ignore
-            if (videoRef.current?.volume != 1) {
+            if (videoRef.current?.volume < 0.98) {
                 //@ts-ignore
                 videoRef.current.volume += 0.02
                 //@ts-ignore
@@ -154,9 +146,9 @@ const VideoPlayer = () => {
             onMouseEnter={() => setIsControllersVisible(true)}
             onMouseLeave={() => setIsControllersVisible(false)}
             onKeyDown={handleKeyDown}
-            tabIndex={0}
-        >
+            tabIndex={0}>
             <video
+                // poster=''
                 ref={videoRef}
                 width={'100%'}
                 height={'100%'}
@@ -169,28 +161,22 @@ const VideoPlayer = () => {
                 onDoubleClick={handleFullScreen}
                 onClick={togglePlay}
                 muted={muted}
-                src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
-                // src="https://www.youtube.com/watch?v=arDpUtrps6o&ab_channel=kazakhlofi"
+                src="https://storage.cloud.google.com/nimbl/NFTs%20and%20the%20%2413B%20marketplace%2C%20explained.mp4"
             />
 
             <div
                 className={styles.player_top_container}
                 style={{
                     opacity: isControllersVisible ? '1' : '0',
-                }}
-            >
+                }}>
                 <div className={styles.player_top_opacity}></div>
                 <div
                     className={styles.player_top}
                     style={{
                         opacity: isControllersVisible ? '1' : '0',
-                    }}
-                >
+                    }}>
                     <div className={styles.player_top_title}>
-                        <h3>
-                            IGNORE THE FUD Binance CZ | AAVE Freezes Lending
-                            Markets | Polygon Solana NFT
-                        </h3>
+                        <h3>IGNORE THE FUD Binance CZ | AAVE Freezes Lending Markets | Polygon Solana NFT</h3>
                         <div>
                             <span>
                                 <Image src={viewIcon} alt="view" />
@@ -216,42 +202,22 @@ const VideoPlayer = () => {
                 style={{
                     opacity: isControllersVisible ? '.5 ' : '0',
                     transition: '.3s all',
-                }}
-            ></div>
+                }}></div>
             <div
                 className={styles.player_controller_bottom}
                 style={{
                     opacity: isControllersVisible ? '1' : '0',
                     transition: '.3s all',
-                }}
-            >
+                }}>
                 <div className={styles.player_controller_bottom_likes}>
                     <span>
-                        <Image
-                            width={20}
-                            height={20}
-                            src={likeSolid}
-                            alt="like"
-                        />
-                        5 324
+                        <Image width={20} height={20} src={likeSolid} alt="like" />5 324
                     </span>
                     <span>
-                        <Image
-                            width={20}
-                            height={20}
-                            src={surprizeIcon}
-                            alt="like"
-                        />
-                        5 324
+                        <Image width={20} height={20} src={surprizeIcon} alt="like" />5 324
                     </span>
                     <span>
-                        <Image
-                            width={20}
-                            height={20}
-                            src={donateIcon}
-                            alt="like"
-                        />
-                        5 324
+                        <Image width={20} height={20} src={donateIcon} alt="like" />5 324
                     </span>
                 </div>
 
@@ -260,14 +226,14 @@ const VideoPlayer = () => {
                         <Image
                             src={stop ? stopIcon : playIcon}
                             width={25}
-                            height={stop ? 18 : 22}
+                            height={stop ? 18 : 29}
                             alt="pause"
                             onClick={togglePlay}
                         />
                         <div className={styles.volume_progress}>
                             <Image
                                 src={muted ? muteIcon : volumeIcon}
-                                height={muted ? 21 : 15}
+                                height={muted ? 40 : 20}
                                 alt="volume"
                                 onClick={() => setMuted(!muted)}
                             />
@@ -276,12 +242,8 @@ const VideoPlayer = () => {
                                 className={styles.progress}
                                 onClick={(e) => {
                                     handleProgressVolume(e)
-                                }}
-                            >
-                                <div
-                                    className={styles.progress__filled}
-                                    style={{ width: volumeProgress }}
-                                ></div>
+                                }}>
+                                <div className={styles.progress__filled} style={{width: volumeProgress}}></div>
                             </div>
                             {getCurrentTime()}
                         </div>
@@ -296,16 +258,10 @@ const VideoPlayer = () => {
                             <Image
                                 src={settingsIcon}
                                 alt="settings"
-                                onClick={() =>
-                                    setToggleSettings(!toggleSettings)
-                                }
+                                onClick={() => setToggleSettings(!toggleSettings)}
                             />
                         </div>
-                        <Image
-                            src={fullIcon}
-                            alt="full screen"
-                            onClick={handleFullScreen}
-                        />
+                        <Image src={fullIcon} alt="full screen" onClick={handleFullScreen} />
                     </div>
                 </div>
 
@@ -315,19 +271,12 @@ const VideoPlayer = () => {
                     onClick={(e) => {
                         scrub(e)
                         handleProgress()
-                    }}
-                >
-                    <div
-                        className={styles.progress__filled}
-                        style={{ width: progress }}
-                    ></div>
+                    }}>
+                    <div className={styles.progress__filled} style={{width: progress}}></div>
                 </div>
             </div>
 
-            <div
-                className={styles.settings_menu}
-                style={{ display: !toggleSettings ? 'none' : '' }}
-            >
+            <div className={styles.settings_menu} style={{display: !toggleSettings ? 'none' : ''}}>
                 <span>
                     <p>Subtitles</p>
                     <h6>Off</h6>
