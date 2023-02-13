@@ -21,8 +21,7 @@
             grid-auto-columns: calc((100% - var(--gap-main-grid) * 3) / 4);
             column-gap: var(--gap-main-grid);
             height: 100%;
-            width: 1250px;
-            position: relative;
+            width: 100%;
         }
         @media screen and (max-width: 1665px) {
             .dropdowns {
