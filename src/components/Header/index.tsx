@@ -18,7 +18,7 @@ const Header = ({...rest}) => {
             <div className={styles.header__logo}>
 
                 <Link href="/" onClick={() => dispatch(setNavbarActive(1))}>
-                    <Image width={150} height={46} src={logoImg} alt="logo" />
+                    <Image width={150} height={50} src={logoImg} alt="logo" />
                 </Link>
             </div>
             {/* <div className={styles.navigation}>
