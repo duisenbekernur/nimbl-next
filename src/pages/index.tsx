@@ -4,15 +4,19 @@ import Sidebar from '@/components/MainSidebar'
 import RecomendationDropdown from '@/components/RecomendationDropdown'
 import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
+import {useRouter} from 'next/router'
+import {UseShoppingCart} from '@/context/AuthContext'
+import {useEffect, useRef, useState} from 'react'
 import { UseAuth } from '@/context/AuthContext'
-import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { videoCardType } from '@/types'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { Transition } from 'react-transition-group'
 import Layout from '@/components/Layout'
+import {Swiper, SwiperSlide} from 'swiper/react'
 
+import 'swiper/css'
 
 function Home() {
     const data = useSelector((state: RootState) => state.videos.videos)
@@ -69,12 +73,18 @@ function Home() {
                     <Sidebar />
                 </div>
                 <div className={`${styles.content} ${'col-8'}`}>
-                    <div className={styles.dropdowns}>
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                    </div>
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={20}
+                        centeredSlides={false}
+                        className={['mySwiper', styles.dropdowns].join(' ')}>
+                        {[...new Array(15)].map((item) => (
+                            <SwiperSlide>
+                                <RecomendationDropdown />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
                     <div className={styles.content_videos}>
                         {videos?.map((item, index) => (
                             <VideoCard key={index} {...item} />
