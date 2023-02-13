@@ -64,34 +64,21 @@ function Home() {
             </Head>
 
             <main className={styles.main}>
-                <Sidebar />
-
-                <div className={styles.content}>
-                    <Transition timeout={duration} in={isHeaderShow}>
-                        {state => (
-                            <div className={styles.dropdowns} style={{...defaultStyle, ...transitionStyles[state]}}>
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                                <RecomendationDropdown />
-                            </div>
-                        )}
-                    </Transition>
-
-                    <Transition timeout={duration1} in={isVideoShow}>
-                        {state => (
-                            <div className={styles.content__videos} style={{...defaultStyle1, ...transitionStyles[state]}} >
-                                {videos?.map((item, index) => (
-                                    <VideoCard
-                                        key={index}
-                                        {...item}
-
-                                    />
-                                ))}
-                            </div>
-                        )}
-                    </Transition>
-
+                <div className="col-4">
+                    <Sidebar />
+                </div>
+                <div className={`${styles.content} ${'col-8'}`}>
+                    <div className={styles.dropdowns}>
+                        <RecomendationDropdown />
+                        <RecomendationDropdown />
+                        <RecomendationDropdown />
+                        <RecomendationDropdown />
+                    </div>
+                    <div className={styles.content_videos}>
+                        {videos?.map((item, index) => (
+                            <VideoCard key={index} {...item} />
+                        ))}
+                    </div>
                 </div>
             </main>
         </Layout>
