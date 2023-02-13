@@ -13,7 +13,8 @@ type Login = {
 
 type AuthContext = {
     Auth: (isAuth?: string | null, login?: Login) => void
-    isAuth: boolean
+    isAuth: boolean,
+    isRouting: boolean
 }
 type LoginLocal = {
     address?: string,
@@ -23,12 +24,13 @@ type LoginLocal = {
 
 const AuthContext = createContext({} as AuthContext)
 
-export const UseShoppingCart = () => {
+export const UseAuth = () => {
     return useContext(AuthContext)
 }
 
 export const AuthProvider = ({ children }: AuthProviderContext) => {
     const [isAuth, setIsAuth] = useState(false)
+    const [isRouting, setIsRouting] = useState(false)
 
     // what backend will done this should change to token
     const [loginLocal, setLoginLocal] =  useLocalStorage<LoginLocal>("login", {address:'', login:'', password:''});
@@ -60,6 +62,9 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
             setTimeout(() =>{
                 Router.push('/')
             }, 7000)
+            setTimeout(() => {
+                setIsRouting(true)
+            }, 5000)
         }
     }, [isAuth])
 
@@ -89,6 +94,7 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
             value={{
                 Auth,
                 isAuth,
+                isRouting
             }}
         >
             {children}
