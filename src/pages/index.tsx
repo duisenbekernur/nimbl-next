@@ -40,6 +40,7 @@ function Home() {
     const [isHeaderShow, setIsHeaderShow] = useState(true)
     const [isVideoShow, setIsVideoShow] = useState(true)
 
+
     useEffect(() =>{
         setTimeout(() => {
             setIsHeaderShow(oldState => false)

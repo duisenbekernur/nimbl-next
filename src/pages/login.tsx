@@ -7,6 +7,9 @@ import MetaLogo from '@/components/AnimatedLogo'
 import Router from 'next/router'
 import purple from '@/components/AnimatedLogo/beta-fox.json'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import Layout from '@/components/Layout'
+import LoginLayout from '@/components/Layout/LoginLayout'
+import screenfull from 'screenfull'
 declare global {
     interface Window {
         ethereum?: MetaMaskInpageProvider
@@ -29,10 +32,10 @@ const LoginPage = () => {
         try {
             if (typeof window.ethereum !== 'undefined') {
                 const accounts = await window.ethereum.enable()
-                setAccount(accounts[0])
-            }
-            if (document.fullscreenEnabled) {
-                document.documentElement.requestFullscreen()
+                if (screenfull.isEnabled) {
+                    await screenfull.request();
+                }
+                Auth(accounts[0])
             }
         } catch (error) {
             console.error(error)
@@ -44,7 +47,10 @@ const LoginPage = () => {
         return await setAccount(null)
     }
 
-    const onSubmit: SubmitHandler<Inputs> = data => {
+    const onSubmit: SubmitHandler<Inputs> = async data => {
+        if (screenfull.isEnabled) {
+            await screenfull.request();
+        }
         if(data?.login && data?.password){
             Auth(account, data)
         }
@@ -52,15 +58,15 @@ const LoginPage = () => {
 
     return (
         isAuth ? <>
-            <div className="login_video">
+            <LoginLayout >
                 <video autoPlay muted playsInline className={`${isRouting? 'exiting' : null}`}>
                     <source src="login_video.mp4" />
                 </video>
-            </div>
+            </LoginLayout>
             </>:
         <>
             <Script src="../components/AnimatedLogo/index.js" />
-            <div className={`${styles.loginContainer} login_wrapper`}>
+            <LoginLayout >
                 <div className={styles.metaLogo}>
                     <MetaLogo meshJson={purple} />
                 </div>
@@ -84,12 +90,11 @@ const LoginPage = () => {
                         {isLoading ? 'Loading...' : 'Log in with MetaMask'}
                     </button>
                 ) : (
-                    <button onClick={handleLogout} disabled={isLoading}>
+                    <button className="btn_meta" onClick={handleLogout} disabled={isLoading}>
                         {isLoading ? 'Loading...' : 'Log out'}
                     </button>
                 )}
-                {account !== null && <p>Your Ethereum address: {account}</p>}
-            </div>
+            </LoginLayout>
         </>
     )
 }
