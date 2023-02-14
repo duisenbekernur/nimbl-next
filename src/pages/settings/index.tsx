@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import Layout from '@/components/Layout'
-import VideoPlayer from '@/components/VideoPlayer'
 import styles from '@/styles/Settings.module.scss'
 import SettingsAccount from '@/components/Settings/SettingsAccount'
 import SettingsNotifications from '@/components/Settings/SettingsNotifications'

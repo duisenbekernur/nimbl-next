@@ -1,8 +1,13 @@
+@import "@/styles/theme";
+
 .navbar {
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: var(--dark-glass);
+    background: var(--dark-glass);
+    @include light {
+        background: linear-gradient(269.91deg, rgba(4, 223, 243, 0.17) -28.06%, rgba(56, 105, 254, 0.17) 55.29%, rgba(206, 15, 219, 0.17) 127%);
+    }
 
     li {
         width: 25vw;
@@ -58,7 +63,9 @@
 
     .active {
         background-color: var(--dark-glass);
-        // opacity: 0.7;
+        @include light {
+            background: rgba(46, 97, 125, 0.4);
+        }
 
         border-bottom: 2px solid transparent;
         border-image: linear-gradient(

@@ -1,16 +1,44 @@
+@import '@/styles/theme';
+
 .header {
-    margin: 1px;
-    width: calc(100vw - 2px);
+    width: 100vw;
     height: 55px;
     font-size: 14px;
     font-weight: 600;
-    background: var(--dark-glass);
     box-sizing: border-box;
-
+    position: relative;
+    z-index: 99;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5px;
+    position: relative;
+    z-index: 11;
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        position: absolute;
+        background: var(--dark-glass);
+        z-index: -2;
+    }
+
+   
+    @include light {
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            position: absolute;
+            background: linear-gradient(269.91deg, rgba(4, 223, 243, 0.33) -28.06%, rgba(56, 105, 254, 0.33) 71.39%, rgba(206, 15, 219, 0.33) 156.95%);;
+            z-index: -1;
+        }
+    
+    }
+
 
     &__logo {
         cursor: pointer;
@@ -49,12 +77,16 @@
             height: 35px;
             padding: 10px 10px 10px 35px;
             background: var(--dark-violet);
+            @include light {
+                background:  rgba(34, 32, 47, 0.44);;
+            }
             border: none;
             color: #fff;
             
 
             &::placeholder {
                 color: #fff;
+                opacity: 0.5;
                 font-size: 16px;
             }
 

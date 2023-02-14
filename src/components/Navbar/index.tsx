@@ -6,7 +6,6 @@ import {
 import { RootState } from '@/store/store'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './Navbar.module.scss'
 

@@ -1,3 +1,5 @@
+@import "@/styles/theme";
+
 .table {
     width: 100%;
     font-weight: 400;
@@ -27,9 +29,9 @@
             will-change: background-color, transform, box-shadow;
             &:hover {
                 background-color: var(--dark-glass);
-                box-shadow: 3px 3px 44px -1px #2b073b7e;
-                transform: scale(1.03);
-                transition-duration: .2s;
+                @include light {
+                    background: linear-gradient(124.24deg, rgba(135, 68, 174, 0.504) -55.1%, rgba(98, 223, 255, 0.364) 115.67%);
+                }
             }
             td {
                 padding: .6rem .3rem;
