@@ -7,6 +7,8 @@ import withAuthorization from '@/HOC/Authorization/Authorization'
 import {useSelector} from 'react-redux'
 import {RootState} from '@/store/store'
 import Layout from '@/components/Layout'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import 'swiper/css'
 import Link from 'next/link'
 
 function Home() {
@@ -25,19 +27,23 @@ function Home() {
                     <MainSidebar />
                 </div>
                 <div className={`${styles.content} ${'col-8'}`}>
-                    <div className={styles.dropdowns}>
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
-                        <RecomendationDropdown />
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={20}
+                        centeredSlides={false}
+                        className={['mySwiper', styles.dropdowns].join(' ')}>
+                        {[...new Array(15)].map((item) => (
+                            <SwiperSlide>
+                                <RecomendationDropdown />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    <div className={styles.content_videos}>
+                        {data?.map((item, index) => (
+                            <VideoCard key={index} {...item} />
+                        ))}
                     </div>
-                        <div className={styles.content_videos}>
-                            {data?.map((item, index) => (
-                                <Link href="/video/1" passHref style={{textDecoration: 'none'}}>
-                                <VideoCard key={index} {...item} />
-                            </Link>
-                            ))}
-                        </div>
                 </div>
             </main>
         </Layout>

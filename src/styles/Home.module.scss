@@ -1,3 +1,5 @@
+@import './breakpoints';
+
 .main {
     width: 100%;
     height: 100%;
@@ -10,15 +12,36 @@
     padding-bottom: 10px;
 
     .content {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: 1fr 5fr;
         row-gap: 40px;
         overflow: hidden;
 
         .dropdowns {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-auto-flow: column;
+            grid-auto-columns: calc((100% - var(--gap-main-grid) * 3) / 4);
             column-gap: var(--gap-main-grid);
+            height: 100%;
+            width: 100%;
+        }
+        @media screen and (max-width: 1665px) {
+            .dropdowns {
+                grid-auto-columns: calc((100% - var(--gap-main-grid) * 2) / 3);
+                width: 1000px;
+            }
+        }
+        @media screen and (max-width: 1254px) {
+            .dropdowns {
+                grid-auto-columns: calc((100% - var(--gap-main-grid) * 1) / 2);
+                width: 700px;
+            }
+        }
+        @media screen and (max-width: 845px) {
+            .dropdowns {
+                grid-auto-columns: calc((100% - var(--gap-main-grid) * 0) / 1);
+                width: 300px;
+            }
         }
 
         &_videos {
@@ -29,15 +52,14 @@
             row-gap: 20px;
 
             &::-webkit-scrollbar-thumb {
-                background: transparent; 
-              }
-              &:hover {
+                background: transparent;
+            }
+            &:hover {
                 &::-webkit-scrollbar-thumb {
                     background: var(--scrollbar-gradient);
                     border-radius: 6px;
-                  }
-                
-              }
+                }
+            }
         }
     }
 }
