@@ -14,6 +14,7 @@ import arrowDown from '../../assets/arrowDown.svg'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
 import CommunityFeed from '@/components/Community/CommunityFeed'
+import withAuthorization from '@/HOC/Authorization/Authorization'
 const CommunityChat = dynamic(() => import('@/components/Community/CommunityChat'), { ssr: false })
 
 
@@ -113,4 +114,4 @@ const Community = () => {
     )
 }
 
-export default Community
+export default withAuthorization(Community)

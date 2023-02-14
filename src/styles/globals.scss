@@ -157,16 +157,7 @@ body {
 // for TransitionGroup
 
 .login_video {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('../assets/background.jpg') no-repeat center center / cover;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+
     video {
         width: 100vw;
         //height: 100vh;
@@ -176,6 +167,13 @@ body {
             opacity: 0;
             transition: opacity 1s linear;
         }
+    }
+    .content{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

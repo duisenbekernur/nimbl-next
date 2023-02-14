@@ -1,15 +1,15 @@
 import React, { ReactNode, useEffect } from 'react'
 import Router from 'next/router'
-import { UseShoppingCart } from '@/context/AuthContext'
+import { UseAuth } from '@/context/AuthContext'
 
 const withAuthorization = (Component: React.ComponentType<{}>) => {
     const AuthHOC = (props: any): ReactNode => {
-        const { isAuth } = UseShoppingCart()
-        // useEffect(() => {
-        //     if (!isAuth) {
-        //         Router.push('/login')
-        //     }
-        // }, [props.isAuthenticated])
+        const { isAuth } = UseAuth()
+        useEffect(() => {
+            if (!isAuth) {
+                Router.push('/login')
+            }
+        }, [props.isAuthenticated])
 
         return <Component {...props} />
     }
