@@ -52,3 +52,9 @@ export type CommunityChatMessageType = {
     react: { emoji: Emoji, reacted: string[] }[]
     createdDate: number
 }
+
+export enum ThemeEnum {
+    SYSTEM = 'system',
+    DARK = 'dark',
+    LIGHT = 'light',
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 import { MetaMaskInpageProvider } from '@metamask/providers'
 import { UseAuth } from '../context/AuthContext'
 import styles from '../styles/Login.module.scss'

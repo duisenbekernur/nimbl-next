@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 import { addMessageChat } from '@/store/features/communityChat/communityChatSlice'
 
 type Props = {
-    setShouldScrollTo: (to: string) => void
+    setShouldScrollTo: (to: "bottom" | "top" | null) => void
 }
 
 const CommunityChatInput: FC<Props> = ({ setShouldScrollTo }) => {
@@ -38,7 +38,7 @@ const CommunityChatInput: FC<Props> = ({ setShouldScrollTo }) => {
     }
 
     function resizeImage(base64: string, wantedHeight: number) {
-        return new Promise<string>((resolve, reject) => {
+        return new Promise<string>((resolve) => {
             const inputImage = new window.Image()
             inputImage.addEventListener('load', () => {
                 const canvas = document.createElement('canvas')

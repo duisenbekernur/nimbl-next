@@ -196,4 +196,4 @@ function VideoPage() {
     )
 }
 
-export default VideoPage
+export default withAuthorization(VideoPage)

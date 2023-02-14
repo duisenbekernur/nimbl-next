@@ -67,28 +67,14 @@ const TableChannels: FC<Props> = (props) => {
     return (
         <table className={style.table}>
             <thead>
-                <tr>
-                    <th></th> {/* number */}
-                    <th>Channels</th>
+                <tr><th></th><th>Channels</th>
                     <th>Subscribers</th>
                     <th>Floor Price</th>
-                    <th>Total Volume</th>
-                </tr>
+                    <th>Total Volume</th></tr>
             </thead>
             <tbody>
                 {channels.map((item, idx) => (
-                        <tr>
-                            <td>{idx + 1}</td>
-                            <td>
-                                <div className={style.channel_name}>
-                                    <Image width={45} height={45} src={item.avatar} alt='avatar' />
-                                    <span>{item.name}</span>
-                                </div>
-                            </td>
-                            <td>{item.subscribers}</td>
-                            <td className={style.cell_gradient}>{item.price} NMBL</td>
-                            <td className={style.cell_gradient}>{item.total} NMBL</td>
-                        </tr>
+                        <tr key={item.id}><td>{idx+1}</td><td><div className={style.channel_name}><Image width={45} height={45} src={item.avatar} alt='avatar' /><span>{item.name}</span></div></td><td>{item.subscribers}</td><td className={style.cell_gradient}>{item.price} NMBL</td><td className={style.cell_gradient}>{item.total} NMBL</td></tr>
                     ))}
             </tbody>
         </table>

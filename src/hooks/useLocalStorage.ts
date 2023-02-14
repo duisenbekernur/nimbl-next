@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
-import is from '@sindresorhus/is'
-import boolean = is.boolean
+import { useState } from 'react'
 
 export function useLocalStorage<T>(key: string, initialValue?: T | (() => T)) {
     const [value, setValue] = useState<T>(() => {

@@ -1,26 +1,28 @@
-import { RefObject, useEffect, useRef, useState } from 'react'
+import { RefObject, useEffect, useState } from 'react'
 
-export const useScrollTo = <T extends Element>(scrollRef: RefObject<T> ) => {
-    const ref = useRef<T>(null)
-    const [shouldScrollTo, setShouldScrollTo] = useState<string>('')
+// Хука принимает в качестве параметра элемент который будет прокручиваться 
+export const useScrollTo = <T extends Element>(elemRef: RefObject<T> ) => {
+    const [shouldScrollTo, setShouldScrollTo] = useState<'bottom' | 'top' | null>(null)
 
     useEffect(() => {
-        if (scrollRef.current && shouldScrollTo === 'bottom') {
+        if (elemRef.current && shouldScrollTo === 'bottom') {
             setTimeout(() => {
-                scrollRef.current!.scrollTo({
-                    top: scrollRef.current!.scrollHeight,
+                elemRef.current!.scrollTo({
+                    top: elemRef.current!.scrollHeight,
                     behavior: 'smooth',
                 })
             }, 0)
-        } else if (scrollRef.current && shouldScrollTo === 'top') {
-            scrollRef.current!.scrollTo({
+        } else if (elemRef.current && shouldScrollTo === 'top') {
+            elemRef.current!.scrollTo({
                 top: 0,
                 behavior: 'smooth',
             })
         }
-        setShouldScrollTo('')
+        setShouldScrollTo(null)
     }, [shouldScrollTo])
 
     return [ setShouldScrollTo ]
+    // setShouldScrollTo функция принимает одни параметр из 'bottom' или 'top', соответственно 
+    // после вызова проскролит до конца одного из направлении . 
 }
 

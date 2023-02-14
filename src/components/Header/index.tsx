@@ -8,9 +8,14 @@ import avatarImg from '@/assets/icons/profile.svg'
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { setNavbarActive } from '@/store/features/navbar/navbarSlice'
+import PreferencesDropdown from '../PreferencesDropdown'
+import { useState } from 'react'
+import useTheme from '@/hooks/useTheme'
 // import arrowLeftImg from '@/assets/icons/back.svg'
 
-const Header = ({ ...rest }) => {
+const Header = ({...rest}) => {
+    const [theme , setTheme] = useTheme()
+    const [isOpenPreferences, setIsOpenPreferences] = useState<boolean>(false)
     const dropdownItems = ['WALLET', 'WLS', 'AIRDROP']
     const dispatch = useDispatch()
     return (
@@ -50,9 +55,12 @@ const Header = ({ ...rest }) => {
                 <div className={styles.header__right_icons}>
                     <Image width={30} height={30} src={chatImg} alt="chat" />
                 </div>
-                <div className={styles.header__right_useraddress}>
+                        
+                <div onClick={() => setIsOpenPreferences(!isOpenPreferences)} className={styles.header__right_useraddress}>
                     <h1>0xC197...</h1>
+                   
                 </div>
+                {isOpenPreferences && <PreferencesDropdown theme={theme} setTheme={setTheme} />}
             </div>
         </div>
     )
