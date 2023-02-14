@@ -38,7 +38,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        setIsHeaderShow((oldState) => false)
+        setIsHeaderShow(() => false)
         setTimeout(() => {
             dispatch(hideHeaderTransition())
             dispatch(hideNavbarTransition())
