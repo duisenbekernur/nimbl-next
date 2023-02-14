@@ -1,19 +1,15 @@
-import {useEffect, useState} from 'react'
+import { useState} from 'react'
 import styles from './MainSidebar.module.scss'
 import Image from 'next/image'
-import {hideMainSidebarTransition, hideMainVideoPlayerTransition} from '@/store/features/transitions/transitions'
 
-import profileLogo from '../../assets/icons/profile.svg'
-import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowDown from '../../assets/icons/arrow-down.svg'
-import previewImg from '../../assets/video/preview.svg'
 
 import VideoPlayer from '../VideoPlayer'
-import {Transition} from 'react-transition-group'
-import useSound from 'use-sound'
 import Tabs from '../UI/Tabs'
 import Tab from '../UI/Tabs/Tab'
 import TableChannels from './TableChannels'
+import UISquareButton from '../UI/UISquareButton'
+import Sprite from '../Sprite'
 
 const trendingVideo = [
     {
@@ -73,11 +69,8 @@ const Sidebar = () => {
                                 <Tab label="1m" index={2} />
                                 <Tab label="3m" index={3} />
                             </Tabs>
-                            <div className={styles.byCategory}>
-                                <span>All Categories</span>
-                                <Image src={arrowDown} height={10} width={16} alt="arrowDown" />
-                            </div>
-                            <div className={styles.view_all}>View All</div>
+                            <UISquareButton icon={<Sprite id="arrow_down" />}>All Categories</UISquareButton>
+                            <UISquareButton>View All</UISquareButton>
                         </div>
                         <div className={styles.table_wrap}>
                             <TableChannels />
