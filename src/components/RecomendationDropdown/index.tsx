@@ -11,7 +11,7 @@ const RecomendationDropdown = (props:any) => {
             <div className={styles.background}>
                 <Image src={props.img} 
                 style={{objectFit: 'cover'}} alt="trending" />
-                    <h3>Trending Videos</h3>
+                    <h3>{props.title}</h3>
                 {/* <div className={styles.plus}>
                     <Image src={plus} alt="plus" />
                 </div> */}
