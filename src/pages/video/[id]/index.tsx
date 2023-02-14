@@ -136,7 +136,7 @@ function VideoPage() {
                                 <button className={style.btn_subscribe}>
                                     subscribe
                                 </button>
-                                <Link href="/channel/8">
+                                <Link href="/channel/8/content">
                                     <button className={style.btn_link}>
                                         go to channel
                                     </button>

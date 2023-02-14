@@ -11,6 +11,14 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import Link from 'next/link'
 
+
+import img1 from '@/assets/dropdown/cryptonews.png'
+import img2 from '@/assets/dropdown/eth.png'
+import img3 from '@/assets/dropdown/p2e.png'
+import img4 from '@/assets/dropdown/trending.png'
+
+const imageArray = [ img1, img2, img3, img4]
+
 function Home() {
     const data = useSelector((state: RootState) => state.videos.videos)
 
@@ -32,16 +40,16 @@ function Home() {
                         spaceBetween={20}
                         centeredSlides={false}
                         className={['mySwiper', styles.dropdowns].join(' ')}>
-                        {[...new Array(15)].map((item) => (
+                        {[...imageArray, ...imageArray].map((img) => (
                             <SwiperSlide>
-                                <RecomendationDropdown />
+                                <RecomendationDropdown img={img} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
 
                     <div className={styles.content_videos}>
                         {data?.map((item, index) => (
-                            <VideoCard key={index} {...item} />
+                            <Link style={{textDecoration: 'none'}} href="/video/1"><VideoCard key={index} {...item} /></Link>
                         ))}
                     </div>
                 </div>
