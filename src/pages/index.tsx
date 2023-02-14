@@ -17,7 +17,7 @@ import img2 from '@/assets/dropdown/eth.png'
 import img3 from '@/assets/dropdown/p2e.png'
 import img4 from '@/assets/dropdown/trending.png'
 
-const imageArray = [ img1, img2, img3, img4]
+const imageArray = [ [img1 , "Crypto News"], [img2, "ETH NFTs"], [img3, "Play2Earn"], [img4, "Trending Videos"]]
 
 function Home() {
     const data = useSelector((state: RootState) => state.videos.videos)
@@ -40,9 +40,9 @@ function Home() {
                         spaceBetween={20}
                         centeredSlides={false}
                         className={['mySwiper', styles.dropdowns].join(' ')}>
-                        {[...imageArray, ...imageArray].map((img) => (
+                        {[...imageArray, ...imageArray].map(([img, title]) => (
                             <SwiperSlide>
-                                <RecomendationDropdown img={img} />
+                                <RecomendationDropdown img={img} title={title} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
