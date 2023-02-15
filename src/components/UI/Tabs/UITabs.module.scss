@@ -1,5 +1,10 @@
+@import "@/styles/theme";
+
 .wrap_tabs {
-    background: rgba(17, 17, 17, 0.7);
+    background: var(--dark-glass);
     display: flex;
+    @include light {
+        background: linear-gradient(90.7deg, rgba(135, 68, 174, 0.553) -59.08%, rgba(98, 223, 255, 0.35) 112.63%);
+    }
     
 }

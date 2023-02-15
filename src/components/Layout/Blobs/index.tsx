@@ -1,9 +1,7 @@
 import {FC} from 'react'
 import style from './Blobs.module.scss'
 
-type Props = {}
-
-const Blobs: FC = (props: Props) => {
+const Blobs: FC = () => {
   return (
     <>
                 <div className={style.blob}>
@@ -12,11 +10,11 @@ const Blobs: FC = (props: Props) => {
                         <radialGradient id="bones-gradient1">
                             <stop
                                 offset="0%"
-                                stop-color="rgba(182, 22, 166, 0.4)"
+                                stopColor="rgba(182, 22, 166, 0.4)"
                             />
                             <stop
                                 offset="100%"
-                                stop-color="rgba(234, 0, 213, 0)"
+                                stopColor="rgba(234, 0, 213, 0)"
                             />
                         </radialGradient>
                     </defs>
@@ -49,11 +47,11 @@ const Blobs: FC = (props: Props) => {
                         <radialGradient id="bones-gradient2">
                             <stop
                                 offset="0%"
-                                stop-color="rgba(112, 119, 229, 0.7)"
+                                stopColor="rgba(112, 119, 229, 0.7)"
                             />
                             <stop
                                 offset="100%"
-                                stop-color="rgba(112, 119, 229, 0)"
+                                stopColor="rgba(112, 119, 229, 0)"
                             />
                         </radialGradient>
                     </defs>
@@ -86,11 +84,11 @@ const Blobs: FC = (props: Props) => {
                         <radialGradient id="bones-gradient3">
                             <stop
                                 offset="0%"
-                                stop-color="rgba(209, 114, 200, 0.4)"
+                                stopColor="rgba(209, 114, 200, 0.4)"
                             />
                             <stop
                                 offset="100%"
-                                stop-color="rgba(234, 0, 213, 0)"
+                                stopColor="rgba(234, 0, 213, 0)"
                             />
                         </radialGradient>
                     </defs>
@@ -123,11 +121,11 @@ const Blobs: FC = (props: Props) => {
                         <radialGradient id="bones-gradient4">
                             <stop
                                 offset="0%"
-                                stop-color="rgba(69, 79, 228, 0.3)"
+                                stopColor="rgba(69, 79, 228, 0.3)"
                             />
                             <stop
                                 offset="100%"
-                                stop-color="rgba(69, 78, 228, 0)"
+                                stopColor="rgba(69, 78, 228, 0)"
                             />
                         </radialGradient>
                     </defs>

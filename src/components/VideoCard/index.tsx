@@ -2,10 +2,8 @@ import Image from 'next/image'
 import styles from './VideoCard.module.scss'
 import eyeImg from '../../assets/icons/eye.svg'
 import clockImg from '../../assets/icons/clock.svg'
-import {FC, useState} from 'react'
+import {FC} from 'react'
 import {videoCardType} from '@/types'
-import Link from 'next/link'
-import useSound from 'use-sound'
 
 const VideoCard: FC<videoCardType> = ({
     // id,
@@ -15,12 +13,6 @@ const VideoCard: FC<videoCardType> = ({
     avatar,
     poster,
 }) => {
-    const [isShow, setIsShow] = useState(false)
-    const [videoSound, setVideoSound] = useState(false)
-    const soundUrl = '/sounds/ui-click.mp3'
-
-    const [play, {stop}] = useSound(soundUrl, {volume: 5})
-
     return (
         <div className={styles.card}>
             <div className={styles.card_preview}>
@@ -30,10 +22,10 @@ const VideoCard: FC<videoCardType> = ({
             </div>
 
             <div className={styles.card_header}>
-                <Link href="/channel/1" className={styles.channel_title} title="Go to the channel">
+                <div className={styles.channel_title}>
                     <Image src={avatar} width={30} height={30} alt="logo" />
                     <p>{channel}</p>
-                </Link>
+                </div>
 
                 <div className={styles.channel_price}>
                     <span>Floor Price:</span>

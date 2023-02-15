@@ -17,7 +17,7 @@ export type videoCardType = {
     title: string
     channel: string
     price: number
-    avatar: string
+    avatar: any
     poster: string
 }
 
@@ -51,4 +51,10 @@ export type CommunityChatMessageType = {
     img?: string
     react: { emoji: Emoji, reacted: string[] }[]
     createdDate: number
+}
+
+export enum ThemeEnum {
+    SYSTEM = 'system',
+    DARK = 'dark',
+    LIGHT = 'light',
 }

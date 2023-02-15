@@ -1,12 +1,12 @@
 import {useState} from 'react'
 import Layout from '@/components/Layout'
-import VideoPlayer from '@/components/VideoPlayer'
 import styles from '@/styles/Settings.module.scss'
 import SettingsAccount from '@/components/Settings/SettingsAccount'
 import SettingsNotifications from '@/components/Settings/SettingsNotifications'
 import SettingsLikes from '@/components/Settings/SettingsLikes'
 import SettingsSecurity from '@/components/Settings/SettingsSecurity'
 import SettingsWallet from '@/components/Settings/SettingsWallet'
+import withAuthorization from '@/HOC/Authorization/Authorization'
 
 
 enum SettingsTabs {
@@ -66,4 +66,4 @@ const SettingsPage = () => {
     )
 }
 
-export default SettingsPage
+export default withAuthorization(SettingsPage)

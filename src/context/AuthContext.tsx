@@ -48,6 +48,7 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
     const valueD = '0xC1977Ca1DDA9E1477BFB153a68FdbE6b96ba0d0A'
     const valueE = '0x79Ced8845cB931Be51366818D82eED1adcf8717B'
     const valueF = '0x5C9873034aD0FA64Cc43617398737E9B92e7d77A'
+    const valueG = '0xbcb07cC6490E15AEe2541cba832F2b691573C805'
 
     useEffect(() => {
         addresses.filter((address) => address.toLowerCase() === loginLocal?.address ? setIsAuth(true) : null)
@@ -76,7 +77,8 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
             authAddress === valueC.toLowerCase() ||
             authAddress === valueD.toLowerCase() ||
             authAddress === valueE.toLowerCase() ||
-            authAddress === valueF.toLowerCase()
+            authAddress === valueF.toLowerCase() ||
+            authAddress === valueG.toLowerCase()
         ) {
             setLoginLocal({address:authAddress})
             setIsAuth(true)

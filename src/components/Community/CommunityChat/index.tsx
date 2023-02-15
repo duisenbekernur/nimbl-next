@@ -1,10 +1,9 @@
-import { FC, RefObject, useEffect, useRef } from 'react'
+import { FC, useRef } from 'react'
 import styles from './CommunityChat.module.scss'
 import { RootState } from '@/store/store'
 import { useDispatch, useSelector } from 'react-redux'
 import Image from 'next/image'
 import { reply, smileWhite } from '@/assets/icons'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { formatRelative } from 'date-fns'
 import { addReaction } from '@/store/features/communityChat/communityChatSlice'
 import { Emoji } from '@/types'
@@ -20,6 +19,7 @@ export const emojiArr: Emoji[] = [
 
 const CommunityChat: FC = () => {
     const communityChatState = useSelector((store: RootState) =>
+        // Использовал rest (...) для того чтобы отсортировать массив по датам
         [...store.communityChat].sort((a, b) => a.createdDate - b.createdDate)
     )
     const dispatch = useDispatch()

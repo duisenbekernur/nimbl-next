@@ -1,3 +1,5 @@
+@import "@/styles/theme";
+
 .sidebar {
     width: 100%;
     height: 100%;
@@ -20,38 +22,19 @@
         display: flex;
         padding: 20px;
         justify-content: space-between;
-       
-        .byCategory {
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            background-color: var(--dark-glass);
-            padding-left: .7rem;
-            padding-right: 1.125rem;
-            gap: 1.125rem;
-            cursor: pointer;
-            img {
-                align-self: stretch;
-                height: 100%;
-                aspect-ratio: 1 / 1;
-                display: block;
-                width: 1rem;
-            }
-        }
-        .view_all {
-            font-size: 16px;
-            padding: .75rem;
-            background-color: var(--dark-glass);
-            cursor: pointer;
-        }
     }
     .channels {
-        background-color: var(--default-glass);
+        background: var(--default-glass);
+        backdrop-filter: blur(2px);
         overflow-y: hidden;
         overflow-x: visible;
         display: flex;
         flex-direction: column;
         position: relative;
+
+        @include light {
+            background: rgba(192, 192, 192, 0.1);
+        }
 
         .table_wrap {
             overflow-y: scroll;
@@ -76,8 +59,7 @@
                 padding: 10px 15px;
                 margin-bottom: auto;
                 background: rgba(255, 255, 255, 0.35);
-                box-shadow: inset 3.5875px 3.5875px 24.2156px
-                    rgba(255, 255, 255, 0.04);
+                box-shadow: inset 3.5875px 3.5875px 24.2156px rgba(255, 255, 255, 0.04);
                 backdrop-filter: blur(46.5146px);
             }
             .subs_titles {
@@ -97,11 +79,7 @@
             font-weight: 400;
             font-size: 22.32px;
             cursor: pointer;
-            background: linear-gradient(
-                273.52deg,
-                rgba(0, 234, 242, 0.2) -54.44%,
-                rgba(234, 0, 213, 0.2) 110.67%
-            );
+            background: linear-gradient(273.52deg, rgba(0, 234, 242, 0.2) -54.44%, rgba(234, 0, 213, 0.2) 110.67%);
             backdrop-filter: blur(9px);
         }
     }
@@ -117,8 +95,7 @@
             width: calc(33.33% - 18px);
             padding: 18px 0;
             background: rgba(255, 255, 255, 0.05);
-            box-shadow: inset 3.5875px 3.5875px 24.2156px
-                rgba(255, 255, 255, 0.04);
+            box-shadow: inset 3.5875px 3.5875px 24.2156px rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(46.5146px);
             .value {
                 font-size: 26px;
