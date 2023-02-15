@@ -1,20 +1,24 @@
-import {likeSolid} from '@/assets/icons'
+import {FC, useRef, useState} from 'react'
 import Image from 'next/image'
 import styles from './../VideoPlayer.module.scss'
 import screenfull from 'screenfull'
 
-import stopIcon from '@/assets/icons/stop.svg'
-import playIcon from '@/assets/icons/play.svg'
-import volumeIcon from '@/assets/icons/volume.png'
-import muteIcon from '@/assets/icons/mute.svg'
-import surprizeIcon from '@/assets/icons/surprize.png'
-import donateIcon from '@/assets/icons/donate.png'
-import subtitleIcon from '@/assets/icons/subs.png'
-import settingsIcon from '@/assets/icons/settings.png'
-import fullIcon from '@/assets/icons/full_screen.png'
-import {FC, useRef, useState} from 'react'
+import avatarIcon from '@/assets/avatar.png'
+import videoGalleryIcon from '@/assets/svg_icons/video_gallery.svg'
+import airplayIcon from '@/assets/svg_icons/airplay.svg'
+import pauseIcon from '@/assets/svg_icons/pause.svg'
+import fullIcon from '@/assets/svg_icons/fullscreen.svg'
+import playIcon from '@/assets/svg_icons/play.svg'
+import volumeIcon from '@/assets/svg_icons/high_volume.svg'
+import muteIcon from '@/assets/svg_icons/low_volume.svg'
+import commentIcon from '@/assets/svg_icons/comment.svg'
+import futuresIcon from '@/assets/svg_icons/futures.svg'
+import subtitleIcon from '@/assets/svg_icons/subtitles.svg'
+import settingsIcon from '@/assets/svg_icons/settings2.svg'
+import endIcon from '@/assets/svg_icons/end.svg'
 
 type VideoPlayerControlsBottomType = {
+    handleNextVideo: () => void
     currentMinutes: number
     currentSeconds: number
     durationMinutes: number
@@ -23,15 +27,19 @@ type VideoPlayerControlsBottomType = {
     stop: boolean
     progress: string
     volumeProgress: string
+    togglePlay: () => void
     setMuted: (x: boolean) => void
     setProgress: (x: string) => void
     setVolumeProgress: (x: string) => void
     setStop: (x: boolean) => void
     isControllersVisible: boolean
+    handleFullScreen: () => void
     videoRef: React.RefObject<HTMLVideoElement>
+    playerRef: React.RefObject<HTMLDivElement>
 }
 
 const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
+    handleNextVideo,
     currentMinutes,
     currentSeconds,
     durationMinutes,
@@ -40,12 +48,13 @@ const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
     stop,
     progress,
     volumeProgress,
+    togglePlay,
     setMuted,
     setProgress,
     setVolumeProgress,
-    setStop,
     isControllersVisible,
     videoRef,
+    handleFullScreen,
 }) => {
     const [toggleSettings, setToggleSettings] = useState(false)
 
@@ -59,13 +68,6 @@ const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
         return `${durationMinutes < 10 ? '0' : ''}${durationMinutes}:${
             durationSeconds < 10 ? '0' : ''
         }${durationSeconds}`
-    }
-
-    const togglePlay = () => {
-        const method = videoRef.current?.paused && true ? 'play' : 'pause'
-        //@ts-ignore
-        videoRef.current[method]()
-        setStop(method === 'play' ? false : true)
     }
 
     const scrub = (e: any) => {
@@ -93,11 +95,6 @@ const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
         videoRef.current.volume = percent / 100
     }
 
-    const handleFullScreen = () => {
-        //@ts-ignore
-        screenfull.toggle(playerRef.current)
-    }
-
     return (
         <>
             <div
@@ -112,60 +109,25 @@ const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
                     opacity: isControllersVisible ? '1' : '0',
                     transition: '.3s all',
                 }}>
-                <div className={styles.player_controller_bottom_likes}>
-                    <span>
-                        <Image width={20} height={20} src={likeSolid} alt="like" />5 324
-                    </span>
-                    <span>
-                        <Image width={20} height={20} src={surprizeIcon} alt="like" />5 324
-                    </span>
-                    <span>
-                        <Image width={20} height={20} src={donateIcon} alt="like" />5 324
-                    </span>
+                <div className={styles.player_controller_bottom_comments}>
+                    <Image src={avatarIcon} width={150} height={150}  alt="avatar" />
+                    <div className={styles.player_controller_bottom_comments_text}>
+                        <p>This is incredible, can’t wait to use...</p>
+                        <span>9:57</span>
+                    </div>
                 </div>
 
-                <div className={styles.bottom_opacity_content}>
-                    <div className={styles.player_controller_bottom_volume_row}>
-                        <Image
-                            src={stop ? stopIcon : playIcon}
-                            width={25}
-                            height={stop ? 18 : 29}
-                            alt="pause"
-                            onClick={togglePlay}
-                        />
-                        <div className={styles.volume_progress}>
-                            <Image
-                                src={muted ? muteIcon : volumeIcon}
-                                height={muted ? 40 : 20}
-                                alt="volume"
-                                onClick={() => setMuted(!muted)}
-                            />
-                            <div
-                                ref={volumeRef}
-                                className={styles.progress}
-                                onClick={(e) => {
-                                    handleProgressVolume(e)
-                                }}>
-                                <div className={styles.progress__filled} style={{width: volumeProgress}}></div>
-                            </div>
-                            {getCurrentTime()}
-                        </div>
-                    </div>
-
-                    <div className={styles.bottom_right}>
-                        <p>{getDurationTime()}</p>
-                        <div>
-                            <Image src={subtitleIcon} alt="subtitle" />
-                        </div>
-                        <div>
-                            <Image
-                                src={settingsIcon}
-                                alt="settings"
-                                onClick={() => setToggleSettings(!toggleSettings)}
-                            />
-                        </div>
-                        <Image src={fullIcon} alt="full screen" onClick={handleFullScreen} />
-                    </div>
+                <div className={styles.player_controller_bottom_likes}>
+                    <span>
+                        <Image src={videoGalleryIcon} alt="video gallery" />5 304
+                    </span>
+                    <span>
+                        <Image src={commentIcon} alt="comment" />1 212
+                    </span>
+                    <span>
+                        <Image src={futuresIcon} alt="future" />
+                        17 349
+                    </span>
                 </div>
 
                 <div
@@ -176,6 +138,43 @@ const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
                         handleProgress()
                     }}>
                     <div className={styles.progress__filled} style={{width: progress}}></div>
+                </div>
+
+                <div className={styles.bottom_opacity_content}>
+                    <div className={styles.player_controller_bottom_volume_row}>
+                        <Image src={!stop ? pauseIcon : playIcon} alt="pause" onClick={togglePlay} />
+                        <Image src={endIcon} width={25} height={stop ? 18 : 29} alt="pause" onClick={handleNextVideo} />
+                        <div className={styles.volume_progress}>
+                            <Image src={muted ? muteIcon : volumeIcon} alt="volume" onClick={() => setMuted(!muted)} />
+                            <div
+                                ref={volumeRef}
+                                className={styles.progress}
+                                onClick={(e) => {
+                                    handleProgressVolume(e)
+                                }}>
+                                <div className={styles.progress__filled} style={{width: volumeProgress}}></div>
+                            </div>
+                            <p>{getCurrentTime()}</p>
+                        </div>
+                    </div>
+
+                    <div className={styles.bottom_right}>
+                        <p>{getDurationTime()}</p>
+                        <div>
+                            <Image src={airplayIcon} alt="settings" />
+                        </div>
+                        <div>
+                            <Image
+                                src={settingsIcon}
+                                alt="settings"
+                                onClick={() => setToggleSettings(!toggleSettings)}
+                            />
+                        </div>
+                        <div>
+                            <Image src={subtitleIcon} alt="subtitle" />
+                        </div>
+                        <Image src={fullIcon} alt="full screen" onClick={handleFullScreen} />
+                    </div>
                 </div>
             </div>
 

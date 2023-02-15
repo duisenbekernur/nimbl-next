@@ -2,10 +2,17 @@ import styles from './VideoPlayer.module.scss'
 import screenfull from 'screenfull'
 
 import {useRef, useState} from 'react'
-import VideoPlayerControls from './VideoPlayerControls/VideoPlayerControls'
+// import VideoPlayerControls from './VideoPlayerControls/VideoPlayerControls'
 import VideoPlayerControlsMini from './VideoPlayerControls/VideoPlayerControlsMini'
+import VideoPlayerControls from './VideoPlayerControls/VideoPlayerControls'
+
+const videoLinks = [
+    'https://storage.googleapis.com/nimbl/NFTs%20and%20the%20%2413B%20marketplace%2C%20explained.mp4',
+    'https://storage.googleapis.com/nimbl/652333414.mp4',
+]
 
 const VideoPlayer = () => {
+    const [currentVideoId, setCurrentVideoId] = useState(0)
     const [stop, setStop] = useState(false)
     const [muted, setMuted] = useState(true)
     const [progress, setProgress] = useState('0%')
@@ -15,6 +22,7 @@ const VideoPlayer = () => {
     const [durationMinutes, setDurationMinutes] = useState(0)
     const [durationSeconds, setDurationSeconds] = useState(0)
     const [isControllersVisible, setIsControllersVisible] = useState(false)
+    const [isFullScreen, setIsFullScreen] = useState(false)
 
     const videoRef = useRef<HTMLVideoElement | null>(null)
     const playerRef = useRef<HTMLDivElement | null>(null)
@@ -30,8 +38,10 @@ const VideoPlayer = () => {
     }
 
     const durationTime = () => {
-        setDurationSeconds(Math.floor((videoRef.current?.duration || 0) - durationMinutes * 60))
-        setDurationMinutes(Math.floor((videoRef.current?.duration || 0) / 60))
+        if (videoRef.current?.duration !== undefined)
+            setDurationMinutes(Math.floor((videoRef.current?.duration || 0) / 60))
+        if (videoRef.current?.duration !== undefined)
+            setDurationSeconds(Math.floor((videoRef.current?.duration || 0) - durationMinutes * 60))
     }
 
     const togglePlay = () => {
@@ -51,6 +61,17 @@ const VideoPlayer = () => {
     const handleFullScreen = () => {
         //@ts-ignore
         screenfull.toggle(playerRef.current)
+        // setIsFullScreen(!isFullScreen)
+    }
+
+    const handleNextVideo = () => {
+        setStop(false)
+        if (videoLinks.length < currentVideoId + 2) {
+            setCurrentVideoId(0)
+            return
+        }
+
+        setCurrentVideoId(currentVideoId + 1)
     }
 
     const handleKeyDown = (e: any) => {
@@ -95,9 +116,6 @@ const VideoPlayer = () => {
         }
     }
 
-    console.log(playerRef.current?.clientWidth);
-    
-
     return (
         <div
             ref={playerRef}
@@ -120,11 +138,13 @@ const VideoPlayer = () => {
                 onDoubleClick={handleFullScreen}
                 onClick={togglePlay}
                 muted={muted}
-                src="https://storage.cloud.google.com/nimbl/NFTs%20and%20the%20%2413B%20marketplace%2C%20explained.mp4"
+                src={videoLinks[currentVideoId]}
             />
 
             {typeof playerRef.current?.clientWidth === 'number' && playerRef.current?.clientWidth > 1000 ? (
                 <VideoPlayerControls
+                    setIsFullScreen={setIsFullScreen}
+                    handleFullScreen={handleFullScreen}
                     currentMinutes={currentMinutes}
                     currentSeconds={currentSeconds}
                     durationMinutes={durationMinutes}
@@ -137,11 +157,21 @@ const VideoPlayer = () => {
                     setStop={setStop}
                     isControllersVisible={isControllersVisible}
                     videoRef={videoRef}
+                    playerRef={playerRef}
                     progress={progress}
                     volumeProgress={volumeProgress}
+                    togglePlay={togglePlay}
+                    handleNextVideo={handleNextVideo}
                 />
             ) : (
-                <VideoPlayerControlsMini stop={stop}/>
+                <VideoPlayerControlsMini
+                    muted={muted}
+                    setMuted={setMuted}
+                    handleNextVideo={handleNextVideo}
+                    stop={stop}
+                    togglePlay={togglePlay}
+                    handleFullScreen={handleFullScreen}
+                />
             )}
         </div>
     )
