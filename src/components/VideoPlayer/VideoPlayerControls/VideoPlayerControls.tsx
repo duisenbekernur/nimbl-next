@@ -5,7 +5,7 @@ import screenfull from 'screenfull'
 import stopIcon from '@/assets/icons/stop.svg'
 import channelIcon from '@/assets/avatar3.png'
 
-import {FC, useRef} from 'react'
+import React, {FC} from 'react'
 import ControlsBottom from './ControlsBottom'
 
 type VideoPlayerControlsType = {

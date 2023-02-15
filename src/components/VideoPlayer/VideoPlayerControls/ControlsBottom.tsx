@@ -1,4 +1,4 @@
-import {FC, useRef, useState} from 'react'
+import React, {FC, useRef, useState} from 'react'
 import Image from 'next/image'
 import styles from './../VideoPlayer.module.scss'
 import screenfull from 'screenfull'
@@ -110,7 +110,7 @@ const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
                     transition: '.3s all',
                 }}>
                 <div className={styles.player_controller_bottom_comments}>
-                    <Image src={avatarIcon} width={150} height={150}  alt="avatar" />
+                    <Image src={avatarIcon} width={150} height={150} alt="avatar" />
                     <div className={styles.player_controller_bottom_comments_text}>
                         <p>This is incredible, can’t wait to use...</p>
                         <span>9:57</span>
