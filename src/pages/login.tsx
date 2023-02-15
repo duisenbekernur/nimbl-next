@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { MetaMaskInpageProvider } from '@metamask/providers'
-import { UseAuth } from '../context/AuthContext'
+import React, {useState} from 'react'
+import {MetaMaskInpageProvider} from '@metamask/providers'
+import {UseAuth} from '../context/AuthContext'
 import styles from '../styles/Login.module.scss'
 import Script from 'next/script'
 import MetaLogo from '@/components/AnimatedLogo'
 import purple from '@/components/AnimatedLogo/beta-fox.json'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import {SubmitHandler, useForm} from 'react-hook-form'
 import LoginLayout from '@/components/Layout/LoginLayout'
 import screenfull from 'screenfull'
 declare global {
@@ -15,15 +15,15 @@ declare global {
 }
 
 type Inputs = {
-    login: string,
-    password: string,
-};
+    login: string
+    password: string
+}
 
 const LoginPage = () => {
     const [account, setAccount] = useState<string | null>(null)
-    const { Auth, isAuth, isRouting } = UseAuth()
+    const {Auth, isAuth, isRouting} = UseAuth()
     const [isLoading, setIsLoading] = useState(false)
-    const { register, handleSubmit } = useForm<Inputs>();
+    const {register, handleSubmit} = useForm<Inputs>()
 
     const handleLogin = async () => {
         setIsLoading(true)
@@ -31,7 +31,7 @@ const LoginPage = () => {
             if (typeof window.ethereum !== 'undefined') {
                 const accounts = await window.ethereum.enable()
                 if (screenfull.isEnabled) {
-                    await screenfull.request();
+                    await screenfull.request()
                 }
                 Auth(accounts[0])
             }
@@ -45,46 +45,43 @@ const LoginPage = () => {
         return await setAccount(null)
     }
 
-    const onSubmit: SubmitHandler<Inputs> = async data => {
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
         if (screenfull.isEnabled) {
-            await screenfull.request();
+            await screenfull.request()
         }
-        if(data?.login && data?.password){
+        if (data?.login && data?.password) {
             Auth(account, data)
         }
-    };
+    }
 
-    return (
-        isAuth ? <>
-            <LoginLayout >
-                <video autoPlay muted playsInline className={`${isRouting? 'exiting' : null}`}>
+    return isAuth ? (
+        <>
+            <LoginLayout>
+                <video autoPlay muted playsInline className={`${isRouting ? 'exiting' : null}`}>
                     <source src="login_video.mp4" />
                 </video>
             </LoginLayout>
-            </>:
+        </>
+    ) : (
         <>
             <Script src="../components/AnimatedLogo/index.js" />
-            <LoginLayout >
+            <LoginLayout>
                 <div className={styles.metaLogo}>
                     <MetaLogo meshJson={purple} />
                 </div>
                 <form className="login_form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="input_wrapper">
                         <label>Login</label>
-                        <input type="text" placeholder="Login" {...register("login")}/>
+                        <input type="text" placeholder="Login" {...register('login')} />
                     </div>
                     <div className="input_wrapper">
                         <label>Password</label>
-                        <input type="password" placeholder="Password" {...register("password")}/>
+                        <input type="password" placeholder="Password" {...register('password')} />
                     </div>
-                    <button type='submit'>Submit</button>
+                    <button type="submit">Submit</button>
                 </form>
                 {account === null ? (
-                    <button
-                        onClick={handleLogin}
-                        disabled={isLoading}
-                        className="btn_meta"
-                    >
+                    <button onClick={handleLogin} disabled={isLoading} className="btn_meta">
                         {isLoading ? 'Loading...' : 'Log in with MetaMask'}
                     </button>
                 ) : (
