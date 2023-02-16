@@ -57,9 +57,13 @@ const LoginPage = () => {
     return isAuth ? (
         <>
             <LoginLayout>
-                <video autoPlay muted playsInline className={`${isRouting ? 'exiting' : null}`}>
-                    <source src="login_video.mp4" />
-                </video>
+                {window.localStorage.getItem('login') ? (
+                    <></>
+                ) : (
+                    <video autoPlay muted playsInline className={`${isRouting ? 'exiting' : null}`}>
+                        <source src="login_video.mp4" />
+                    </video>
+                )}
             </LoginLayout>
         </>
     ) : (
