@@ -53,7 +53,7 @@ const LoginPage = () => {
             Auth(account, data)
         }
     }
-
+    
     return isAuth ? (
         <>
             <LoginLayout>
