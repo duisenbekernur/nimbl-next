@@ -176,6 +176,12 @@
             align-items: center;
             gap: 15px;
 
+            p {
+                font-weight: 400;
+                font-size: 17px;
+                color: #fff;
+            }
+
             &:hover {
                 cursor: pointer;
             }
