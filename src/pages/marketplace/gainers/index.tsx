@@ -6,10 +6,11 @@ import styles from '../../../styles/Gainers.module.scss'
 import arrowBottomImg from '../../../assets/icons/arrow-right-bottom.svg'
 import arrowTopImg from '../../../assets/icons/arrow-right-top.svg'
 import profile from '../../../assets/icons/profile.svg'
-import { useState } from 'react'
+import {useState} from 'react'
 import Head from 'next/head'
 import MarketplaceButton from '@/components/UI/MarketplaceButton'
 import Layout from '@/components/Layout'
+import CategoriesSwiper from '@/components/CategoriesSwiper'
 
 const gainerTop = [
     {
@@ -140,10 +141,7 @@ const GainersPage = () => {
             </Head>
             <div className={styles.gainer}>
                 <div className={styles.dropdowns}>
-                    <RecomendationDropdown />
-                    <RecomendationDropdown />
-                    <RecomendationDropdown />
-                    <RecomendationDropdown />
+                    <CategoriesSwiper />
                 </div>
 
                 <div className={styles.content}>
@@ -152,8 +150,7 @@ const GainersPage = () => {
                             onClick={() => {
                                 setGainer(true)
                                 setActiveButtonId(0)
-                            }}
-                        >
+                            }}>
                             <MarketplaceButton
                                 imgPath={arrowTopImg}
                                 text={'Top gainers'}
@@ -164,8 +161,7 @@ const GainersPage = () => {
                             onClick={() => {
                                 setGainer(false)
                                 setActiveButtonId(1)
-                            }}
-                        >
+                            }}>
                             <MarketplaceButton
                                 imgPath={arrowBottomImg}
                                 text={'Top loosers'}
@@ -180,10 +176,7 @@ const GainersPage = () => {
                         <div className={styles.table_id}>#</div>
                         <div className={styles.table_name}>Name</div>
                         <div className={styles.table_price}>Price</div>
-                        <div
-                            className={styles.table_avg}
-                            style={{ color: '#A9A9B7 ' }}
-                        >
+                        <div className={styles.table_avg} style={{color: '#A9A9B7 '}}>
                             24h
                         </div>
                         <div className={styles.table_volume}>Volume(24h)</div>
@@ -192,74 +185,30 @@ const GainersPage = () => {
                     {gainer ? (
                         <div className={styles.wrap_table}>
                             {gainerTop.map((item, index) => (
-                                <div
-                                    className={`${styles.gainer_table} ${styles.body}`}
-                                    key={index}
-                                >
-                                    <div className={styles.table_id}>
-                                        {index + 1}
-                                    </div>
+                                <div className={`${styles.gainer_table} ${styles.body}`} key={index}>
+                                    <div className={styles.table_id}>{index + 1}</div>
                                     <div className={styles.table_name}>
-                                        <Image
-                                            className={styles.table_name_logo}
-                                            src={profile}
-                                            alt=""
-                                        />
-                                        <div
-                                            className={styles.table_name_title}
-                                        >
-                                            {item.name}
-                                        </div>
+                                        <Image className={styles.table_name_logo} src={profile} alt="" />
+                                        <div className={styles.table_name_title}>{item.name}</div>
                                     </div>
-                                    <div
-                                        className={`${styles.table_price} ${styles.active}`}
-                                    >
-                                        {item.price}
-                                    </div>
-                                    <div className={styles.table_avg}>
-                                        {item.hours}
-                                    </div>
-                                    <div className={styles.table_volume}>
-                                        {item.volume}
-                                    </div>
+                                    <div className={`${styles.table_price} ${styles.active}`}>{item.price}</div>
+                                    <div className={styles.table_avg}>{item.hours}</div>
+                                    <div className={styles.table_volume}>{item.volume}</div>
                                 </div>
                             ))}
                         </div>
                     ) : (
                         <div className={styles.wrap_table}>
                             {gainerBottom.map((item, index) => (
-                                <div
-                                    className={`${styles.gainer_table} ${styles.body}`}
-                                    key={index}
-                                >
-                                    <div className={styles.table_id}>
-                                        {index + 1}
-                                    </div>
+                                <div className={`${styles.gainer_table} ${styles.body}`} key={index}>
+                                    <div className={styles.table_id}>{index + 1}</div>
                                     <div className={styles.table_name}>
-                                        <Image
-                                            className={styles.table_name_logo}
-                                            src={profile}
-                                            alt=""
-                                        />
-                                        <div
-                                            className={styles.table_name_title}
-                                        >
-                                            {item.name}
-                                        </div>
+                                        <Image className={styles.table_name_logo} src={profile} alt="" />
+                                        <div className={styles.table_name_title}>{item.name}</div>
                                     </div>
-                                    <div
-                                        className={`${styles.table_price} ${styles.active}`}
-                                    >
-                                        {item.price}
-                                    </div>
-                                    <div
-                                        className={`${styles.table_avg} ${styles.loser}`}
-                                    >
-                                        {item.hours}
-                                    </div>
-                                    <div className={styles.table_volume}>
-                                        {item.volume}
-                                    </div>
+                                    <div className={`${styles.table_price} ${styles.active}`}>{item.price}</div>
+                                    <div className={`${styles.table_avg} ${styles.loser}`}>{item.hours}</div>
+                                    <div className={styles.table_volume}>{item.volume}</div>
                                 </div>
                             ))}
                         </div>

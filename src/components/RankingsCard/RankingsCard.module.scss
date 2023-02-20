@@ -1,6 +1,8 @@
 .card_box {
     width: 100%;
     padding: 2px;
+    overflow: hidden;
+    position: relative;
     .video_header {
         cursor: pointer;
         position: relative;
@@ -33,7 +35,7 @@
         position: relative;
         padding: 0 10px;
         margin-top: -35px;
-        background: none;
+        background: rgba(20, 27, 34, 1);
         .box_title {
             margin-top: 30px;
             text-align: center;
@@ -76,12 +78,7 @@
                     font-family: 'Octosquares-Bold';
                     font-weight: 400;
                     font-size: 20px;
-                    background: linear-gradient(
-                        270deg,
-                        #ea00d5 -6.27%,
-                        #3d5eff 60.51%,
-                        #00eaf2 109.84%
-                    );
+                    background: linear-gradient(270deg, #ea00d5 -6.27%, #3d5eff 60.51%, #00eaf2 109.84%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;

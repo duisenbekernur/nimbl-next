@@ -1,29 +1,15 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import MainSidebar from '@/components/MainSidebar'
-import RecomendationDropdown from '@/components/RecomendationDropdown'
 import VideoCard from '@/components/VideoCard'
 import withAuthorization from '@/HOC/Authorization/Authorization'
-import {useRouter} from 'next/router'
-import {useEffect, useRef, useState} from 'react'
-import { UseAuth } from '@/context/AuthContext'
-import axios from 'axios'
-import { videoCardType } from '@/types'
-import { Transition } from 'react-transition-group'
 import {useSelector} from 'react-redux'
 import {RootState} from '@/store/store'
 import Layout from '@/components/Layout'
-import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import Link from 'next/link'
 
-
-import img1 from '@/assets/dropdown/cryptonews.png'
-import img2 from '@/assets/dropdown/eth.png'
-import img3 from '@/assets/dropdown/p2e.png'
-import img4 from '@/assets/dropdown/trending.png'
-
-const imageArray = [ [img1 , "Crypto News"], [img2, "ETH NFTs"], [img3, "Play2Earn"], [img4, "Trending Videos"]]
+import CategoriesSwiper from '@/components/CategoriesSwiper'
 
 function Home() {
     const data = useSelector((state: RootState) => state.videos.videos)
@@ -41,21 +27,13 @@ function Home() {
                     <MainSidebar />
                 </div>
                 <div className={`${styles.content} ${'col-8'}`}>
-                    <Swiper
-                        slidesPerView={4}
-                        spaceBetween={20}
-                        centeredSlides={false}
-                        className={['mySwiper', styles.dropdowns].join(' ')}>
-                        {[...imageArray, ...imageArray].map(([img, title]) => (
-                            <SwiperSlide>
-                                <RecomendationDropdown img={img} title={title} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    <CategoriesSwiper />
 
                     <div className={styles.content_videos}>
                         {data?.map((item, index) => (
-                            <Link style={{textDecoration: 'none'}} href="/video/1"><VideoCard key={index} {...item} /></Link>
+                            <Link style={{textDecoration: 'none'}} href="/video/1">
+                                <VideoCard key={index} {...item} />
+                            </Link>
                         ))}
                     </div>
                 </div>
