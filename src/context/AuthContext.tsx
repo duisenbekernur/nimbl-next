@@ -1,5 +1,5 @@
-import { createContext, useContext, ReactNode, useState, useEffect } from 'react'
-import { useLocalStorage } from '../hooks/useLocalStorage'
+import {createContext, useContext, ReactNode, useState, useEffect} from 'react'
+import {useLocalStorage} from '../hooks/useLocalStorage'
 import Router from 'next/router'
 
 type AuthProviderContext = {
@@ -7,18 +7,18 @@ type AuthProviderContext = {
 }
 
 type Login = {
-    login: string,
+    login: string
     password: string
 }
 
 type AuthContext = {
     Auth: (isAuth?: string | null, login?: Login) => void
-    isAuth: boolean,
+    isAuth: boolean
     isRouting: boolean
 }
 type LoginLocal = {
-    address?: string,
-    login?: string,
+    address?: string
+    login?: string
     password?: string
 }
 
@@ -28,19 +28,19 @@ export const UseAuth = () => {
     return useContext(AuthContext)
 }
 
-export const AuthProvider = ({ children }: AuthProviderContext) => {
+export const AuthProvider = ({children}: AuthProviderContext) => {
     const [isAuth, setIsAuth] = useState(false)
     const [isRouting, setIsRouting] = useState(false)
 
     // what backend will done this should change to token
-    const [loginLocal, setLoginLocal] =  useLocalStorage<LoginLocal>("login", {address:'', login:'', password:''});
+    const [loginLocal, setLoginLocal] = useLocalStorage<LoginLocal>('login', {address: '', login: '', password: ''})
     const addresses = [
         '0xd47c4cc3e19e39fa6dddb9f5e97202c76b9533ae',
         '0xd47c4cc3e19e39fa6dddb9f5e97202c76b9533ae',
         '0x0491b35d98D6Fa384F8FE67DB5644766B9eFC632',
         '0xC1977Ca1DDA9E1477BFB153a68FdbE6b96ba0d0A',
         '0x79Ced8845cB931Be51366818D82eED1adcf8717B',
-        '0x5C9873034aD0FA64Cc43617398737E9B92e7d77A'
+        '0x5C9873034aD0FA64Cc43617398737E9B92e7d77A',
     ]
     const valueA = '0xd47c4cc3e19e39fa6dddb9f5e97202c76b9533ae'
     const valueB = '0x0fC6BECfDED29A8373782BF5Ee37CE14A8dc7e38'
@@ -51,26 +51,27 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
     const valueG = '0xbcb07cC6490E15AEe2541cba832F2b691573C805'
 
     useEffect(() => {
-        addresses.filter((address) => address.toLowerCase() === loginLocal?.address ? setIsAuth(true) : null)
+        addresses.filter((address) => (address.toLowerCase() === loginLocal?.address ? setIsAuth(true) : null))
         if (loginLocal?.login === 'Nimbl123!@#' && loginLocal?.password === 'qwerty123*()') {
             setIsAuth(true)
         }
     }, [])
 
     useEffect(() => {
-        if(isAuth){
-            setTimeout(() =>{
-                Router.push('/')
-            }, 7000)
+        if (isAuth) {
+            if(window.localStorage.getItem('login')) Router.push('/')
+            else {
+                setTimeout(() => {
+                    Router.push('/')
+                }, 7000)
+            }
             setTimeout(() => {
                 setIsRouting(true)
             }, 5000)
         }
     }, [isAuth])
 
-
-
-    const Auth = (authAddress?: string | null, login?: Login, ) => {
+    const Auth = (authAddress?: string | null, login?: Login) => {
         if (
             authAddress === valueA.toLowerCase() ||
             authAddress === valueB.toLowerCase() ||
@@ -80,11 +81,11 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
             authAddress === valueF.toLowerCase() ||
             authAddress === valueG.toLowerCase()
         ) {
-            setLoginLocal({address:authAddress})
+            setLoginLocal({address: authAddress})
             setIsAuth(true)
         }
-        if(login?.login === 'Nimbl123!@#' && login?.password === 'qwerty123*()'){
-            setLoginLocal({login:login?.login, password:login?.password})
+        if (login?.login === 'Nimbl123!@#' && login?.password === 'qwerty123*()') {
+            setLoginLocal({login: login?.login, password: login?.password})
             setIsAuth(true)
         }
     }
@@ -94,9 +95,8 @@ export const AuthProvider = ({ children }: AuthProviderContext) => {
             value={{
                 Auth,
                 isAuth,
-                isRouting
-            }}
-        >
+                isRouting,
+            }}>
             {children}
         </AuthContext.Provider>
     )
