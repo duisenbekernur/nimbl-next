@@ -14,7 +14,7 @@ const videoLinks = [
 const VideoPlayer = () => {
     const [currentVideoId, setCurrentVideoId] = useState(0)
     const [stop, setStop] = useState(false)
-    const [muted, setMuted] = useState(true)
+    const [muted, setMuted] = useState(false)
     const [progress, setProgress] = useState('0%')
     const [volumeProgress, setVolumeProgress] = useState('100%')
     const [currentMinutes, setCurrentMinutes] = useState(0)
@@ -62,6 +62,7 @@ const VideoPlayer = () => {
         //@ts-ignore
         screenfull.toggle(playerRef.current)
         // setIsFullScreen(!isFullScreen)
+        console.log(screenfull.isFullscreen)
     }
 
     const handleNextVideo = () => {
@@ -141,7 +142,8 @@ const VideoPlayer = () => {
                 src={videoLinks[currentVideoId]}
             />
 
-            {typeof playerRef.current?.clientWidth === 'number' && playerRef.current?.clientWidth > 1000 ? (
+            {(typeof playerRef.current?.clientWidth === 'number' && playerRef.current?.clientWidth > 1000) ||
+            (screenfull.isFullscreen && window.innerWidth > 600)? (
                 <VideoPlayerControls
                     setIsFullScreen={setIsFullScreen}
                     handleFullScreen={handleFullScreen}
