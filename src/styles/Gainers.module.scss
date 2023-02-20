@@ -7,9 +7,9 @@
 
 .dropdowns {
     display: flex;
-    gap: 12px;
-    margin: 0 100px 30px;
-    position: relative;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 100px 20px;
 }
 
 .content {
@@ -98,12 +98,7 @@
             }
             &:hover {
                 .table_price {
-                    background: linear-gradient(
-                        90.24deg,
-                        #01eaf2 0.21%,
-                        #3b65ff 57.08%,
-                        #d70bda 102.91%
-                    );
+                    background: linear-gradient(90.24deg, #01eaf2 0.21%, #3b65ff 57.08%, #d70bda 102.91%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
@@ -228,12 +223,7 @@
                 }
                 &:hover {
                     .table_price {
-                        background: linear-gradient(
-                            90.24deg,
-                            #01eaf2 0.21%,
-                            #3b65ff 57.08%,
-                            #d70bda 102.91%
-                        );
+                        background: linear-gradient(90.24deg, #01eaf2 0.21%, #3b65ff 57.08%, #d70bda 102.91%);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         background-clip: text;

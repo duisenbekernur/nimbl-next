@@ -109,26 +109,30 @@ const ControlsBottom: FC<VideoPlayerControlsBottomType> = ({
                     opacity: isControllersVisible ? '1' : '0',
                     transition: '.3s all',
                 }}>
-                <div className={styles.player_controller_bottom_comments}>
-                    <Image src={avatarIcon} width={150} height={150} alt="avatar" />
-                    <div className={styles.player_controller_bottom_comments_text}>
-                        <p>This is incredible, can’t wait to use...</p>
-                        <span>9:57</span>
+                {window.innerWidth > 820 && (
+                    <div className={styles.player_controller_bottom_comments}>
+                        <Image src={avatarIcon} width={150} height={150} alt="avatar" />
+                        <div className={styles.player_controller_bottom_comments_text}>
+                            <p>This is incredible, can’t wait to use...</p>
+                            <span>9:57</span>
+                        </div>
                     </div>
-                </div>
+                )}
 
-                <div className={styles.player_controller_bottom_likes}>
-                    <span>
-                        <Image src={videoGalleryIcon} alt="video gallery" />5 304
-                    </span>
-                    <span>
-                        <Image src={commentIcon} alt="comment" />1 212
-                    </span>
-                    <span>
-                        <Image src={futuresIcon} alt="future" />
-                        17 349
-                    </span>
-                </div>
+                {screenfull.isFullscreen && (
+                    <div className={styles.player_controller_bottom_likes}>
+                        <span>
+                            <Image src={videoGalleryIcon} alt="video gallery" />5 304
+                        </span>
+                        <span>
+                            <Image src={commentIcon} alt="comment" />1 212
+                        </span>
+                        <span>
+                            <Image src={futuresIcon} alt="future" />
+                            17 349
+                        </span>
+                    </div>
+                )}
 
                 <div
                     className={styles.progress}
