@@ -56,22 +56,10 @@ const LoginPage = () => {
         }
     }
 
-    useLayoutEffect(() => {
-        if (loginVideoRef.current != null) {
-            loginVideoRef.current.volume = 0.1
-        }
-    }, [])
-
     return isAuth ? (
         <>
             <LoginLayout>
-                <video
-                    ref={loginVideoRef}
-                    autoPlay
-                    playsInline
-                    className={`${isRouting ? 'exiting' : null}`}
-                    src="login_video.mp4"
-                />
+                <video muted autoPlay playsInline className={`${isRouting ? 'exiting' : null}`} src="login_video.mp4" />
             </LoginLayout>
         </>
     ) : (
