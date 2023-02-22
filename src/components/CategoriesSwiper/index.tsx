@@ -1,4 +1,7 @@
-import React from 'react'
+import {useKeenSlider} from 'keen-slider/react'
+import 'keen-slider/keen-slider.min.css'
+
+import React, {useRef} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 
 import styles from '@/styles/Home.module.scss'
@@ -17,18 +20,26 @@ const imageArray = [
 ]
 
 const CategoriesSwiper = () => {
+    const [ref] = useKeenSlider<HTMLDivElement>({
+        breakpoints: {
+            '(min-width: 400px)': {
+                slides: {perView: 2, spacing: 5},
+            },
+            '(min-width: 1000px)': {
+                slides: {perView: 4, spacing: 15},
+            },
+        },
+        slides: {perView: 1},
+    })
+
     return (
-        <Swiper
-            slidesPerView={4}
-            spaceBetween={20}
-            centeredSlides={false}
-            className={['mySwiper', styles.dropdowns].join(' ')}>
+        <div ref={ref} className="keen-slider">
             {[...imageArray, ...imageArray].map(([img, title]) => (
-                <SwiperSlide>
+                <div className="keen-slider__slide number-slide1">
                     <RecomendationDropdown img={img} title={title} />
-                </SwiperSlide>
+                </div>
             ))}
-        </Swiper>
+        </div>
     )
 }
 
