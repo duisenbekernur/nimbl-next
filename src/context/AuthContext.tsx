@@ -59,12 +59,12 @@ export const AuthProvider = ({children}: AuthProviderContext) => {
 
     useEffect(() => {
         if (isAuth) {
-            if(window.localStorage.getItem('login')) Router.push('/')
-            else {
-                setTimeout(() => {
-                    Router.push('/')
-                }, 7000)
-            }
+            // if(window.localStorage.getItem('login')) Router.push('/')
+            // else {
+            setTimeout(() => {
+                Router.push('/')
+            }, 7000)
+            // }
             setTimeout(() => {
                 setIsRouting(true)
             }, 5000)

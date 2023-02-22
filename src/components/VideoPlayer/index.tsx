@@ -1,7 +1,7 @@
 import styles from './VideoPlayer.module.scss'
 import screenfull from 'screenfull'
 
-import {useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 // import VideoPlayerControls from './VideoPlayerControls/VideoPlayerControls'
 import VideoPlayerControlsMini from './VideoPlayerControls/VideoPlayerControlsMini'
 import VideoPlayerControls from './VideoPlayerControls/VideoPlayerControls'
@@ -16,7 +16,7 @@ const VideoPlayer = () => {
     const [stop, setStop] = useState(false)
     const [muted, setMuted] = useState(false)
     const [progress, setProgress] = useState('0%')
-    const [volumeProgress, setVolumeProgress] = useState('100%')
+    const [volumeProgress, setVolumeProgress] = useState('10%')
     const [currentMinutes, setCurrentMinutes] = useState(0)
     const [currentSeconds, setCurrentSeconds] = useState(0)
     const [durationMinutes, setDurationMinutes] = useState(0)
@@ -117,6 +117,12 @@ const VideoPlayer = () => {
         }
     }
 
+    useEffect(() => {
+        if (videoRef.current != undefined) {
+            videoRef.current.volume = 0.1
+        }
+    }, [])
+
     return (
         <div
             ref={playerRef}
@@ -143,7 +149,7 @@ const VideoPlayer = () => {
             />
 
             {(typeof playerRef.current?.clientWidth === 'number' && playerRef.current?.clientWidth > 1000) ||
-            (screenfull.isFullscreen && window.innerWidth > 600)? (
+            (screenfull.isFullscreen && window.innerWidth > 600) ? (
                 <VideoPlayerControls
                     setIsFullScreen={setIsFullScreen}
                     handleFullScreen={handleFullScreen}

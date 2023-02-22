@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useLayoutEffect, useRef, useState} from 'react'
 import {MetaMaskInpageProvider} from '@metamask/providers'
 import {UseAuth} from '../context/AuthContext'
 import styles from '../styles/Login.module.scss'
@@ -24,6 +24,8 @@ const LoginPage = () => {
     const {Auth, isAuth, isRouting} = UseAuth()
     const [isLoading, setIsLoading] = useState(false)
     const {register, handleSubmit} = useForm<Inputs>()
+
+    const loginVideoRef = useRef<HTMLVideoElement | null>(null)
 
     const handleLogin = async () => {
         setIsLoading(true)
@@ -53,17 +55,23 @@ const LoginPage = () => {
             Auth(account, data)
         }
     }
-    
+
+    useLayoutEffect(() => {
+        if (loginVideoRef.current != null) {
+            loginVideoRef.current.volume = 0.1
+        }
+    }, [])
+
     return isAuth ? (
         <>
             <LoginLayout>
-                {window.localStorage.getItem('login') ? (
-                    <></>
-                ) : (
-                    <video autoPlay muted playsInline className={`${isRouting ? 'exiting' : null}`}>
-                        <source src="login_video.mp4" />
-                    </video>
-                )}
+                <video
+                    ref={loginVideoRef}
+                    autoPlay
+                    playsInline
+                    className={`${isRouting ? 'exiting' : null}`}
+                    src="login_video.mp4"
+                />
             </LoginLayout>
         </>
     ) : (
