@@ -120,7 +120,7 @@ const VideoPlayer = () => {
     useEffect(() => {
         if (videoRef.current != undefined) {
             videoRef.current.volume = 0.1
-            videoRef.current['play']()
+            videoRef.current.play()
         }
     }, [])
 
