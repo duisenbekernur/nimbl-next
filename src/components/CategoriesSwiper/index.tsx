@@ -1,7 +1,7 @@
 import React from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
-
 import styles from '@/styles/Home.module.scss'
+import "swiper/css";
 
 import img1 from '@/assets/dropdown/cryptonews.png'
 import img2 from '@/assets/dropdown/eth.png'

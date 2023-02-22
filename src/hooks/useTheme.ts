@@ -12,9 +12,9 @@ export default function useTheme() {
     useEffect(() => {
         const isSystemDarkSchema = window.matchMedia('(prefers-color-scheme: dark)').matches
         if(theme === ThemeEnum.SYSTEM && !isSystemDarkSchema || theme === ThemeEnum.LIGHT) {
-            document.documentElement.setAttribute('data-theme', ThemeEnum.LIGHT)
+            document.body.setAttribute('data-theme', ThemeEnum.LIGHT)
         } else {
-            document.documentElement.removeAttribute('data-theme')
+            document.body.removeAttribute('data-theme')
         }
         setLocalStorageValue(theme)
     }, [theme])

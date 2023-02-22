@@ -52,7 +52,7 @@ export const AuthProvider = ({children}: AuthProviderContext) => {
 
     useEffect(() => {
         addresses.filter((address) => (address.toLowerCase() === loginLocal?.address ? setIsAuth(true) : null))
-        if (loginLocal?.login === 'Nimbl123!@#' && loginLocal?.password === 'qwerty123*()') {
+        if (loginLocal?.login === 'Adilkhan' && loginLocal?.password === '7u8i9o8i') {
             setIsAuth(true)
         }
     }, [])
