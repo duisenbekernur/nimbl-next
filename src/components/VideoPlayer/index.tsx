@@ -7,8 +7,8 @@ import VideoPlayerControlsMini from './VideoPlayerControls/VideoPlayerControlsMi
 import VideoPlayerControls from './VideoPlayerControls/VideoPlayerControls'
 
 const videoLinks = [
-    'https://storage.googleapis.com/nimbl/NFTs%20and%20the%20%2413B%20marketplace%2C%20explained.mp4',
-    'https://storage.googleapis.com/nimbl/652333414.mp4',
+    'https://storage.googleapis.com/nimbl_next/NFTs%20and%20the%20%2413B%20marketplace%2C%20explained.mp4',
+    'https://storage.googleapis.com/nimbl_next/Otherside%20Trailer.mp4',
 ]
 
 const VideoPlayer = () => {
