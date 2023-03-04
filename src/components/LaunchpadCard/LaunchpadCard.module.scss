@@ -1,0 +1,20 @@
+.launchpad_card {
+    width: 356px;
+    height: 515px;
+
+    .card_video {
+        background: url('../../assets/com.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 200px;
+        width: 100%;
+        position: relative;
+        .img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
